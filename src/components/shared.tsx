@@ -35,26 +35,6 @@ export interface FavoritesListProps {
   children: React.ReactNode;
 }
 
-export interface BookshelvesProps {
-  total: number;
-  items: BookshelfProps[];
-  success: boolean;
-}
-
-export interface BookshelfPreviewProps {
-  items: BookResultType[];
-  shelfID: string;
-  shelfName: string;
-}
-
-export interface BookshelfProps {
-  total: number;
-  items: BookResultType[];
-  success: boolean;
-  shelfID: string;
-  shelfName: string;
-}
-
 export interface OverviewProps {
   showShelves: () => void;
   shelves: ShelfResultData | undefined;

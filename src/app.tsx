@@ -62,6 +62,7 @@ const App = () => {
     getFavorites();
   };
 
+  //keeping here to use as model for getting items on each list, then will delete
   const getFavorites = async () => {
     setLoading(true);
     const response = await fetch(
