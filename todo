@@ -2,6 +2,7 @@
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
 [ ]add comments to break out components
 [ ]style book detail page
+[ ]
 
 --------tsx
 
