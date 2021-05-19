@@ -11,7 +11,7 @@ import NewSearch from './components/new-search';
 import SearchResults from './components/search-results';
 import BookList from './components/book-list';
 import bookLoader from './images/book-loader.gif';
-// import Overview from './components/overview';
+import Overview from './components/overview';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState(' ');
@@ -147,8 +147,8 @@ const App = () => {
     <>
       <Header></Header>
       <ToastContainer />
-      {/* <Overview></Overview> */}
-      {searching ? (
+      <Overview></Overview>
+      {/* {searching ? (
         <>
           <NewSearch newSearch={newSearch}></NewSearch>
           <SearchResults
@@ -173,8 +173,8 @@ const App = () => {
               <img className="loading-gif" src={bookLoader} alt=" " />
             ) : null}
           </BookList>
-        </div>
-      )}
+        </div> 
+      )}*/}
     </>
   );
 };
