@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/reset.css';
 import '../styles/app.css';
-import addDeleteButton from '../images/add-delete-button.png';
+import addButton from '../images/add-button.png';
 import BookListItem from './book-list-item';
 import { SearchResultsProps } from './shared';
 
@@ -20,7 +20,7 @@ const SearchResults = ({
         <img
           id="add-delete-button"
           onClick={() => handleAddFavorite(bookResult.id)}
-          src={addDeleteButton}
+          src={addButton}
           alt="add favorite button"
         />
       }

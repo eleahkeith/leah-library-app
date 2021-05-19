@@ -2,7 +2,7 @@ import '../app.tsx';
 
 export interface SearchResultsProps {
   toggleSearching: (e: any) => void;
-  query: ResultData | undefined;
+  query: ResultData | undefined | null;
   handleAddFavorite: (e: any) => void;
   children: React.ReactNode;
 }
@@ -29,28 +29,26 @@ export interface NewSearchProps {
 }
 
 export interface FavoritesListProps {
-  favorites: ResultData | undefined;
+  favorites: ResultData | undefined | null;
   getFavorites: () => void;
   handleDeleteFavorite: (uniqueID: string) => void;
   children: React.ReactNode;
 }
 
-export interface BookshelvesProps {
-  total: number;
-  items: BookshelfProps[];
+export interface OverviewProps {
+  showShelves: () => void;
+  shelves: ShelfResultData | undefined;
+}
+
+export interface ShelfResultData {
+  totalItems: number;
+  items: ShelfType[];
   success: boolean;
 }
 
-export interface BookshelfPreviewProps {
-  items: BookResultType[];
-  shelfID: string;
-  shelfName: string;
-}
-
-export interface BookshelfProps {
-  total: number;
-  items: BookResultType[];
-  success: boolean;
-  shelfID: string;
-  shelfName: string;
+export interface ShelfType {
+  id: string;
+  name: string;
+  bookIds: string[];
+  books: BookResultType[];
 }

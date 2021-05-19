@@ -3,7 +3,7 @@ import './styles/reset.css';
 import './styles/app.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState, useEffect } from 'react';
-import { ResultData } from './components/shared';
+import { ResultData, ShelfResultData } from './components/shared';
 import { ToastContainer, toast } from 'react-toastify';
 import Header from './components/header';
 import Search from './components/search';
@@ -11,14 +11,16 @@ import NewSearch from './components/new-search';
 import SearchResults from './components/search-results';
 import BookList from './components/book-list';
 import bookLoader from './images/book-loader.gif';
-// import Overview from './components/overview';
+import Overview from './components/overview';
+import { shelvesAPI, searchAPI, bookAPI } from './components/api-calls';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState(' ');
-  const [query, setQuery] = useState<ResultData>();
+  const [query, setQuery] = useState<ResultData | undefined | null>();
   const [searching, setSearching] = useState(false);
   const [favorites, setFavorites] = useState<ResultData>();
   const [loading, setLoading] = useState(false);
+  const [shelves, setShelves] = useState<ShelfResultData>();
 
   const authToken = '52507d8ca014fa48344b26258212f23a';
 
@@ -38,87 +40,29 @@ const App = () => {
     setQuery(undefined);
   };
 
-  const handleSearch = async (e: any) => {
+  const handleSearch = async () => {
     toggleSearching();
     setLoading(true);
-    const response = await fetch(
-      `https://get-some-books.herokuapp.com/books?title=${searchTerm}`,
-      {
-        headers: {
-          Authorization: authToken,
-        },
-        method: 'GET',
-      }
-    );
+    const response = await searchAPI(searchTerm);
     setLoading(false);
-    if (response.ok) {
-      const data = await response.json();
-
-      if (!data.success) {
-        toast.error(standardErrMsg);
-      } else {
-        setQuery(data);
-        console.log(data);
-        console.log(searchTerm);
-      }
-    }
+    setQuery(response);
   };
 
   const handleAddFavorite = async (uniqueID: string) => {
     setLoading(true);
-    const response = await fetch(
-      `https://get-some-books.herokuapp.com/books/${uniqueID}/favourite`,
-      {
-        headers: {
-          Authorization: authToken,
-        },
-        method: 'POST',
-      }
-    );
+    await bookAPI('POST', uniqueID);
     setLoading(false);
-
-    if (response.ok) {
-      const data = await response.json();
-
-      if (data.success === true) {
-        toast.success('Added!');
-        getFavorites();
-      } else {
-        toast.error(data.message);
-      }
-    } else {
-      toast.error(standardErrMsg);
-    }
+    getFavorites();
   };
 
   const handleDeleteFavorite = async (uniqueID: string) => {
     setLoading(true);
-    const response = await fetch(
-      `https://get-some-books.herokuapp.com/books/${uniqueID}/favourite`,
-      {
-        headers: {
-          Authorization: authToken,
-        },
-        method: 'DELETE',
-      }
-    );
-
+    await bookAPI('DELETE', uniqueID);
     setLoading(false);
-
-    if (response.ok) {
-      const data = await response.json();
-
-      if (data.success) {
-        toast.success('Deleted!');
-        getFavorites();
-      } else {
-        toast.error(data.message);
-      }
-    } else {
-      toast.error(standardErrMsg);
-    }
+    getFavorites();
   };
 
+  //keeping here to use as model for getting items on each list, then will delete
   const getFavorites = async () => {
     setLoading(true);
     const response = await fetch(
@@ -139,15 +83,20 @@ const App = () => {
     }
   };
 
+  const showShelves = async () => {
+    const result = await shelvesAPI();
+    setShelves(result);
+    console.log(result?.items);
+  };
+
   useEffect(() => {
-    getFavorites();
+    showShelves();
   }, []);
 
   return (
     <>
       <Header></Header>
       <ToastContainer />
-      {/* <Overview></Overview> */}
       {searching ? (
         <>
           <NewSearch newSearch={newSearch}></NewSearch>
@@ -164,7 +113,8 @@ const App = () => {
       ) : (
         <div>
           <Search handleType={handleType} handleSearch={handleSearch}></Search>
-          <BookList
+          <Overview showShelves={showShelves} shelves={shelves}></Overview>
+          {/* <BookList
             favorites={favorites}
             getFavorites={getFavorites}
             handleDeleteFavorite={handleDeleteFavorite}
@@ -172,7 +122,7 @@ const App = () => {
             {loading ? (
               <img className="loading-gif" src={bookLoader} alt=" " />
             ) : null}
-          </BookList>
+          </BookList> */}
         </div>
       )}
     </>
