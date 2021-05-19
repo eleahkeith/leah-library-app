@@ -12,7 +12,13 @@ import SearchResults from './components/search-results';
 import BookList from './components/book-list';
 import bookLoader from './images/book-loader.gif';
 import Overview from './components/overview';
-import { shelvesAPI, searchAPI, bookAPI } from './components/api-calls';
+import {
+  getShelvesAPI,
+  searchAPI,
+  bookAPI,
+  addShelfAPI,
+  deleteShelfAPI,
+} from './components/api-calls';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState(' ');
@@ -46,8 +52,10 @@ const App = () => {
     const response = await searchAPI(searchTerm);
     setLoading(false);
     setQuery(response);
+    setSearchTerm(' ');
   };
 
+  //keeping here to use as model for getting items on each list, then will delete
   const handleAddFavorite = async (uniqueID: string) => {
     setLoading(true);
     await bookAPI('POST', uniqueID);
@@ -62,7 +70,6 @@ const App = () => {
     getFavorites();
   };
 
-  //keeping here to use as model for getting items on each list, then will delete
   const getFavorites = async () => {
     setLoading(true);
     const response = await fetch(
@@ -84,9 +91,26 @@ const App = () => {
   };
 
   const showShelves = async () => {
-    const result = await shelvesAPI();
+    setLoading(true);
+    const result = await getShelvesAPI();
+    setLoading(false);
     setShelves(result);
     console.log(result?.items);
+  };
+
+  const handleAddShelf = async () => {
+    setLoading(true);
+    await addShelfAPI(searchTerm);
+    setLoading(false);
+    showShelves();
+    setSearchTerm(' ');
+  };
+
+  const handleDeleteShelf = async (shelfID: string) => {
+    setLoading(true);
+    await deleteShelfAPI(shelfID);
+    setLoading(false);
+    showShelves();
   };
 
   useEffect(() => {
@@ -113,7 +137,13 @@ const App = () => {
       ) : (
         <div>
           <Search handleType={handleType} handleSearch={handleSearch}></Search>
-          <Overview showShelves={showShelves} shelves={shelves}></Overview>
+          <Overview
+            showShelves={showShelves}
+            shelves={shelves}
+            handleType={handleType}
+            handleAddShelf={handleAddShelf}
+            handleDeleteShelf={handleDeleteShelf}
+          ></Overview>
           {/* <BookList
             favorites={favorites}
             getFavorites={getFavorites}

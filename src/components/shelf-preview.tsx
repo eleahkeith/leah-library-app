@@ -3,9 +3,10 @@ import { ShelfType } from './shared';
 
 interface ShelfProps {
   shelf: ShelfType;
+  handleDeleteShelf: (shelfID: string) => void;
 }
 
-const ShelfPreview = ({ shelf }: ShelfProps) => {
+const ShelfPreview = ({ shelf, handleDeleteShelf }: ShelfProps) => {
   const bookList = shelf.books;
   const mappedCoverImages = bookList.map((book) => (
     <img
@@ -19,6 +20,7 @@ const ShelfPreview = ({ shelf }: ShelfProps) => {
     <div className="shelf-preview" key={shelf.id}>
       <div className="shelf-preview-title">{shelf.name}</div>
       <div className="shelf-preview-image-container">{mappedCoverImages}</div>
+      <button onClick={() => handleDeleteShelf(shelf.id)}>Delete Shelf</button>
     </div>
   );
 };
