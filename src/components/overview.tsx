@@ -1,20 +1,20 @@
 import React from 'react';
 import '../styles/reset.css';
 import '../styles/app.css';
-import { MY_STUB_SHELVES } from './stub-data';
-import { showShelves } from './api-calls';
+import { OverviewProps } from './shared';
 import ShelfPreview from './shelf-preview';
 
-const Overview = () => {
-  const shelves = MY_STUB_SHELVES.items;
-  const mappedShelves = shelves.map((shelf) => (
-    <ShelfPreview key={shelf.shelfName} shelf={shelf}></ShelfPreview>
+const Overview = ({ shelves }: OverviewProps) => {
+  const shelfResults = shelves?.items;
+  const mappedShelves = shelfResults?.map((shelf) => (
+    <ShelfPreview key={shelf.id} shelf={shelf}></ShelfPreview>
   ));
   return (
-    <div className="component-box">
-      <button onClick={showShelves}>test shelves</button>
-      <div className="bookshelf-preview-container">{mappedShelves}</div>
-    </div>
+    <>
+      <div className="component-box">
+        <div className="bookshelf-preview-container">{mappedShelves}</div>
+      </div>
+    </>
   );
 };
 

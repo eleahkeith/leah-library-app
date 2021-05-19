@@ -1,14 +1,13 @@
 import React from 'react';
-import { BookshelfPreviewProps, BookResultType } from './shared';
-import { MY_STUB_SHELVES } from './stub-data';
+import { ShelfType } from './shared';
 
 interface ShelfProps {
-  shelf: BookshelfPreviewProps;
+  shelf: ShelfType;
 }
 
 const ShelfPreview = ({ shelf }: ShelfProps) => {
-  const books = shelf.items;
-  const mappedCoverImages = books.map((book) => (
+  const bookList = shelf.books;
+  const mappedCoverImages = bookList.map((book) => (
     <img
       key={book.id}
       className="shelf-preview-image"
@@ -17,8 +16,8 @@ const ShelfPreview = ({ shelf }: ShelfProps) => {
     />
   ));
   return (
-    <div className="shelf-preview" key={shelf.shelfID}>
-      <div className="shelf-preview-title">{shelf.shelfName}</div>
+    <div className="shelf-preview" key={shelf.id}>
+      <div className="shelf-preview-title">{shelf.name}</div>
       <div className="shelf-preview-image-container">{mappedCoverImages}</div>
     </div>
   );
