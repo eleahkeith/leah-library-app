@@ -1,0 +1,71 @@
+--------css
+[ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
+[ ]add comments to break out components
+[ ]style book detail page
+
+--------tsx
+
+[Shelf Overview]
+[ ]map shelves API to book overview
+[ ]create shelf functionality
+[ ]add see all to each shelf preview
+[ ]add onclick to book images in shelf to view book detail
+[ ]how to map only first x items on each list
+
+[Book Detail]
+[ ]add API info to book detail page
+
+[Search]
+[ ]handle enter function for search
+[ ]input validation for search
+
+[Miscellaneous/Structure]
+[ ]move API calls to separate component
+[ ]
+
+--------bugs
+[ ]when you click on new search and then enter blank search term, returns results of previous query
+
+
+--------learning
+[ ]animations for component boxes
+
+--------backend questions/requests
+
+
+--------brainstorm
+-when you click on full list, takes over the whole page and header becomes small, no image but title still present
+-use animation to push full list up and down
+-add bottom menu like the fancy apps
+
+
+
+--------credits to add
+
+background texture:
+========================================================
+This pattern is downloaded from www.subtlepatterns.com 
+If you need more, that's where to get'em.
+========================================================
+
+header image:
+
+https://www.pngwing.com/en/free-png-zpzkg
+
+add button png:
+
+<a href='https://pngtree.com/so/plus-icons'>plus icons png from pngtree.com</a>
+
+search icon png:
+
+<a href='https://pngtree.com/so/search-clipart'>search clipart png from pngtree.com</a>
+
+book loader:
+
+https://icons8.com/preloaders/
+
+shelf image:
+
+<a href='https://pngtree.com/so/book-clipart'>book clipart png from pngtree.com</a>
+
+<a href='https://pngtree.com/so/book-element'>book element png from pngtree.com</a>
