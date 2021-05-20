@@ -22,9 +22,13 @@
 
 
 [Search]
-[ ]add drop down as right accessory so you can add book to list
 [ ]handle enter function for search
 [ ]input validation for search
+
+[Search Results]
+[ ]add drop down as right accessory so you can add book to list
+[ ]change new search to redirect back to home page
+    ....or remove all together and make search always visible?
 
 [Miscellaneous/Structure]
 [x]move API calls to separate component
