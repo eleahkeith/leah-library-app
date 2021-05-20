@@ -1,8 +1,6 @@
 import { toast } from 'react-toastify';
 import { ResultData, ShelfResultData } from './shared';
 
-// these are currently here to test, move to shared types once complete
-
 const authToken = '52507d8ca014fa48344b26258212f23a';
 
 const standardErrMsg =
@@ -151,6 +149,26 @@ export const bookAPI = async (apiMethod: string, bookID: string) => {
       toast.error(data.message);
       return null;
     }
+  } else {
+    toast.error(standardErrMsg);
+    return null;
+  }
+};
+
+export const getBookAPI = async (bookID: string) => {
+  const response = await fetch(
+    `https://get-some-books.herokuapp.com/books/${bookID}`,
+    {
+      headers: {
+        Authorization: authToken,
+      },
+      method: 'GET',
+    }
+  );
+
+  if (response.ok) {
+    const data = await response.json();
+    return data;
   } else {
     toast.error(standardErrMsg);
     return null;

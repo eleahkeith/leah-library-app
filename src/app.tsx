@@ -5,11 +5,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useState, useEffect } from 'react';
 import { ResultData, ShelfResultData } from './components/shared';
 import { ToastContainer, toast } from 'react-toastify';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/header';
 import Search from './components/search';
 import NewSearch from './components/new-search';
 import SearchResults from './components/search-results';
 import BookList from './components/book-list';
+import BookDetail from './components/book-detail';
 import bookLoader from './images/book-loader.gif';
 import Overview from './components/overview';
 import {
@@ -119,42 +121,42 @@ const App = () => {
 
   return (
     <>
-      <Header></Header>
-      <ToastContainer />
-      {searching ? (
-        <>
-          <NewSearch newSearch={newSearch}></NewSearch>
-          <SearchResults
-            toggleSearching={toggleSearching}
-            query={query}
-            handleAddFavorite={handleAddFavorite}
-          >
-            {loading ? (
-              <img className="loading-gif" src={bookLoader} alt=" " />
-            ) : null}
-          </SearchResults>
-        </>
-      ) : (
-        <div>
-          <Search handleType={handleType} handleSearch={handleSearch}></Search>
-          <Overview
-            showShelves={showShelves}
-            shelves={shelves}
-            handleType={handleType}
-            handleAddShelf={handleAddShelf}
-            handleDeleteShelf={handleDeleteShelf}
-          ></Overview>
-          {/* <BookList
-            favorites={favorites}
-            getFavorites={getFavorites}
-            handleDeleteFavorite={handleDeleteFavorite}
-          >
-            {loading ? (
-              <img className="loading-gif" src={bookLoader} alt=" " />
-            ) : null}
-          </BookList> */}
-        </div>
-      )}
+      <Router>
+        <Header></Header>
+        <ToastContainer />
+        {searching ? (
+          <>
+            <NewSearch newSearch={newSearch}></NewSearch>
+            <SearchResults
+              toggleSearching={toggleSearching}
+              query={query}
+              handleAddFavorite={handleAddFavorite}
+            >
+              {loading ? (
+                <img className="loading-gif" src={bookLoader} alt=" " />
+              ) : null}
+            </SearchResults>
+          </>
+        ) : (
+          <div>
+            <Search
+              handleType={handleType}
+              handleSearch={handleSearch}
+            ></Search>
+            <Switch>
+              <Route exact path="/">
+                <Overview />
+              </Route>
+              <Route path="/booklist/:shelfID">
+                <BookList />
+              </Route>
+              <Route path="/bookdetail/:bookID">
+                <BookDetail />
+              </Route>
+            </Switch>
+          </div>
+        )}
+      </Router>
     </>
   );
 };

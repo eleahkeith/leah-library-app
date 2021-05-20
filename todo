@@ -1,4 +1,5 @@
 --------css
+[ ]style shelf previews
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
 [ ]add comments to break out components
 [ ]style book detail page
@@ -14,6 +15,7 @@
 [ ]add see all to each shelf preview
 [ ]add onclick to book images in shelf to view book detail
 [ ]how to map only first x items on each list
+[ ]move book from one shelf to another
 
 [Book Detail]
 [ ]add API info to book detail page
