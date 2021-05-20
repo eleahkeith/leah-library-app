@@ -8,19 +8,21 @@
 --------tsx
 
 [Shelf Overview]
-[x]map shelves API to overview
-[ ]edit shelf functionality
-[x]add shelf functionality
-[x]delete shelf functionality 
-[ ]add see all to each shelf preview
-[ ]add onclick to book images in shelf to view book detail
-[ ]how to map only first x items on each list
 [ ]move book from one shelf to another
+[ ]turn new shelf input into a modal
+[ ]how to map only first x items on each list
 
 [Book Detail]
-[ ]add API info to book detail page
+[ ]load with book details from API once back end is done
+[ ]add to shelf drop down with add to shelf function
+
+[Book List]
+[ ]add edit shelf functionality
+[ ]add book detail link
+
 
 [Search]
+[ ]add drop down as right accessory so you can add book to list
 [ ]handle enter function for search
 [ ]input validation for search
 

@@ -1,3 +1,5 @@
+// waiting for back end, will update to render book details and then style
+
 import React from 'react';
 import '../styles/reset.css';
 import '../styles/app.css';

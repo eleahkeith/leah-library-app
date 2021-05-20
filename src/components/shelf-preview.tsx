@@ -21,6 +21,11 @@ const ShelfPreview = ({ shelf, handleDeleteShelf }: ShelfProps) => {
   ));
   return (
     <div className="shelf-preview" key={shelf.id}>
+      <div className="book-detail-link">
+        <Link key={shelf.id} to={`/BookList/${shelf.id}`}>
+          See All
+        </Link>
+      </div>
       <div className="shelf-preview-title">{shelf.name}</div>
       <div className="shelf-preview-image-container">{mappedCoverImages}</div>
       <button onClick={() => handleDeleteShelf(shelf.id)}>Delete Shelf</button>
