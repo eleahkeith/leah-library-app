@@ -55,3 +55,8 @@ export interface ShelfType {
   bookIds: string[];
   books: BookResultType[];
 }
+
+export interface GetShelfAPIType {
+  item: ShelfType;
+  success: boolean;
+}

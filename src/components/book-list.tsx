@@ -1,4 +1,4 @@
-// notes: took out loading state and books in order to get router working, need to figure out how to add back in
+// notes: took out loading state in order to get router working, need to figure out how to add back in
 // need to refactor to move potential duplicate states/functions into own component
 
 import React from 'react';
@@ -6,26 +6,28 @@ import '../styles/reset.css';
 import '../styles/app.css';
 import BookListItem from './book-list-item';
 import deleteButton from '../images/delete-button.png';
-import { FavoritesListProps, BookResultType } from './shared';
-import { toast } from 'react-toastify';
 import { useState, useEffect } from 'react';
-import { bookAPI } from './api-calls';
-import { ResultData } from './shared';
+import { bookAPI, getShelfBooksAPI } from './api-calls';
+import { ShelfType, BookResultType } from './shared';
+import { useParams } from 'react-router-dom';
 
 interface Props {
   book: BookResultType;
   rightAccessory: React.ReactNode;
   children: React.ReactNode;
+  items: BookResultType[];
+}
+
+interface ParamProps {
+  shelf: string;
+  shelfID: string;
 }
 
 const BookList = () => {
   const [loading, setLoading] = useState(false);
-  const [favorites, setFavorites] = useState<ResultData>();
+  const [bookList, setBookList] = useState<ShelfType>();
 
-  const authToken = '52507d8ca014fa48344b26258212f23a';
-
-  const standardErrMsg =
-    'There was an error processing your request. Please try again later!';
+  const shelf = useParams<ParamProps>();
 
   const handleDeleteFavorite = async (uniqueID: string) => {
     setLoading(true);
@@ -36,33 +38,24 @@ const BookList = () => {
 
   const getFavorites = async () => {
     setLoading(true);
-    const response = await fetch(
-      'https://get-some-books.herokuapp.com/books/favourites',
-      {
-        headers: {
-          Authorization: authToken,
-        },
-        method: 'GET',
-      }
-    );
-    setLoading(false);
-    const favorites = await response.json();
-    setFavorites(favorites);
-
-    if (!response.ok || favorites.success === false) {
-      toast.error(standardErrMsg);
-    }
+    const apiResults = await getShelfBooksAPI(shelf.shelfID);
+    const listResult = apiResults?.item;
+    setBookList(listResult);
   };
 
-  const favoritesList = favorites?.items || [];
-  const mappedFavorites = favoritesList.map((favoriteItem) => (
+  useEffect(() => {
+    getFavorites();
+  }, []);
+
+  const favoritesList = bookList?.books || [];
+  const mappedBookItems = favoritesList.map((bookListItem) => (
     <BookListItem
-      key={favoriteItem.id}
-      book={favoriteItem}
+      key={bookListItem.id}
+      book={bookListItem}
       rightAccessory={
         <img
           id="add-delete-button"
-          onClick={() => handleDeleteFavorite(favoriteItem.id)}
+          onClick={() => handleDeleteFavorite(bookListItem.id)}
           src={deleteButton}
           alt="delete button"
         />
@@ -74,10 +67,10 @@ const BookList = () => {
     <div className="component-book-list">
       <div className="component-box">
         <div className="component-list-title">
-          <div className="component-title-text">What I'm Reading</div>
+          <div className="component-title-text">{bookList?.name}</div>
           <div></div>
         </div>
-        <div className="component-list-body">{mappedFavorites}</div>
+        <div className="component-list-body">{mappedBookItems}</div>
       </div>
     </div>
   );

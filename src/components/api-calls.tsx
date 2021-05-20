@@ -1,7 +1,12 @@
 import { toast } from 'react-toastify';
-import { ResultData, ShelfResultData } from './shared';
+import {
+  ResultData,
+  ShelfResultData,
+  ShelfType,
+  GetShelfAPIType,
+} from './shared';
 
-const authToken = '52507d8ca014fa48344b26258212f23a';
+const authToken = process.env.REACT_APP_AUTHORIZATION_TOKEN as string;
 
 const standardErrMsg =
   'There was an error processing your request. Please try again later!';
@@ -17,6 +22,26 @@ export const getShelvesAPI = async () => {
   if (response.ok) {
     const data = await response.json();
     return data as ShelfResultData;
+  } else {
+    toast.error(standardErrMsg);
+    return undefined;
+  }
+};
+
+export const getShelfBooksAPI = async (shelfID: string) => {
+  const response = await fetch(
+    `https://get-some-books.herokuapp.com/shelves/${shelfID}`,
+    {
+      headers: {
+        Authorization: authToken,
+      },
+      method: 'GET',
+    }
+  );
+
+  if (response.ok) {
+    const data = await response.json();
+    return data as GetShelfAPIType;
   } else {
     toast.error(standardErrMsg);
     return undefined;
