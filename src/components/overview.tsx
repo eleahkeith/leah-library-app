@@ -18,7 +18,7 @@ const Overview = () => {
   const [favorites, setFavorites] = useState<ResultData>();
   const [searchTerm, setSearchTerm] = useState(' ');
 
-  const authToken = '52507d8ca014fa48344b26258212f23a';
+  const authToken = process.env.REACT_APP_AUTHORIZATION_TOKEN as string;
 
   const standardErrMsg =
     'There was an error processing your request. Please try again later!';
