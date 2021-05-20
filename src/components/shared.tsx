@@ -38,6 +38,9 @@ export interface FavoritesListProps {
 export interface OverviewProps {
   showShelves: () => void;
   shelves: ShelfResultData | undefined;
+  handleAddShelf: () => void;
+  handleType: (e: any) => void;
+  handleDeleteShelf: (shelfID: string) => void;
 }
 
 export interface ShelfResultData {

@@ -5,14 +5,22 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useState, useEffect } from 'react';
 import { ResultData, ShelfResultData } from './components/shared';
 import { ToastContainer, toast } from 'react-toastify';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/header';
 import Search from './components/search';
 import NewSearch from './components/new-search';
 import SearchResults from './components/search-results';
 import BookList from './components/book-list';
+import BookDetail from './components/book-detail';
 import bookLoader from './images/book-loader.gif';
 import Overview from './components/overview';
-import { shelvesAPI, searchAPI, bookAPI } from './components/api-calls';
+import {
+  getShelvesAPI,
+  searchAPI,
+  bookAPI,
+  addShelfAPI,
+  deleteShelfAPI,
+} from './components/api-calls';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState(' ');
@@ -46,8 +54,10 @@ const App = () => {
     const response = await searchAPI(searchTerm);
     setLoading(false);
     setQuery(response);
+    setSearchTerm(' ');
   };
 
+  //keeping here to use as model for getting items on each list, then will delete
   const handleAddFavorite = async (uniqueID: string) => {
     setLoading(true);
     await bookAPI('POST', uniqueID);
@@ -62,7 +72,6 @@ const App = () => {
     getFavorites();
   };
 
-  //keeping here to use as model for getting items on each list, then will delete
   const getFavorites = async () => {
     setLoading(true);
     const response = await fetch(
@@ -84,9 +93,26 @@ const App = () => {
   };
 
   const showShelves = async () => {
-    const result = await shelvesAPI();
+    setLoading(true);
+    const result = await getShelvesAPI();
+    setLoading(false);
     setShelves(result);
     console.log(result?.items);
+  };
+
+  const handleAddShelf = async () => {
+    setLoading(true);
+    await addShelfAPI(searchTerm);
+    setLoading(false);
+    showShelves();
+    setSearchTerm(' ');
+  };
+
+  const handleDeleteShelf = async (shelfID: string) => {
+    setLoading(true);
+    await deleteShelfAPI(shelfID);
+    setLoading(false);
+    showShelves();
   };
 
   useEffect(() => {
@@ -95,36 +121,42 @@ const App = () => {
 
   return (
     <>
-      <Header></Header>
-      <ToastContainer />
-      {searching ? (
-        <>
-          <NewSearch newSearch={newSearch}></NewSearch>
-          <SearchResults
-            toggleSearching={toggleSearching}
-            query={query}
-            handleAddFavorite={handleAddFavorite}
-          >
-            {loading ? (
-              <img className="loading-gif" src={bookLoader} alt=" " />
-            ) : null}
-          </SearchResults>
-        </>
-      ) : (
-        <div>
-          <Search handleType={handleType} handleSearch={handleSearch}></Search>
-          <Overview showShelves={showShelves} shelves={shelves}></Overview>
-          {/* <BookList
-            favorites={favorites}
-            getFavorites={getFavorites}
-            handleDeleteFavorite={handleDeleteFavorite}
-          >
-            {loading ? (
-              <img className="loading-gif" src={bookLoader} alt=" " />
-            ) : null}
-          </BookList> */}
-        </div>
-      )}
+      <Router>
+        <Header></Header>
+        <ToastContainer />
+        {searching ? (
+          <>
+            <NewSearch newSearch={newSearch}></NewSearch>
+            <SearchResults
+              toggleSearching={toggleSearching}
+              query={query}
+              handleAddFavorite={handleAddFavorite}
+            >
+              {loading ? (
+                <img className="loading-gif" src={bookLoader} alt=" " />
+              ) : null}
+            </SearchResults>
+          </>
+        ) : (
+          <div>
+            <Search
+              handleType={handleType}
+              handleSearch={handleSearch}
+            ></Search>
+            <Switch>
+              <Route exact path="/">
+                <Overview />
+              </Route>
+              <Route path="/booklist/:shelfID">
+                <BookList />
+              </Route>
+              <Route path="/bookdetail/:bookID">
+                <BookDetail />
+              </Route>
+            </Switch>
+          </div>
+        )}
+      </Router>
     </>
   );
 };
