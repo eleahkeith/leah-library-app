@@ -31,10 +31,10 @@
 [ ]input validation for search
 
 [Search Results]
-[ ]plus icon pulls up add to shelf modal - use mapping for drop down
+[x]plus icon pulls up add to shelf modal - use mapping for drop down
 [x]change new search to redirect back to home page
     ....or remove all together and make search always visible?
-[ ]fix so that new search 
+[x]fix so that new search re-renders
 
 [Miscellaneous/Structure]
 [x]move API calls to separate component

@@ -150,11 +150,11 @@ export const searchAPI = async (searchTerm: string | null) => {
 
 export const bookAPI = async (
   apiMethod: string,
-  bookID: string,
-  shelfID: string
+  bookID: string | undefined,
+  shelfID: string | undefined
 ) => {
   const response = await fetch(
-    `https://get-some-books.herokuapp.com/books/${bookID}/favourite`,
+    `https://get-some-books.herokuapp.com/shelves/${shelfID}/books?bookId=${bookID}`,
     {
       headers: {
         Authorization: authToken,
