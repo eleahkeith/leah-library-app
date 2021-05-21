@@ -2,21 +2,24 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import '../styles/reset.css';
 import '../styles/app.css';
-import { OverviewProps, ShelfResultData, ResultData } from './shared';
+import { ShelfResultData, ResultData } from './shared';
 import {
   bookAPI,
   addShelfAPI,
   deleteShelfAPI,
   getShelvesAPI,
+  editShelfAPI,
 } from './api-calls';
 import { toast } from 'react-toastify';
+import Modal from 'react-modal';
 import ShelfPreview from './shelf-preview';
 
 const Overview = () => {
   const [loading, setLoading] = useState(false);
   const [shelves, setShelves] = useState<ShelfResultData>();
   const [favorites, setFavorites] = useState<ResultData>();
-  const [searchTerm, setSearchTerm] = useState(' ');
+  const [newShelfName, setShelfName] = useState(' ');
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const authToken = process.env.REACT_APP_AUTHORIZATION_TOKEN as string;
 
@@ -24,7 +27,20 @@ const Overview = () => {
     'There was an error processing your request. Please try again later!';
 
   const handleType = (e: any) => {
-    setSearchTerm(e.target.value);
+    setShelfName(e.target.value);
+  };
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const handleAddSubmit = () => {
+    handleAddShelf();
+    closeModal();
   };
 
   const showShelves = async () => {
@@ -37,15 +53,22 @@ const Overview = () => {
 
   const handleAddShelf = async () => {
     setLoading(true);
-    await addShelfAPI(searchTerm);
+    await addShelfAPI(newShelfName);
     setLoading(false);
     showShelves();
-    setSearchTerm(' ');
+    setShelfName(' ');
   };
 
   const handleDeleteShelf = async (shelfID: string) => {
     setLoading(true);
     await deleteShelfAPI(shelfID);
+    setLoading(false);
+    showShelves();
+  };
+
+  const handleEditShelf = async (shelfID: string, shelfName: string) => {
+    setLoading(true);
+    await editShelfAPI(shelfID, shelfName);
     setLoading(false);
     showShelves();
   };
@@ -86,23 +109,32 @@ const Overview = () => {
     <ShelfPreview
       key={shelf.id}
       shelf={shelf}
+      newShelfName={newShelfName}
       handleDeleteShelf={handleDeleteShelf}
+      handleEditShelf={handleEditShelf}
+      setShelfName={setShelfName}
     ></ShelfPreview>
   ));
   return (
     <>
       <div className="component-box">
+        <div className="add-shelf-container">
+          <input type="button" value="Add Shelf" onClick={openModal} />
+        </div>
         <div className="bookshelf-preview-container">{mappedShelves}</div>
       </div>
-      <form>
-        <label htmlFor="shelfName">Shelf Name</label>
-        <input
-          id="shelfName"
-          name="shelfName"
-          onChange={(e) => handleType(e)}
-        ></input>
-        <input type="button" value="submit" onClick={() => handleAddShelf()} />
-      </form>
+      <Modal isOpen={modalIsOpen}>
+        <form>
+          <label htmlFor="shelfName">Shelf Name</label>
+          <input
+            id="shelfName"
+            name="shelfName"
+            onChange={(e) => handleType(e)}
+          ></input>
+          <input type="button" value="go back" onClick={closeModal} />
+          <input type="button" value="submit" onClick={handleAddSubmit} />
+        </form>
+      </Modal>
     </>
   );
 };

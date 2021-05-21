@@ -1,10 +1,5 @@
 import { toast } from 'react-toastify';
-import {
-  ResultData,
-  ShelfResultData,
-  ShelfType,
-  GetShelfAPIType,
-} from './shared';
+import { ResultData, ShelfResultData, GetShelfAPIType } from './shared';
 
 const authToken = process.env.REACT_APP_AUTHORIZATION_TOKEN as string;
 
