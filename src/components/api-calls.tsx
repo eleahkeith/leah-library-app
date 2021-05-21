@@ -148,7 +148,11 @@ export const searchAPI = async (searchTerm: string) => {
   }
 };
 
-export const bookAPI = async (apiMethod: string, bookID: string) => {
+export const bookAPI = async (
+  apiMethod: string,
+  bookID: string,
+  shelfID: string
+) => {
   const response = await fetch(
     `https://get-some-books.herokuapp.com/books/${bookID}/favourite`,
     {

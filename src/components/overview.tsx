@@ -2,29 +2,21 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import '../styles/reset.css';
 import '../styles/app.css';
-import { ShelfResultData, ResultData } from './shared';
+import { ShelfResultData } from './shared';
 import {
-  bookAPI,
   addShelfAPI,
   deleteShelfAPI,
   getShelvesAPI,
   editShelfAPI,
 } from './api-calls';
-import { toast } from 'react-toastify';
 import Modal from 'react-modal';
 import ShelfPreview from './shelf-preview';
 
 const Overview = () => {
   const [loading, setLoading] = useState(false);
   const [shelves, setShelves] = useState<ShelfResultData>();
-  const [favorites, setFavorites] = useState<ResultData>();
   const [newShelfName, setShelfName] = useState(' ');
   const [modalIsOpen, setIsOpen] = useState(false);
-
-  const authToken = process.env.REACT_APP_AUTHORIZATION_TOKEN as string;
-
-  const standardErrMsg =
-    'There was an error processing your request. Please try again later!';
 
   const handleType = (e: any) => {
     setShelfName(e.target.value);
@@ -48,7 +40,6 @@ const Overview = () => {
     const result = await getShelvesAPI();
     setLoading(false);
     setShelves(result);
-    console.log(result?.items);
   };
 
   const handleAddShelf = async () => {
@@ -71,33 +62,6 @@ const Overview = () => {
     await editShelfAPI(shelfID, shelfName);
     setLoading(false);
     showShelves();
-  };
-
-  const handleDeleteFavorite = async (uniqueID: string) => {
-    setLoading(true);
-    await bookAPI('DELETE', uniqueID);
-    setLoading(false);
-    getFavorites();
-  };
-
-  const getFavorites = async () => {
-    setLoading(true);
-    const response = await fetch(
-      'https://get-some-books.herokuapp.com/books/favourites',
-      {
-        headers: {
-          Authorization: authToken,
-        },
-        method: 'GET',
-      }
-    );
-    setLoading(false);
-    const favorites = await response.json();
-    setFavorites(favorites);
-
-    if (!response.ok || favorites.success === false) {
-      toast.error(standardErrMsg);
-    }
   };
 
   useEffect(() => {

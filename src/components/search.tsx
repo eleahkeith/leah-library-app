@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/reset.css';
 import '../styles/app.css';
 
@@ -7,23 +9,20 @@ interface SearchProps {
   handleType: (e: any) => void;
 }
 
-const Search = ({ handleType, handleSearch }: SearchProps) => {
+const Search = () => {
+  const [searchTerm, setSearchTerm] = useState(' ');
+
   return (
     <div className="search-box">
       <input
         className="search-input"
         type="text"
         placeholder="search for a book title..."
-        onChange={(e) => handleType(e)}
+        onChange={(e) => setSearchTerm(e.target.value)}
       ></input>
-      <button
-        className="button-on-light"
-        id="search-button"
-        value="search"
-        onClick={(e) => handleSearch(e)}
-      >
-        Search
-      </button>
+      <Link key={searchTerm} to={`/searchresults/${searchTerm}`}>
+        <div>Search</div>
+      </Link>
     </div>
   );
 };

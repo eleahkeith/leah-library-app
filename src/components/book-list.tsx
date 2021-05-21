@@ -29,12 +29,12 @@ const BookList = () => {
 
   const shelf = useParams<ParamProps>();
 
-  const handleDeleteFavorite = async (uniqueID: string) => {
-    setLoading(true);
-    await bookAPI('DELETE', uniqueID);
-    setLoading(false);
-    getFavorites();
-  };
+  // const handleDeleteFavorite = async (uniqueID: string) => {
+  //   setLoading(true);
+  //   await bookAPI('DELETE', uniqueID);
+  //   setLoading(false);
+  //   getFavorites();
+  // };
 
   const getFavorites = async () => {
     setLoading(true);
@@ -55,7 +55,7 @@ const BookList = () => {
       rightAccessory={
         <img
           id="add-delete-button"
-          onClick={() => handleDeleteFavorite(bookListItem.id)}
+          // onClick={() => handleDeleteFavorite(bookListItem.id)}
           src={deleteButton}
           alt="delete button"
         />

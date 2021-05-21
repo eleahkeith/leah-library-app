@@ -1,15 +1,35 @@
+// removed children button (add) while building new API calls, etc. Add back once complete.
+
 import React from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import '../styles/reset.css';
 import '../styles/app.css';
 import addButton from '../images/add-button.png';
 import BookListItem from './book-list-item';
-import { SearchResultsProps } from './shared';
+import { SearchResultsProps, ResultData } from './shared';
+import { searchAPI } from './api-calls';
 
-const SearchResults = ({
-  query,
-  handleAddFavorite,
-  children,
-}: SearchResultsProps) => {
+interface Props {
+  searchParam: string;
+  bookTitle: string;
+}
+
+const SearchResults = () => {
+  const [query, setQuery] = useState<ResultData | null | undefined>();
+  const searchParam = useParams<Props>();
+  const book = searchParam.bookTitle;
+  console.log(book);
+
+  const getResults = async () => {
+    const results = await searchAPI(book);
+    setQuery(results);
+  };
+
+  useEffect(() => {
+    getResults();
+  }, []);
+
   const totalResults = query?.total;
   const bookResults = query?.items || [];
   const mappedBooks = bookResults.map((bookResult) => (
@@ -19,7 +39,7 @@ const SearchResults = ({
       rightAccessory={
         <img
           id="add-delete-button"
-          onClick={() => handleAddFavorite(bookResult.id)}
+          onClick={() => console.log('click')}
           src={addButton}
           alt="add favorite button"
         />
@@ -35,7 +55,6 @@ const SearchResults = ({
             <span className="list-title">Search Results</span>
             <span className="results-number">Results: {totalResults}</span>
           </div>
-          <div className="loading-state-container">{children}</div>
         </div>
         <div className="component-list-body">{mappedBooks}</div>
       </div>
