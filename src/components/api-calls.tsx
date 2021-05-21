@@ -123,7 +123,7 @@ export const addShelfAPI = async (shelfName: string) => {
   }
 };
 
-export const searchAPI = async (searchTerm: string) => {
+export const searchAPI = async (searchTerm: string | null) => {
   const response = await fetch(
     `https://get-some-books.herokuapp.com/books?title=${searchTerm}`,
     {

@@ -20,7 +20,7 @@ const Search = () => {
         placeholder="search for a book title..."
         onChange={(e) => setSearchTerm(e.target.value)}
       ></input>
-      <Link key={searchTerm} to={`/searchresults/${searchTerm}`}>
+      <Link key={searchTerm} to={`/search?title=${searchTerm}`}>
         <div>Search</div>
       </Link>
     </div>

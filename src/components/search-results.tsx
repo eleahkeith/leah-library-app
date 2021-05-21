@@ -2,33 +2,35 @@
 
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import '../styles/reset.css';
 import '../styles/app.css';
 import addButton from '../images/add-button.png';
 import BookListItem from './book-list-item';
-import { SearchResultsProps, ResultData } from './shared';
+import { ResultData } from './shared';
 import { searchAPI } from './api-calls';
 
 interface Props {
-  searchParam: string;
+  book: string;
   bookTitle: string;
 }
 
 const SearchResults = () => {
   const [query, setQuery] = useState<ResultData | null | undefined>();
-  const searchParam = useParams<Props>();
-  const book = searchParam.bookTitle;
-  console.log(book);
+
+  const location = useLocation();
+  const parseSearch = new URLSearchParams(location.search);
+
+  const title = parseSearch.get('title');
 
   const getResults = async () => {
-    const results = await searchAPI(book);
+    const results = await searchAPI(title);
     setQuery(results);
   };
 
   useEffect(() => {
     getResults();
-  }, []);
+  }, [location]);
 
   const totalResults = query?.total;
   const bookResults = query?.items || [];
