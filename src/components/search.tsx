@@ -1,12 +1,11 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/reset.css';
 import '../styles/app.css';
 
 interface SearchProps {
-  handleSearch: (e: any) => void;
-  handleType: (e: any) => void;
+  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Search = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import '../styles/reset.css';
 import '../styles/app.css';
 import { ShelfResultData } from './shared';
@@ -18,7 +18,7 @@ const Overview = () => {
   const [newShelfName, setShelfName] = useState(' ');
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  const handleType = (e: any) => {
+  const handleType = (e: ChangeEvent<HTMLInputElement>) => {
     setShelfName(e.target.value);
   };
 

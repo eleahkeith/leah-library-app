@@ -9,9 +9,6 @@
 --------tsx
 
 [Shelf Overview]
-[x]modal for edit shelf (pop up with shelf name and save)
-[x]modal for new shelf (pop up with shelf name and save)
-[x]modal for delete shelf (pop up with "are you sure?" then button to delete)
 [ ]how to map only first x items on each list
 
 [Book Detail]
