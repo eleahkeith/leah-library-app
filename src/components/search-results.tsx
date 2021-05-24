@@ -95,27 +95,47 @@ const SearchResults = () => {
   return (
     <div className="component-book-list">
       <div className="component-box">
+        <Link className="home-button" to="/">
+          <span>Home</span>
+        </Link>
         <div className="component-list-title" key={null}>
           <div className="component-title-text">
             <span className="list-title">Search Results</span>
             <span className="results-number">Results: {totalResults}</span>
           </div>
-          <Link to="/">
-            <span>Home</span>
-          </Link>
         </div>
         <div className="component-list-body">{mappedBooks}</div>
-        <Modal isOpen={modalIsOpen}>
-          <form>
-            <label htmlFor="list">Select a List</label>
-            <select onChange={(e) => setSelectedShelf(e.target.value)}>
+        <Modal
+          className="Modal"
+          overlayClassName="overlay"
+          isOpen={modalIsOpen}
+        >
+          <form className="shelf-form">
+            <select
+              className="shelf-list-dropdown"
+              onChange={(e) => setSelectedShelf(e.target.value)}
+            >
               {mappedShelfNames}
             </select>
-            <input
-              type="button"
-              value="Add Book"
-              onClick={() => submitAddBook(selectedShelf)}
-            />
+            <label className="list-label" htmlFor="list">
+              Select a List
+            </label>
+            <div className="shelf-option-container">
+              <input
+                type="button"
+                className="button-on-light"
+                id="edit-button-modal"
+                value="Add Book"
+                onClick={() => submitAddBook(selectedShelf)}
+              />
+              <input
+                type="button"
+                className="button-on-light"
+                id="edit-button-modal"
+                value="Go Back"
+                onClick={closeModal}
+              />
+            </div>
           </form>
         </Modal>
       </div>

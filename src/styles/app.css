@@ -12,7 +12,7 @@ fonts - amatic sc, roboto condensed
 
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Roboto+Condensed:wght@300&display=swap');
 
-/* body/root styles */
+/* overarching */
 body {
     display: flex;
     background: #72A0AC url("../images/wild-flowers.png");
@@ -25,6 +25,139 @@ body {
     width: 100vw;
     overflow-x: hidden;
 
+}
+
+a {
+    text-decoration: none;
+    font-family: "roboto condensed";
+    color: #8C939A;
+}
+
+input, select {
+    font-family: "roboto condensed";
+}
+
+::placeholder {
+    color: #e0e0e0;
+}
+
+.Modal {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    right: 10%;
+    bottom: 50%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px #E0E0E0;
+  }
+
+  .Modal:focus {
+      outline: none;
+  }
+
+  .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      background-color: rgba(140, 147, 154, .75);
+  }
+
+*:focus {
+    outline: none;
+}
+
+
+/* Modal Styles */
+
+.shelf-form {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "roboto condensed";
+    color: #3A333B;
+    padding: 10px;
+}
+
+.edit-label {
+    width: 90%;
+    margin-left: 2.5%;
+    margin-bottom: 15px;
+    font-size: .9em;
+
+}
+
+.modal-input {
+    width: 90%;
+    border-bottom: 1px solid #8C939A;
+    border-top: none;
+    border-left: none;
+    border-right: none; 
+    margin: 30px 0 5px 2.5%;
+    font-size: 1.25em;
+    color: #8C939A;
+}
+
+.shelf-option-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+}
+
+#edit-button-modal {
+    margin: 3px;
+    height: 30px;
+    width: 100px;
+    font-size: 1em;
+}
+
+.delete-shelf-form {
+    display: flex;
+    font-family: "roboto condensed";
+
+}
+
+.delete-modal-text-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.danger-text {
+    width: 100%;
+    color: #B84E4E;
+    font-size: 1.25em;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#delete-button-modal {
+    margin: 3px;
+    height: 30px;
+    width: 200px;
+    font-size: 1em;
+    background-color: #B84E4E;
+}
+
+#delete-button-modal:hover {
+    background-color: #b84e4e65;
+}
+
+.shelf-list-dropdown {
+    font-size: 1.15em;
+    height: 30px;
+    width: 90%;
+    border: 1px solid #8C939A;
+    border-radius: 5px;
+    margin: 10px 0px 5px 5%;
+}
+
+.list-label {
+    width: 100%;
+    margin: 0 0 20px 5%;
+    font-size: .8em;
 }
 
 /* header styles */
@@ -76,6 +209,7 @@ body {
 /* component styles */
 .component-box {
     display: flex;
+    position: absolute;
     flex-wrap: wrap;
     align-content: flex-start;
     background: #FFFFFF;
@@ -116,6 +250,13 @@ body {
     flex-wrap: wrap;
     justify-content: flex-start;
     width: 100%;
+}
+
+.home-button {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 1.25em;
 }
 
 .loading-gif {
@@ -230,6 +371,20 @@ body {
     outline: none;
 }
 
+#search-link {
+    padding: 3px 7.5px 3px 7.5px;
+    border-radius: 5px;
+    background-color: #72A0AC;
+    color: #fff;
+    transition-property: background-color;
+    transition: .3s;
+}
+
+#search-link:hover {
+    background-color: #72a1acaf;
+    cursor: default;
+}
+
 
 /* button styles - search and new search */
 .button-on-light {
@@ -257,7 +412,7 @@ body {
 }
 
 .button-on-light:hover {
-    background-color: #B84E4E;
+    background-color: #72a1acaf;
 }
 
 .button-on-light:focus {
@@ -267,6 +422,21 @@ body {
 
 
 /* shelf preview styles */
+
+.add-shelf-container {
+    display: flex;
+    width: 100%;
+    height: 35px;
+    justify-content: center;
+}
+
+#add-shelf-button {
+    align-self: center;
+    justify-self: center;
+    height: 22px;
+    width: 40%;
+    font-size: .9em;
+}
 
 .bookshelf-preview-container {
     width: 100%;
@@ -285,11 +455,15 @@ body {
     border-radius: 10px;
 }
 
+.shelf-title-container {
+    padding-bottom: 7.5px
+}
+
 .shelf-preview-title {
     font-family: "amatic sc";
     color: #B84E4E;
     font-size: 2em;
-    padding-bottom: 10px;
+    padding-bottom: 3px;
 }
 
 .shelf-preview-image-container {
@@ -310,6 +484,21 @@ body {
     opacity: .75;
 }
 
+.shelf-options-container {
+    display: flex;
+}
+
+.shelf-option {
+    font-family: "roboto condensed";
+    font-size: .9em;
+    color: #8C939A;
+    margin-right: 12.5px;
+}
+
+.shelf-option:hover {
+    cursor: pointer;
+}
+/* book list styles */
 
 .list-link-container {
     position: absolute;

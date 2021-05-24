@@ -1,9 +1,10 @@
 --------css
-[ ]style shelf previews
+[x]style shelf previews
+[x]style modals
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
 [ ]add comments to break out components
 [ ]style book detail page
-[ ]
+[x]style search "button"
 
 --------tsx
 
@@ -15,7 +16,7 @@
 
 [Book Detail]
 [ ]move book from one shelf to another
-[ ]load with book details from API once back end is done
+[ ]load with book details from API
 [ ]modal for add book to list
 
 [Book List]

@@ -20,9 +20,15 @@ const Search = () => {
         placeholder="search for a book title..."
         onChange={(e) => setSearchTerm(e.target.value)}
       ></input>
-      <Link key={searchTerm} to={`/search?title=${searchTerm}`}>
-        <div>Search</div>
-      </Link>
+      <div className="search-link-container">
+        <Link
+          id="search-link"
+          key={searchTerm}
+          to={`/search?title=${searchTerm}`}
+        >
+          Search
+        </Link>
+      </div>
     </div>
   );
 };

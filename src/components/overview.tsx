@@ -83,20 +83,44 @@ const Overview = () => {
     <>
       <div className="component-box">
         <div className="add-shelf-container">
-          <input type="button" value="Add Shelf" onClick={openModal} />
+          <input
+            type="button"
+            value="Add New Shelf"
+            className="button-on-light"
+            id="add-shelf-button"
+            onClick={openModal}
+          />
         </div>
         <div className="bookshelf-preview-container">{mappedShelves}</div>
       </div>
-      <Modal isOpen={modalIsOpen}>
-        <form>
-          <label htmlFor="shelfName">Shelf Name</label>
+      <Modal className="Modal" overlayClassName="overlay" isOpen={modalIsOpen}>
+        <form className="shelf-form">
           <input
+            className="modal-input"
             id="shelfName"
             name="shelfName"
+            placeholder="Enter New Shelf Name"
             onChange={(e) => handleType(e)}
           ></input>
-          <input type="button" value="go back" onClick={closeModal} />
-          <input type="button" value="submit" onClick={handleAddSubmit} />
+          <label htmlFor="shelfName" className="edit-label">
+            Shelf Name
+          </label>
+          <div className="shelf-option-container">
+            <input
+              type="button"
+              className="button-on-light"
+              id="edit-button-modal"
+              value="submit"
+              onClick={handleAddSubmit}
+            />
+            <input
+              type="button"
+              className="button-on-light"
+              id="edit-button-modal"
+              value="go back"
+              onClick={closeModal}
+            />
+          </div>
         </form>
       </Modal>
     </>
