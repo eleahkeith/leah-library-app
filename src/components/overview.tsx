@@ -2,29 +2,37 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import '../styles/reset.css';
 import '../styles/app.css';
-import { OverviewProps, ShelfResultData, ResultData } from './shared';
+import { ShelfResultData } from './shared';
 import {
-  bookAPI,
   addShelfAPI,
   deleteShelfAPI,
   getShelvesAPI,
+  editShelfAPI,
 } from './api-calls';
-import { toast } from 'react-toastify';
+import Modal from 'react-modal';
 import ShelfPreview from './shelf-preview';
 
 const Overview = () => {
   const [loading, setLoading] = useState(false);
   const [shelves, setShelves] = useState<ShelfResultData>();
-  const [favorites, setFavorites] = useState<ResultData>();
-  const [searchTerm, setSearchTerm] = useState(' ');
-
-  const authToken = process.env.REACT_APP_AUTHORIZATION_TOKEN as string;
-
-  const standardErrMsg =
-    'There was an error processing your request. Please try again later!';
+  const [newShelfName, setShelfName] = useState(' ');
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const handleType = (e: any) => {
-    setSearchTerm(e.target.value);
+    setShelfName(e.target.value);
+  };
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const handleAddSubmit = () => {
+    handleAddShelf();
+    closeModal();
   };
 
   const showShelves = async () => {
@@ -32,15 +40,14 @@ const Overview = () => {
     const result = await getShelvesAPI();
     setLoading(false);
     setShelves(result);
-    console.log(result?.items);
   };
 
   const handleAddShelf = async () => {
     setLoading(true);
-    await addShelfAPI(searchTerm);
+    await addShelfAPI(newShelfName);
     setLoading(false);
     showShelves();
-    setSearchTerm(' ');
+    setShelfName(' ');
   };
 
   const handleDeleteShelf = async (shelfID: string) => {
@@ -50,31 +57,11 @@ const Overview = () => {
     showShelves();
   };
 
-  const handleDeleteFavorite = async (uniqueID: string) => {
+  const handleEditShelf = async (shelfID: string, shelfName: string) => {
     setLoading(true);
-    await bookAPI('DELETE', uniqueID);
+    await editShelfAPI(shelfID, shelfName);
     setLoading(false);
-    getFavorites();
-  };
-
-  const getFavorites = async () => {
-    setLoading(true);
-    const response = await fetch(
-      'https://get-some-books.herokuapp.com/books/favourites',
-      {
-        headers: {
-          Authorization: authToken,
-        },
-        method: 'GET',
-      }
-    );
-    setLoading(false);
-    const favorites = await response.json();
-    setFavorites(favorites);
-
-    if (!response.ok || favorites.success === false) {
-      toast.error(standardErrMsg);
-    }
+    showShelves();
   };
 
   useEffect(() => {
@@ -86,23 +73,56 @@ const Overview = () => {
     <ShelfPreview
       key={shelf.id}
       shelf={shelf}
+      newShelfName={newShelfName}
       handleDeleteShelf={handleDeleteShelf}
+      handleEditShelf={handleEditShelf}
+      setShelfName={setShelfName}
     ></ShelfPreview>
   ));
   return (
     <>
       <div className="component-box">
+        <div className="add-shelf-container">
+          <input
+            type="button"
+            value="Add New Shelf"
+            className="button-on-light"
+            id="add-shelf-button"
+            onClick={openModal}
+          />
+        </div>
         <div className="bookshelf-preview-container">{mappedShelves}</div>
       </div>
-      <form>
-        <label htmlFor="shelfName">Shelf Name</label>
-        <input
-          id="shelfName"
-          name="shelfName"
-          onChange={(e) => handleType(e)}
-        ></input>
-        <input type="button" value="submit" onClick={() => handleAddShelf()} />
-      </form>
+      <Modal className="Modal" overlayClassName="overlay" isOpen={modalIsOpen}>
+        <form className="shelf-form">
+          <input
+            className="modal-input"
+            id="shelfName"
+            name="shelfName"
+            placeholder="Enter New Shelf Name"
+            onChange={(e) => handleType(e)}
+          ></input>
+          <label htmlFor="shelfName" className="edit-label">
+            Shelf Name
+          </label>
+          <div className="shelf-option-container">
+            <input
+              type="button"
+              className="button-on-light"
+              id="edit-button-modal"
+              value="submit"
+              onClick={handleAddSubmit}
+            />
+            <input
+              type="button"
+              className="button-on-light"
+              id="edit-button-modal"
+              value="go back"
+              onClick={closeModal}
+            />
+          </div>
+        </form>
+      </Modal>
     </>
   );
 };

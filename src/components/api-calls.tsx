@@ -1,10 +1,5 @@
 import { toast } from 'react-toastify';
-import {
-  ResultData,
-  ShelfResultData,
-  ShelfType,
-  GetShelfAPIType,
-} from './shared';
+import { ResultData, ShelfResultData, GetShelfAPIType } from './shared';
 
 const authToken = process.env.REACT_APP_AUTHORIZATION_TOKEN as string;
 
@@ -128,7 +123,7 @@ export const addShelfAPI = async (shelfName: string) => {
   }
 };
 
-export const searchAPI = async (searchTerm: string) => {
+export const searchAPI = async (searchTerm: string | null) => {
   const response = await fetch(
     `https://get-some-books.herokuapp.com/books?title=${searchTerm}`,
     {
@@ -153,9 +148,13 @@ export const searchAPI = async (searchTerm: string) => {
   }
 };
 
-export const bookAPI = async (apiMethod: string, bookID: string) => {
+export const bookAPI = async (
+  apiMethod: string,
+  bookID: string | undefined,
+  shelfID: string | undefined
+) => {
   const response = await fetch(
-    `https://get-some-books.herokuapp.com/books/${bookID}/favourite`,
+    `https://get-some-books.herokuapp.com/shelves/${shelfID}/books?bookId=${bookID}`,
     {
       headers: {
         Authorization: authToken,
