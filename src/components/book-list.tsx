@@ -6,16 +6,12 @@ import '../styles/reset.css';
 import '../styles/app.css';
 import BookListItem from './book-list-item';
 import EditShelfModal from './edit-shelf-modal';
+import DeleteShelfModal from './delete-shelf-modal';
 import deleteButton from '../images/delete-button.png';
 import { useState, useEffect } from 'react';
-import {
-  getShelfBooksAPI,
-  bookAPI,
-  editShelfAPI,
-  deleteShelfAPI,
-} from './api-calls';
+import { getShelfBooksAPI, editShelfAPI, deleteShelfAPI } from './api-calls';
 import { ShelfType, BookResultType } from './shared';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Modal from 'react-modal';
 
 interface Props {
@@ -46,7 +42,7 @@ const BookList = () => {
   //   getFavorites();
   // };
 
-  const getFavorites = async () => {
+  const getListBooks = async () => {
     setLoading(true);
     const apiResults = await getShelfBooksAPI(shelf.shelfID);
     const listResult = apiResults?.item;
@@ -78,6 +74,14 @@ const BookList = () => {
     setLoading(false);
   };
 
+  const history = useHistory();
+
+  const handleDeleteSubmit = async () => {
+    await handleDeleteShelf(shelf.shelfID);
+    closeModal();
+    history.push('/');
+  };
+
   const handleEditShelf = async (shelfID: string, shelfName: string) => {
     setLoading(true);
     await editShelfAPI(shelfID, shelfName);
@@ -87,11 +91,11 @@ const BookList = () => {
   const handleEditSubmit = async () => {
     await handleEditShelf(shelf.shelfID, newShelfName);
     closeModal();
-    getFavorites();
+    getListBooks();
   };
 
   useEffect(() => {
-    getFavorites();
+    getListBooks();
   }, []);
 
   const favoritesList = bookList?.books || [];
@@ -137,7 +141,10 @@ const BookList = () => {
             closeModal={closeModal}
           ></EditShelfModal>
         ) : (
-          <div>hello</div>
+          <DeleteShelfModal
+            handleDeleteSubmit={handleDeleteSubmit}
+            closeModal={closeModal}
+          ></DeleteShelfModal>
         )}
       </Modal>
     </>

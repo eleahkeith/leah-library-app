@@ -9,12 +9,13 @@
 
 [Shelf Overview]
 [ ]how to map only first x items on each list
+[ ]use edit shelf modal to render add shelf option
 
 [Book Detail]
 [ ]format date
 
 [Book List]
-[ ]fix delete
+[ ]re-add delete
 [ ]move book from one shelf to another
 [x]add edit shelf functionality
 [ ]add book detail link
@@ -22,12 +23,14 @@
 [ ]modal for delete shelf (pop up with "are you sure?" then button to delete)
 
 [modals]
-[ ]move edit and delete to their own components
+[x]move edit shelf to own component
+[x]move delete shelf to own component
 [ ]change add book dropdowns to have hidden generic option
 [ ]change go back button to x
 [ ]bind element per console error msg
+[ ]put loading state in modal
 
-
+ 
 [Search]
 [ ]handle enter function for search
 [ ]input validation for search
@@ -36,7 +39,6 @@
 
 [Miscellaneous/Structure]
 [ ]move all if/else statements for API calls to a validate function that can be reused?
-[ ]move all change shelf functions to own components
 
 --------bugs
 
