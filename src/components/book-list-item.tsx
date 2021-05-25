@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookResultType } from './shared';
+import { useHistory } from 'react-router-dom';
 import '../styles/app.css';
 
 interface BookListItemProps {
@@ -8,10 +9,21 @@ interface BookListItemProps {
 }
 
 const BookListItem = ({ book, rightAccessory }: BookListItemProps) => {
+  const history = useHistory();
+
+  const viewBookDetails = (bookID: string) => {
+    history.push(`/BookDetail/${bookID}`);
+  };
+
   return (
-    <div className="book-preview" key={book.id} id="list-book">
+    <div
+      className="book-preview"
+      onClick={() => viewBookDetails(book.id)}
+      key={book.id}
+      id="list-book"
+    >
       <img
-        className="book-detail-image"
+        className="book-preview-image"
         src={book.imageURL || undefined}
         alt="book cover"
       />{' '}

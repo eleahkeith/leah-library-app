@@ -9,7 +9,12 @@ import EditShelfModal from './edit-shelf-modal';
 import DeleteShelfModal from './delete-shelf-modal';
 import deleteButton from '../images/delete-button.png';
 import { useState, useEffect } from 'react';
-import { getShelfBooksAPI, editShelfAPI, deleteShelfAPI } from './api-calls';
+import {
+  getShelfBooksAPI,
+  editShelfAPI,
+  deleteShelfAPI,
+  bookAPI,
+} from './api-calls';
 import { ShelfType, BookResultType } from './shared';
 import { useParams, useHistory } from 'react-router-dom';
 import Modal from 'react-modal';
@@ -35,12 +40,7 @@ const BookList = () => {
 
   const shelf = useParams<ParamProps>();
 
-  // const handleDeleteFavorite = async (uniqueID: string) => {
-  //   setLoading(true);
-  //   await bookAPI('DELETE', uniqueID);
-  //   setLoading(false);
-  //   getFavorites();
-  // };
+  const history = useHistory();
 
   const getListBooks = async () => {
     setLoading(true);
@@ -74,8 +74,6 @@ const BookList = () => {
     setLoading(false);
   };
 
-  const history = useHistory();
-
   const handleDeleteSubmit = async () => {
     await handleDeleteShelf(shelf.shelfID);
     closeModal();
@@ -94,6 +92,13 @@ const BookList = () => {
     getListBooks();
   };
 
+  const handleDeleteBook = async (uniqueID: string) => {
+    setLoading(true);
+    await bookAPI('DELETE', uniqueID, shelf.shelfID);
+    setLoading(false);
+    getListBooks();
+  };
+
   useEffect(() => {
     getListBooks();
   }, []);
@@ -106,7 +111,7 @@ const BookList = () => {
       rightAccessory={
         <img
           id="add-delete-button"
-          // onClick={() => handleDeleteFavorite(bookListItem.id)}
+          onClick={() => handleDeleteBook(bookListItem.id)}
           src={deleteButton}
           alt="delete button"
         />

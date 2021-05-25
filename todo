@@ -15,12 +15,12 @@
 [ ]format date
 
 [Book List]
-[ ]re-add delete
+[x]re-add delete
 [ ]move book from one shelf to another
 [x]add edit shelf functionality
 [ ]add book detail link
-[ ]modal for edit shelf (pop up with shelf name and save)
-[ ]modal for delete shelf (pop up with "are you sure?" then button to delete)
+[x]modal for edit shelf (pop up with shelf name and save)
+[x]modal for delete shelf (pop up with "are you sure?" then button to delete)
 
 [modals]
 [x]move edit shelf to own component
@@ -34,6 +34,7 @@
 [Search]
 [ ]handle enter function for search
 [ ]input validation for search
+[ ]change search back to button w/ redirect
 
 [Search Results]
 
