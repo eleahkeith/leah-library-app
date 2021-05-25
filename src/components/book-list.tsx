@@ -7,7 +7,7 @@ import '../styles/app.css';
 import BookListItem from './book-list-item';
 import deleteButton from '../images/delete-button.png';
 import { useState, useEffect } from 'react';
-import { bookAPI, getShelfBooksAPI } from './api-calls';
+import { getShelfBooksAPI } from './api-calls';
 import { ShelfType, BookResultType } from './shared';
 import { useParams } from 'react-router-dom';
 

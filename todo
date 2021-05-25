@@ -12,16 +12,18 @@
 [ ]how to map only first x items on each list
 
 [Book Detail]
-[ ]move book from one shelf to another
 [ ]load with book details from API
 [ ]modal for add book to list
 
 [Book List]
+[ ]move book from one shelf to another
 [ ]add edit shelf functionality
 [ ]add book detail link
 [ ]modal for edit shelf (pop up with shelf name and save)
 [ ]modal for delete shelf (pop up with "are you sure?" then button to delete)
 
+[misc]
+[ ]change add book dropdowns to have hidden generic option
 
 
 [Search]
