@@ -1,10 +1,9 @@
 --------css
-[x]style shelf previews
-[x]style modals
+[ ]style shelf options on book detail page
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
 [ ]add comments to break out components
-[ ]style book detail page
-[x]style search "button"
+[x]style book detail page
+[ ]fix position of search link in search bar
 
 --------tsx
 
@@ -12,18 +11,21 @@
 [ ]how to map only first x items on each list
 
 [Book Detail]
-[ ]load with book details from API
-[ ]modal for add book to list
+[ ]format date
 
 [Book List]
+[ ]fix delete
 [ ]move book from one shelf to another
-[ ]add edit shelf functionality
+[x]add edit shelf functionality
 [ ]add book detail link
 [ ]modal for edit shelf (pop up with shelf name and save)
 [ ]modal for delete shelf (pop up with "are you sure?" then button to delete)
 
-[misc]
+[modals]
+[ ]move edit and delete to their own components
 [ ]change add book dropdowns to have hidden generic option
+[ ]change go back button to x
+[ ]bind element per console error msg
 
 
 [Search]
@@ -31,18 +33,12 @@
 [ ]input validation for search
 
 [Search Results]
-[x]plus icon pulls up add to shelf modal - use mapping for drop down
-[x]change new search to redirect back to home page
-    ....or remove all together and make search always visible?
-[x]fix so that new search re-renders
 
 [Miscellaneous/Structure]
-[x]move API calls to separate component
 [ ]move all if/else statements for API calls to a validate function that can be reused?
 [ ]move all change shelf functions to own components
 
 --------bugs
-[x]when you click on new search and then enter blank search term, returns results of previous query
 
 
 --------learning

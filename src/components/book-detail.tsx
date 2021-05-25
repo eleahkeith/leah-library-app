@@ -64,35 +64,45 @@ const BookDetail = () => {
   return (
     <>
       <div className="component-box">
-        <img
-          className="detail-image"
-          src={bookDetail?.imageURL}
-          alt="book cover"
-        />
-        <div className="shelf-option" onClick={() => openModal()}>
-          Add Book to List
-        </div>
-        <div className="detail-title-author-container">
-          <span className="detail-title">{bookDetail?.title}</span>
-          <br />
-          <span className="detail-author">{bookDetail?.author}</span>
-        </div>
+        <div className="detail-component">
+          <img
+            className="detail-image"
+            src={bookDetail?.imageURL}
+            alt="book cover"
+          />
+          <div className="book-detail-container">
+            <div
+              className="shelf-option"
+              id="detail-add"
+              onClick={() => openModal()}
+            >
+              Add to List
+            </div>
+            <div className="detail-title-author-container">
+              <span className="detail-title">{bookDetail?.title}</span>
+              <br />
+              <span className="detail-author">{bookDetail?.author}</span>
+            </div>
 
-        <div className="plot-summary"></div>
-        <div className="book-details">
-          <div>
-            <span className="detail-label">Published: </span>
-            <span className="detail-field">{bookDetail?.publishedDate}</span>
-          </div>
-          <div>
-            <span className="detail-label">Page Count: </span>
-            <span className="detail-field">{bookDetail?.pageCount}</span>
-          </div>
-          <div>
-            <span className="detail-label">Public Domain: </span>
-            <span className="detail-field">
-              {isPublicDomain(bookDetail?.publicDomain)}
-            </span>
+            <div className="plot-summary"></div>
+            <div className="book-additional-details">
+              <div className="single-detail-container">
+                <span className="detail-label">Published: </span>
+                <span className="detail-field">
+                  {bookDetail?.publishedDate}
+                </span>
+              </div>
+              <div className="single-detail-container">
+                <span className="detail-label">Page Count: </span>
+                <span className="detail-field">{bookDetail?.pageCount}</span>
+              </div>
+              <div className="single-detail-container">
+                <span className="detail-label">Public Domain: </span>
+                <span className="detail-field">
+                  {isPublicDomain(bookDetail?.publicDomain)}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

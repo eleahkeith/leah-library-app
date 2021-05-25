@@ -11,7 +11,7 @@ const BookListItem = ({ book, rightAccessory }: BookListItemProps) => {
   return (
     <div className="book-preview" key={book.id} id="list-book">
       <img
-        className="book-preview-image"
+        className="book-detail-image"
         src={book.imageURL || undefined}
         alt="book cover"
       />{' '}

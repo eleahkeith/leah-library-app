@@ -513,7 +513,58 @@ input, select {
     color: #8C939A;
 }
 
+/* book detail styles */
 
+.detail-component {
+    display: flex;
+    font-family: "roboto condensed";
+    width: 100%;
+    color: #3A333B;
+}
+
+.detail-image {
+    float: left;
+}
+
+#detail-add {
+    padding: 10px 0px 20px 0px;
+    font-size: 1.2em;
+    text-align: right;
+}
+
+.book-detail-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 15px;
+}
+
+.detail-title-author-container {
+    padding-bottom: 30px;
+}
+
+.detail-title {
+    font-size: 1.4em;
+}
+
+.detail-author {
+    font-size: 1.05em;
+    color: #8C939A;
+}
+
+.single-detail-container {
+    display: flex;
+}
+
+.detail-label {
+    width: 55%;
+}
+
+.detail-field {
+    color: #8C939A;
+    width: 45%;
+    text-align: center;
+}
 
 /* toast notifs styles */
 .Toastify__toast--success {
