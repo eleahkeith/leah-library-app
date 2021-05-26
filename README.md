@@ -12,7 +12,7 @@ I am an avid reader, and I have struggled to find a simple, clean way to keep tr
 
 ## Demo
 
-[![Demo](https://user-images.githubusercontent.com/59422625/119703338-5b18a380-be4e-11eb-9b6f-1bc65fb49439.mov)
+![Demo](https://user-images.githubusercontent.com/59422625/119704334-70420200-be4f-11eb-96dc-8eb94e598de5.gif)
 
 ## Tech/Framework
 
