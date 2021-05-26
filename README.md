@@ -22,6 +22,8 @@ I am an avid reader, and I have struggled to find a simple, clean way to keep tr
 
 ## Credits
 
+Thanks to Sam Piggott for creating the back end for this project!
+
 header image:
 
 https://www.pngwing.com/en/free-png-zpzkg
