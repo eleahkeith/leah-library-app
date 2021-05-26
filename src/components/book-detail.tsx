@@ -7,6 +7,7 @@ import { getBookAPI } from './api-calls';
 import { bookAPI } from './api-calls';
 import AddBookModal from './add-book-modal';
 import LeftArrow from '../images/left-arrow.png';
+import { parseISO, format } from 'date-fns';
 
 type Params = {
   book: string;
@@ -50,6 +51,21 @@ const BookDetail = () => {
   useEffect(() => {
     getBookResults(bookID);
   }, []);
+
+  const checkDate = (dateString: string | undefined) => {
+    if (dateString) {
+      const formattedDate = formatDate(dateString);
+      return formattedDate;
+    } else {
+      return 'unknown';
+    }
+  };
+
+  const formatDate = (dateString: string) => {
+    const date = parseISO(dateString);
+    const formattedDate = format(date, 'PP');
+    return formattedDate;
+  };
 
   const submitAddBook = async (shelfID: string | undefined) => {
     await bookAPI('PUT', bookID, shelfID);
@@ -97,7 +113,7 @@ const BookDetail = () => {
               <div className="single-detail-container">
                 <span className="detail-label">Published: </span>
                 <span className="detail-field">
-                  {bookDetail?.publishedDate}
+                  {checkDate(bookDetail?.publishedDate)}
                 </span>
               </div>
               <div className="single-detail-container">
