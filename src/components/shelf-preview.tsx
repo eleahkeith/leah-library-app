@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { ShelfType } from './shared';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
+import EditShelfModal from './edit-shelf-modal';
+import DeleteShelfModal from './delete-shelf-modal';
 
-interface ShelfProps {
+interface ShelfPreviewProps {
   shelf: ShelfType;
   handleDeleteShelf: (shelfID: string) => void;
   handleEditShelf: (shelfID: string, shelfName: string) => void;
@@ -18,7 +20,7 @@ const ShelfPreview = ({
   setShelfName,
   newShelfName,
   handleEditShelf,
-}: ShelfProps) => {
+}: ShelfPreviewProps) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -91,59 +93,16 @@ const ShelfPreview = ({
       </div>
       <Modal className="Modal" overlayClassName="overlay" isOpen={modalIsOpen}>
         {isDeleting ? (
-          <div className="shelf-form">
-            <div className="delete-modal-text-container">
-              <span className="danger-text">Danger!</span>
-              <span className="delete-modal-text">
-                Are you sure you want to delete this shelf and all books saved
-                here? This action cannot be undone.
-              </span>
-            </div>
-            <div className="shelf-option-container">
-              <input
-                type="button"
-                className="button-on-light"
-                id="delete-button-modal"
-                value="confirm delete shelf"
-                onClick={handleDeleteSubmit}
-              />
-              <input
-                type="button"
-                className="button-on-light"
-                id="edit-button-modal"
-                value="go back"
-                onClick={closeModal}
-              />
-            </div>
-          </div>
+          <DeleteShelfModal
+            handleDeleteSubmit={handleDeleteSubmit}
+            closeModal={closeModal}
+          ></DeleteShelfModal>
         ) : (
-          <form className="shelf-form">
-            <input
-              className="modal-input"
-              onChange={(e) => setShelfName(e.target.value)}
-              placeholder="Enter new shelf name"
-            ></input>
-            <label htmlFor="shelfName" className="edit-label">
-              Shelf Name
-            </label>
-            <div className="shelf-option-container">
-              <input
-                onChange={(e) => setShelfName(e.target.value)}
-                type="button"
-                className="button-on-light"
-                id="edit-button-modal"
-                value="Submit"
-                onClick={handleEditSubmit}
-              />
-              <input
-                type="button"
-                className="button-on-light"
-                id="edit-button-modal"
-                value="go back"
-                onClick={closeModal}
-              />
-            </div>
-          </form>
+          <EditShelfModal
+            setShelfName={setShelfName}
+            handleEditSubmit={handleEditSubmit}
+            closeModal={closeModal}
+          ></EditShelfModal>
         )}
       </Modal>
     </>

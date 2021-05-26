@@ -33,6 +33,10 @@ a {
     color: #8C939A;
 }
 
+a:hover {
+    cursor: pointer;
+}
+
 input, select {
     font-family: "roboto condensed";
 }
@@ -74,10 +78,12 @@ input, select {
 
 .shelf-form {
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     font-family: "roboto condensed";
     color: #3A333B;
     padding: 10px;
+    
 }
 
 .edit-label {
@@ -151,13 +157,23 @@ input, select {
     width: 90%;
     border: 1px solid #8C939A;
     border-radius: 5px;
-    margin: 10px 0px 5px 5%;
+    margin: 30px 0px 5px 5%;
 }
 
 .list-label {
     width: 100%;
     margin: 0 0 20px 5%;
     font-size: .8em;
+}
+
+.modal-close-button {
+    position: absolute;
+    height: 20px;
+    right: 5px;
+}
+
+.modal-close-button:hover {
+    cursor: pointer;
 }
 
 /* header styles */
@@ -172,6 +188,10 @@ input, select {
     border-radius: 15px;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #8C939A;
+}
+
+.header-box:hover {
+    cursor: pointer;
 }
 
 .header-text-box {
@@ -222,20 +242,23 @@ input, select {
 
 .component-list-title {
     display: flex;
+    flex-wrap: wrap;
     position: relative;
     align-items: flex-start;
     font-family: "Amatic SC";
     color: #B84E4E;
-    font-size: 2.5em;
-    width: 75%;
-    height: 1.8em;
+    width: 100%;
+    height: 20%;
     padding-left: 2%;
     padding-top: 5px;
+    font-size: 1.25em;
 }
 
 .component-title-text {
+    font-size: 2.25em;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .results-number {
@@ -254,6 +277,7 @@ input, select {
 
 .home-button {
     position: absolute;
+    z-index: 1;
     right: 15px;
     top: 15px;
     font-size: 1.25em;
@@ -291,20 +315,29 @@ input, select {
 .book-preview:hover {
     background-color: rgba(224,224,224,.5);
     border-radius: 10px;
+    cursor: pointer;
 } 
 
 .book-preview-image {
     float: left;
     min-width: 20px;
+    width: 20%;
     padding: 3px;
     object-fit: contain;
+    transition-property: opacity;
+    transition: .3s;
 }
+
+.book-preview-image:hover {
+    opacity: .75;
+}
+
 
 .book-preview-text {
     display: flex;
     flex-wrap: wrap; 
     align-self: center;
-    width: 70%;
+    width: 60%;
     padding-left: 20px;
     font-family: "roboto condensed";
 }
@@ -344,6 +377,7 @@ input, select {
 
 /* search component styles */
 .search-box {
+    position: relative;
     display: flex;
     justify-content: stretch;
     align-items: center;
@@ -372,12 +406,15 @@ input, select {
 }
 
 #search-link {
-    padding: 3px 7.5px 3px 7.5px;
+    position: absolute;
+    padding: 3px 10px 3px 10px;
     border-radius: 5px;
     background-color: #72A0AC;
     color: #fff;
     transition-property: background-color;
     transition: .3s;
+    right: 8px;
+    top: 25%;
 }
 
 #search-link:hover {
@@ -513,7 +550,91 @@ input, select {
     color: #8C939A;
 }
 
+/* book detail styles */
 
+.detail-component {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    font-family: "roboto condensed";
+    width: 95%;
+    color: #3A333B;
+    margin: 15px;
+}
+
+.detail-nav {
+    display: flex;
+    align-items: center;
+    /* width: 60%; */
+    height: 1.25em;
+    font-family: "roboto condensed";
+    color: #8C939A;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.detail-nav:hover {
+    cursor: pointer;
+}
+
+.left-arrow {
+    height: 110%;
+}
+
+.detail-component-title {
+    width: 100%;
+    font-family: "amatic sc";
+    margin-bottom: 20px;
+    color: #B84E4E;
+    font-size: 1.3em;
+}
+
+.detail-title-text {
+    font-size: 2.1em;
+    margin-bottom: 3px;
+}
+
+.detail-image {
+    float: left;
+    width: 30%;
+    object-fit: contain;
+    
+}
+
+.book-detail-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    justify-content: center;
+    padding-left: 15px;
+}
+
+.detail-title-author-container {
+    padding-bottom: 30px;
+}
+
+.detail-title {
+    font-size: 1.25em;
+}
+
+.detail-author {
+    font-size: 1em;
+    color: #8C939A;
+}
+
+.single-detail-container {
+    display: flex;
+}
+
+.detail-label {
+    width: 55%;
+}
+
+.detail-field {
+    color: #8C939A;
+    width: 45%;
+    text-align: center;
+}
 
 /* toast notifs styles */
 .Toastify__toast--success {
@@ -651,15 +772,15 @@ input, select {
     }
 
     .book-preview-text {
-        width: 90%;
+        width: 65%;
         padding-left: 1px;
     }
 
     .book-preview-title {
-        font-size:1.05em;
+        font-size:1.5em;
     }
 
     .book-preview-author {
-        font-size: .9em;
+        font-size: 1.15em;
     }
 }

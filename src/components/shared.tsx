@@ -1,9 +1,10 @@
+import { ChangeEvent } from 'react';
 import '../app.tsx';
 
 export interface SearchResultsProps {
-  toggleSearching: (e: any) => void;
+  toggleSearching: () => void;
   query: ResultData | undefined | null;
-  handleAddFavorite: (e: any) => void;
+  handleAddFavorite: (e: ChangeEvent<HTMLInputElement>) => void;
   children: React.ReactNode;
 }
 
@@ -39,7 +40,7 @@ export interface OverviewProps {
   showShelves: () => void;
   shelves: ShelfResultData | undefined;
   handleAddShelf: () => void;
-  handleType: (e: any) => void;
+  handleType: (e: ChangeEvent<HTMLInputElement>) => void;
   handleDeleteShelf: (shelfID: string) => void;
 }
 

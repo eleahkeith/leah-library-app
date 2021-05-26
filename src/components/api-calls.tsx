@@ -153,6 +153,7 @@ export const bookAPI = async (
   bookID: string | undefined,
   shelfID: string | undefined
 ) => {
+  console.log(bookID, shelfID);
   const response = await fetch(
     `https://get-some-books.herokuapp.com/shelves/${shelfID}/books?bookId=${bookID}`,
     {
@@ -181,7 +182,7 @@ export const bookAPI = async (
 
 export const getBookAPI = async (bookID: string) => {
   const response = await fetch(
-    `https://get-some-books.herokuapp.com/books/${bookID}`,
+    `https://get-some-books.herokuapp.com/book?id=${bookID}`,
     {
       headers: {
         Authorization: authToken,

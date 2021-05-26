@@ -3,10 +3,16 @@ import '../styles/reset.css';
 import '../styles/app.css';
 import bookshelf from '../images/book-shelf.png';
 import headerImage from '../images/header-image.png';
+import { useHistory } from 'react-router';
 
 const Header = () => {
+  const history = useHistory();
+
+  const goHome = () => {
+    history.push('/');
+  };
   return (
-    <div className="header-box">
+    <div onClick={goHome} className="header-box">
       <img
         className="shelf-image"
         src={bookshelf}
