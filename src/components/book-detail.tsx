@@ -2,10 +2,11 @@ import React from 'react';
 import '../styles/reset.css';
 import '../styles/app.css';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { getBookAPI } from './api-calls';
 import { bookAPI } from './api-calls';
 import AddBookModal from './add-book-modal';
+import LeftArrow from '../images/left-arrow.png';
 
 type Params = {
   book: string;
@@ -26,6 +27,8 @@ interface BookDetailProps {
 
 const BookDetail = () => {
   const book = useParams<Params>();
+
+  const history = useHistory();
 
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [bookDetail, setBookDetail] = useState<BookDetailProps>();
@@ -65,19 +68,24 @@ const BookDetail = () => {
     <>
       <div className="component-box">
         <div className="detail-component">
+          <div className="detail-nav" onClick={() => history.goBack()}>
+            <img className="left-arrow" src={LeftArrow} alt="left arrow" />
+            <span>Go Back</span>
+          </div>
+          <div className="detail-component-title">
+            <div className="detail-title-text">Book Detail</div>
+            <div className="shelf-options-container">
+              <div className="shelf-option" onClick={() => openModal()}>
+                Add to List
+              </div>
+            </div>
+          </div>
           <img
             className="detail-image"
             src={bookDetail?.imageURL}
             alt="book cover"
           />
           <div className="book-detail-container">
-            <div
-              className="shelf-option"
-              id="detail-add"
-              onClick={() => openModal()}
-            >
-              Add to List
-            </div>
             <div className="detail-title-author-container">
               <span className="detail-title">{bookDetail?.title}</span>
               <br />

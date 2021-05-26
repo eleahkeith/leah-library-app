@@ -1,5 +1,5 @@
 // notes: took out loading state in order to get router working, need to figure out how to add back in
-// need to refactor to move potential functions into own component
+// need to refactor to move potential duplicate states/functions into own component
 
 import React from 'react';
 import '../styles/reset.css';
@@ -16,7 +16,7 @@ import {
   bookAPI,
 } from './api-calls';
 import { ShelfType, BookResultType } from './shared';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import Modal from 'react-modal';
 
 interface Props {
@@ -123,6 +123,10 @@ const BookList = () => {
     <>
       <div className="component-book-list">
         <div className="component-box">
+          <Link className="home-button" to="/">
+            Home
+          </Link>
+
           <div className="component-list-title">
             <div className="component-title-text">{bookList?.name}</div>
             <div className="shelf-options-container">

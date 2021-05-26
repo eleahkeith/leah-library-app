@@ -16,14 +16,10 @@ const BookListItem = ({ book, rightAccessory }: BookListItemProps) => {
   };
 
   return (
-    <div
-      className="book-preview"
-      onClick={() => viewBookDetails(book.id)}
-      key={book.id}
-      id="list-book"
-    >
+    <div className="book-preview" key={book.id} id="list-book">
       <img
         className="book-preview-image"
+        onClick={() => viewBookDetails(book.id)}
         src={book.imageURL || undefined}
         alt="book cover"
       />{' '}

@@ -1,13 +1,13 @@
 --------css
-[ ]style shelf options on book detail page
+[x]style shelf options on book detail page
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
-[ ]style book detail page
+[x]style book detail page
 [ ]fix position of search link in search bar
 
 --------tsx
 [Navigation]
-[ ]book detail - back button (could go to search results, list, or overview)
-[ ]book list - home
+[x]book detail - back button (could go to search results, list, or overview)
+[x]book list - home
 [x]header - link to home
 
 [Shelf Overview]
@@ -28,8 +28,7 @@
  
 [Search]
 [ ]handle enter function for search
-[ ]input validation for search
-[ ]change search back to button w/ push instead of link
+[ ]clear input when you hit search
 
 [Search Results]
 [x]add book detail link

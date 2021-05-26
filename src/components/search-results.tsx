@@ -1,5 +1,3 @@
-// removed children button (add) while building new API calls, etc. Add back once complete.
-
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
@@ -45,7 +43,6 @@ const SearchResults = () => {
   const openAddBook = (book: string) => {
     setBookID(book);
     openModal();
-    console.log(bookID);
   };
 
   //@question maybe move to add book modal file?
@@ -75,7 +72,7 @@ const SearchResults = () => {
     <div className="component-book-list">
       <div className="component-box">
         <Link className="home-button" to="/">
-          <span>Home</span>
+          Home
         </Link>
         <div className="component-list-title" key={null}>
           <div className="component-title-text">
