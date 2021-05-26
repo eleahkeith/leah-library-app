@@ -1,4 +1,5 @@
 import React from 'react';
+import DeleteButton from '../images/delete-button.png';
 
 interface DeleteShelfProps {
   handleDeleteSubmit: () => void;
@@ -11,6 +12,12 @@ const DeleteShelfModal = ({
 }: DeleteShelfProps) => {
   return (
     <div className="shelf-form">
+      <img
+        className="modal-close-button"
+        src={DeleteButton}
+        alt="delete button"
+        onClick={closeModal}
+      />
       <div className="delete-modal-text-container">
         <span className="danger-text">Danger!</span>
         <span className="delete-modal-text">

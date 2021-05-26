@@ -11,6 +11,7 @@ import {
 } from './api-calls';
 import Modal from 'react-modal';
 import ShelfPreview from './shelf-preview';
+import DeleteButton from '../images/delete-button.png';
 
 const Overview = () => {
   const [loading, setLoading] = useState(false);
@@ -95,6 +96,12 @@ const Overview = () => {
       </div>
       <Modal className="Modal" overlayClassName="overlay" isOpen={modalIsOpen}>
         <form className="shelf-form">
+          <img
+            className="modal-close-button"
+            src={DeleteButton}
+            alt="delete button"
+            onClick={closeModal}
+          />
           <input
             className="modal-input"
             id="shelfName"
@@ -112,13 +119,6 @@ const Overview = () => {
               id="edit-button-modal"
               value="submit"
               onClick={handleAddSubmit}
-            />
-            <input
-              type="button"
-              className="button-on-light"
-              id="edit-button-modal"
-              value="go back"
-              onClick={closeModal}
             />
           </div>
         </form>

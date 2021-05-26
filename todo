@@ -1,11 +1,14 @@
 --------css
 [ ]style shelf options on book detail page
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
-[ ]add comments to break out components
-[x]style book detail page
+[ ]style book detail page
 [ ]fix position of search link in search bar
 
 --------tsx
+[Navigation]
+[ ]book detail - back button (could go to search results, list, or overview)
+[ ]book list - home
+[x]header - link to home
 
 [Shelf Overview]
 [ ]how to map only first x items on each list
@@ -15,18 +18,10 @@
 [ ]format date
 
 [Book List]
-[x]re-add delete
-[ ]move book from one shelf to another
-[x]add edit shelf functionality
-[ ]add book detail link
-[x]modal for edit shelf (pop up with shelf name and save)
-[x]modal for delete shelf (pop up with "are you sure?" then button to delete)
 
 [modals]
-[x]move edit shelf to own component
-[x]move delete shelf to own component
-[ ]change add book dropdowns to have hidden generic option
-[ ]change go back button to x
+[x]change add book dropdowns to have hidden generic option
+[x]change go back button to x
 [ ]bind element per console error msg
 [ ]put loading state in modal
 
@@ -34,12 +29,19 @@
 [Search]
 [ ]handle enter function for search
 [ ]input validation for search
-[ ]change search back to button w/ redirect
+[ ]change search back to button w/ push instead of link
 
 [Search Results]
+[x]add book detail link
 
 [Miscellaneous/Structure]
 [ ]move all if/else statements for API calls to a validate function that can be reused?
+
+--------Next Phase
+[ ]move book from one shelf to another
+[ ]add view list option after book added to list
+
+
 
 --------bugs
 
@@ -48,10 +50,9 @@
 [ ]animations for component boxes
 
 --------backend questions/requests
-
+[ ]add plot summary to the individual book detail API
 
 --------brainstorm
--edit only from detailed list 
 -when you click on full list, takes over the whole page and header becomes small, no image but title still present
 -use animation to push full list up and down
 -add bottom menu like the fancy apps

@@ -1,4 +1,5 @@
 import React from 'react';
+import DeleteButton from '../images/delete-button.png';
 
 interface EditShelfProps {
   setShelfName: (e: string) => void;
@@ -14,6 +15,12 @@ const EditShelfModal = ({
   return (
     <>
       <form className="shelf-form">
+        <img
+          className="modal-close-button"
+          src={DeleteButton}
+          alt="delete button"
+          onClick={closeModal}
+        />
         <input
           className="modal-input"
           onChange={(e) => setShelfName(e.target.value)}
@@ -30,13 +37,6 @@ const EditShelfModal = ({
             id="edit-button-modal"
             value="Submit"
             onClick={() => handleEditSubmit()}
-          />
-          <input
-            type="button"
-            className="button-on-light"
-            id="edit-button-modal"
-            value="go back"
-            onClick={closeModal}
           />
         </div>
       </form>

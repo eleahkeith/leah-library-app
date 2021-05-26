@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { getShelvesAPI } from './api-calls';
 import { ShelfResultData } from './shared';
+import DeleteButton from '../images/delete-button.png';
 
 interface AddProps {
   submitAddBook: (selectedShelf: string | undefined) => void;
@@ -37,10 +38,19 @@ const AddBookModal = ({ submitAddBook, closeModal, isOpen }: AddProps) => {
   return (
     <Modal className="Modal" overlayClassName="overlay" isOpen={isOpen}>
       <form className="shelf-form">
+        <img
+          className="modal-close-button"
+          src={DeleteButton}
+          alt="delete button"
+          onClick={closeModal}
+        />
         <select
           className="shelf-list-dropdown"
           onChange={(e) => setSelectedShelf(e.target.value)}
         >
+          <option hidden value=" ">
+            --select one--
+          </option>
           {mappedShelfNames}
         </select>
         <label className="list-label" htmlFor="list">
@@ -53,13 +63,6 @@ const AddBookModal = ({ submitAddBook, closeModal, isOpen }: AddProps) => {
             id="edit-button-modal"
             value="Add Book"
             onClick={() => submitAddBook(selectedShelf)}
-          />
-          <input
-            type="button"
-            className="button-on-light"
-            id="edit-button-modal"
-            value="Go Back"
-            onClick={closeModal}
           />
         </div>
       </form>
