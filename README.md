@@ -19,3 +19,27 @@ I am an avid reader, and I have struggled to find a simple, clean way to keep tr
 - Front end built with Reactjs/TypeScript 
 - Styled with CSS. 
 - Interacts with REST API to retrieve and store book data
+
+## Credits
+
+header image:
+
+https://www.pngwing.com/en/free-png-zpzkg
+
+add button png:
+
+<a href='https://pngtree.com/so/plus-icons'>plus icons png from pngtree.com</a>
+
+search icon png:
+
+<a href='https://pngtree.com/so/search-clipart'>search clipart png from pngtree.com</a>
+
+book loader:
+
+https://icons8.com/preloaders/
+
+shelf image:
+
+<a href='https://pngtree.com/so/book-clipart'>book clipart png from pngtree.com</a>
+
+<a href='https://pngtree.com/so/book-element'>book element png from pngtree.com</a>
