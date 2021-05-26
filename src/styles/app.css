@@ -452,11 +452,6 @@ input, select {
     background-color: #72a1acaf;
 }
 
-.button-on-light:focus {
-    outline: none;
-    background-color: #B84E4E;
-}
-
 
 /* shelf preview styles */
 
@@ -624,6 +619,7 @@ input, select {
 
 .single-detail-container {
     display: flex;
+    margin: 5px;
 }
 
 .detail-label {
@@ -658,6 +654,7 @@ input, select {
 
     }
 
+
     .header-box {
         justify-content: space-around;
         height: 11em;
@@ -681,11 +678,6 @@ input, select {
         top: 230px;
     }
 
-    .button-on-light:focus {
-        background-color: #B84E4E;
-
-    }
-
 
 }
 
@@ -694,6 +686,11 @@ input, select {
         height: 15em;
         justify-content: space-around;
         align-items: center;
+    }
+
+    .Modal {
+        left: 20%;
+        right: 20%;
     }
 
     .search-box {
@@ -741,6 +738,10 @@ input, select {
         justify-content: flex-start;
     }
 
+    .component-list-title {
+        font-size: 1.5em;
+    }
+
     .book-preview {
         width: 45%;
     }
@@ -749,11 +750,72 @@ input, select {
         width: 70%;
     }
 
+    .bookshelf-preview-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .shelf-preview {
+        width: 45%;
+        border: 1px solid #E0E0E0;
+        padding: 2px;
+        border-radius: 10px;
+    }
+
+    .shelf-preview-image {
+        width: 60%;
+    }
+
+    .add-shelf-container {
+        height: 50px;
+    }
+
+    #add-shelf-button {
+        height: 30px;
+    }
+
+    .detail-image {
+        width: 20%;
+    }
+
+    .book-detail-container {
+        margin-left: 10%;
+        font-size: 1.5em;
+    }
+
+    .detail-component-title {
+        font-size: 1.75em;
+    }
 }
 
 @media only screen and (min-width: 1075px) {
+
+    .Modal {
+        left: 30%;
+        right: 30%;
+    }
     .book-preview {
         width: 45%;
+    }
+
+    .shelf-preview-image {
+        width: 80%;
+    }
+
+
+    #add-shelf-button {
+        width: 25%;
+        height: 2em;
+        font-size: 1.1em;
+    }
+
+    .detail-image {
+        width: 15%;
+    }
+
+    .detail-label {
+        width: 30%;
     }
 }
 
@@ -782,5 +844,9 @@ input, select {
 
     .book-preview-author {
         font-size: 1.15em;
+    }
+
+    .detail-label {
+        width: 50%;
     }
 }

@@ -1,14 +1,16 @@
 --------css
-[x]style shelf options on book detail page
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
-[x]style book detail page
-[ ]fix position of search link in search bar
+[ ]remove hover styling for buttons
+
+[wide screen]
+[x]make reading lists 50% of component box with wide screen
+[x]make add shelf button smaller
+[x]decrease width of modals
+[x]decrease size of image on book detail page
+
 
 --------tsx
 [Navigation]
-[x]book detail - back button (could go to search results, list, or overview)
-[x]book list - home
-[x]header - link to home
 
 [Shelf Overview]
 [ ]how to map only first x items on each list
@@ -20,15 +22,12 @@
 [Book List]
 
 [modals]
-[x]change add book dropdowns to have hidden generic option
-[x]change go back button to x
 [ ]bind element per console error msg
 [ ]put loading state in modal
 
  
 [Search]
 [ ]handle enter function for search
-[ ]clear input when you hit search
 
 [Search Results]
 [x]add book detail link
