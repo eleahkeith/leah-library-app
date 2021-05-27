@@ -674,6 +674,11 @@ input, select {
 
     }
 
+    .Modal-Loading {
+        left: 40%;
+        right: 40%;
+ }
+
 
     .header-box {
         justify-content: space-around;
@@ -712,6 +717,12 @@ input, select {
         left: 20%;
         right: 20%;
     }
+
+    .Modal-Loading {
+        left: 42%;
+        right: 42%;
+ }
+    
 
     .search-box {
         width: 40%;
@@ -812,14 +823,9 @@ input, select {
 @media only screen and (min-width: 1075px) {
 
     .Modal-Loading {
-        position: absolute;
-        top: 40%;
         left: 45%;
         right: 45%;
-        bottom: 50%;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 2px 2px #E0E0E0;
+
       }
     
 
@@ -859,6 +865,10 @@ input, select {
     .header-title-subtext {
         font-size: .85em;
         padding-top: 2px;
+    }
+
+    .loading-text {
+        font-size: 1em;
     }
 
     .search-input {
