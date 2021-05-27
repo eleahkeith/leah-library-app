@@ -45,12 +45,14 @@
 
 --------backend questions/requests
 [ ]add plot summary to the individual book detail API
+[ ]should 
 
 --------brainstorm
 -when you click on full list, takes over the whole page and header becomes small, no image but title still present
 -use animation to push full list up and down
 -add bottom menu like the fancy apps
-
+when you first go to the page, checks if you are logged in 
+    (how? check if auth token exists in local storage, if so direct to overview, if not to log in )
 
 
 --------credits to add

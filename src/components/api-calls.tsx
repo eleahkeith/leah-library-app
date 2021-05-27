@@ -199,3 +199,26 @@ export const getBookAPI = async (bookID: string) => {
     return null;
   }
 };
+
+export const registerAPI = async (emailAdd: string | undefined) => {
+  const response = await fetch(
+    `https://get-some-books-staging.herokuapp.com/register`,
+    {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
+      body: emailAdd,
+    }
+  );
+
+  if (response.ok) {
+    const data = await response.json();
+
+    if (data.success) {
+      toast.success('Email sent!');
+    } else {
+      toast.error(standardErrMsg);
+    }
+  }
+};
+
+// export const LoginAPI = async (authCode: string) => {};
