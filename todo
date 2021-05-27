@@ -1,7 +1,4 @@
 ******Important
-[x]move get shelves so that it doesn't pull as soon as page loads
-[x]add loading modal
-
 --------css
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
 [ ]remove hover styling for buttons
@@ -13,20 +10,12 @@
 [ ]how to map only first x items on each list
 [ ]use edit shelf modal to render add shelf option
 
-[Book Detail]
-[x]format date
-
-[Book List]
-
 [modals]
 [ ]bind element per console error msg
-[x]put loading state in modal
 
  
 [Search]
 [ ]handle enter function for search
-
-[Search Results]
 
 [Miscellaneous/Structure]
 [ ]move all if/else statements for API calls to a validate function that can be reused?
