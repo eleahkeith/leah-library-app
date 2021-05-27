@@ -7,6 +7,7 @@ import '../styles/app.css';
 import BookListItem from './book-list-item';
 import EditShelfModal from './edit-shelf-modal';
 import DeleteShelfModal from './delete-shelf-modal';
+import BookLoader from './loading-modal';
 import deleteButton from '../images/delete-button.png';
 import { useState, useEffect } from 'react';
 import {
@@ -43,10 +44,12 @@ const BookList = () => {
   const history = useHistory();
 
   const getListBooks = async () => {
+    setIsOpen(true);
     setLoading(true);
     const apiResults = await getShelfBooksAPI(shelf.shelfID);
     const listResult = apiResults?.item;
     setBookList(listResult);
+    setIsOpen(false);
     setLoading(false);
   };
 
@@ -140,19 +143,25 @@ const BookList = () => {
           <div className="component-list-body">{mappedBookItems}</div>
         </div>
       </div>
-      <Modal className="Modal" overlayClassName="overlay" isOpen={modalIsOpen}>
+      <Modal
+        className={loading ? 'Modal-Loading' : 'Modal'}
+        overlayClassName="overlay"
+        isOpen={modalIsOpen}
+      >
         {' '}
-        {!isDeleting ? (
+        {loading ? (
+          <BookLoader></BookLoader>
+        ) : isDeleting ? (
+          <DeleteShelfModal
+            handleDeleteSubmit={handleDeleteSubmit}
+            closeModal={closeModal}
+          ></DeleteShelfModal>
+        ) : (
           <EditShelfModal
             setShelfName={setShelfName}
             handleEditSubmit={handleEditSubmit}
             closeModal={closeModal}
           ></EditShelfModal>
-        ) : (
-          <DeleteShelfModal
-            handleDeleteSubmit={handleDeleteSubmit}
-            closeModal={closeModal}
-          ></DeleteShelfModal>
         )}
       </Modal>
     </>

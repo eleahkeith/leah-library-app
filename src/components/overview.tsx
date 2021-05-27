@@ -38,8 +38,10 @@ const Overview = () => {
   };
 
   const showShelves = async () => {
+    setIsOpen(true);
     setLoading(true);
     const result = await getShelvesAPI();
+    setIsOpen(false);
     setLoading(false);
     setShelves(result);
   };
@@ -89,7 +91,11 @@ const Overview = () => {
         </div>
         <div className="bookshelf-preview-container">{mappedShelves}</div>
       </div>
-      <Modal className="Modal" overlayClassName="overlay" isOpen={modalIsOpen}>
+      <Modal
+        className={loading ? 'Modal-Loading' : 'Modal'}
+        overlayClassName="overlay"
+        isOpen={modalIsOpen}
+      >
         {loading ? (
           <BookLoader></BookLoader>
         ) : (

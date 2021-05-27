@@ -1,6 +1,6 @@
 ******Important
 [ ]move get shelves so that it doesn't pull as soon as page loads
-[ ]add loading modal
+[x]add loading modal
 
 --------css
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
@@ -20,7 +20,7 @@
 
 [modals]
 [ ]bind element per console error msg
-[ ]put loading state in modal
+[x]put loading state in modal
 
  
 [Search]

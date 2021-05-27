@@ -89,7 +89,7 @@ const SearchResults = () => {
         </div>
         <div className="component-list-body">{mappedBooks}</div>
         <Modal
-          className="Modal"
+          className={loading ? 'Modal-Loading' : 'Modal'}
           overlayClassName="overlay"
           isOpen={modalIsOpen}
         >
