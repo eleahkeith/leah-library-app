@@ -7,6 +7,10 @@
 [ ]remove hover styling for buttons
 
 --------tsx
+
+[login]
+[ ]add check for email 
+
 [Navigation]
 
 [Shelf Overview]

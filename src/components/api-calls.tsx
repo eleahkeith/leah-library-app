@@ -201,12 +201,17 @@ export const getBookAPI = async (bookID: string) => {
 };
 
 export const registerAPI = async (emailAdd: string | undefined) => {
+  const email = {
+    email: emailAdd,
+  };
+
+  const body = JSON.stringify(email);
   const response = await fetch(
     `https://get-some-books-staging.herokuapp.com/register`,
     {
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
-      body: emailAdd,
+      body: body,
     }
   );
 
