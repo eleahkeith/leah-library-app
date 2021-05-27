@@ -1,6 +1,5 @@
 /* 
 colors
-
 FFFFFF - white - background and font on button
 E0E0E0 - light light gray - borders
 72A0AC - teal - background color and button
@@ -63,8 +62,8 @@ input, select {
   .Modal-Loading {
     position: absolute;
     top: 40%;
-    left: 45%;
-    right: 45%;
+    left: 35%;
+    right: 35%;
     bottom: 50%;
     background-color: #fff;
     border-radius: 5px;
@@ -811,6 +810,18 @@ input, select {
 }
 
 @media only screen and (min-width: 1075px) {
+
+    .Modal-Loading {
+        position: absolute;
+        top: 40%;
+        left: 45%;
+        right: 45%;
+        bottom: 50%;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 2px 2px #E0E0E0;
+      }
+    
 
     .Modal {
         left: 30%;
