@@ -4,7 +4,7 @@
 Leah's Library is a web app that allows the user to create/edit/delete bookshelves, and then add or remove books to each shelf. 
 
 ## Currently (updated 27/5/21)
-- adding loading state
+- ~~adding loading state~~
 - adding authentication to allow for multiple users
 
 ## Why this app?
