@@ -8,6 +8,8 @@ import BookListItem from './book-list-item';
 import { ResultData } from './shared';
 import { searchAPI, bookAPI } from './api-calls';
 import AddBookModal from './add-book-modal';
+import BookLoader from './loading-modal';
+import Modal from 'react-modal';
 
 interface Props {
   book: string;
@@ -15,6 +17,7 @@ interface Props {
 }
 
 const SearchResults = () => {
+  const [loading, setLoading] = useState<boolean>(false);
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [query, setQuery] = useState<ResultData | null | undefined>();
   const [bookID, setBookID] = useState<string>();
@@ -24,7 +27,11 @@ const SearchResults = () => {
   const title = parseSearch.get('title');
 
   const getResults = async () => {
+    setIsOpen(true);
+    setLoading(true);
     const results = await searchAPI(title);
+    setIsOpen(false);
+    setLoading(false);
     setQuery(results);
   };
 
@@ -38,6 +45,7 @@ const SearchResults = () => {
 
   useEffect(() => {
     getResults();
+    // eslint-disable-next-line
   }, [location]);
 
   const openAddBook = (book: string) => {
@@ -81,11 +89,20 @@ const SearchResults = () => {
           </div>
         </div>
         <div className="component-list-body">{mappedBooks}</div>
-        <AddBookModal
+        <Modal
+          className={loading ? 'Modal-Loading' : 'Modal'}
+          overlayClassName="overlay"
           isOpen={modalIsOpen}
-          submitAddBook={submitAddBook}
-          closeModal={closeModal}
-        ></AddBookModal>
+        >
+          {loading ? (
+            <BookLoader></BookLoader>
+          ) : (
+            <AddBookModal
+              submitAddBook={submitAddBook}
+              closeModal={closeModal}
+            ></AddBookModal>
+          )}
+        </Modal>
       </div>
     </div>
   );

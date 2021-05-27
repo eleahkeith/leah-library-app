@@ -5,7 +5,9 @@ import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { getBookAPI } from './api-calls';
 import { bookAPI } from './api-calls';
+import Modal from 'react-modal';
 import AddBookModal from './add-book-modal';
+import BookLoader from './loading-modal';
 import LeftArrow from '../images/left-arrow.png';
 import { parseISO, format } from 'date-fns';
 
@@ -31,12 +33,17 @@ const BookDetail = () => {
 
   const history = useHistory();
 
+  const [loading, setLoading] = useState<boolean>(false);
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [bookDetail, setBookDetail] = useState<BookDetailProps>();
   const [bookID, setBookID] = useState<string>(book.bookID);
 
   const getBookResults = async (bookID: string) => {
+    setLoading(true);
+    setIsOpen(true);
     const bkInfo = await getBookAPI(bookID);
+    setIsOpen(false);
+    setLoading(false);
     setBookDetail(bkInfo);
   };
 
@@ -50,6 +57,7 @@ const BookDetail = () => {
 
   useEffect(() => {
     getBookResults(bookID);
+    // eslint-disable-next-line
   }, []);
 
   const checkDate = (dateString: string | undefined) => {
@@ -130,11 +138,20 @@ const BookDetail = () => {
           </div>
         </div>
       </div>
-      <AddBookModal
+      <Modal
+        className={loading ? 'Modal-Loading' : 'Modal'}
+        overlayClassName="overlay"
         isOpen={modalIsOpen}
-        submitAddBook={submitAddBook}
-        closeModal={closeModal}
-      ></AddBookModal>
+      >
+        {loading ? (
+          <BookLoader></BookLoader>
+        ) : (
+          <AddBookModal
+            submitAddBook={submitAddBook}
+            closeModal={closeModal}
+          ></AddBookModal>
+        )}
+      </Modal>
     </>
   );
 };
