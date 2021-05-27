@@ -1,13 +1,10 @@
+******Important
+[ ]move get shelves so that it doesn't pull as soon as page loads
+[ ]add loading modal
+
 --------css
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
 [ ]remove hover styling for buttons
-
-[wide screen]
-[x]make reading lists 50% of component box with wide screen
-[x]make add shelf button smaller
-[x]decrease width of modals
-[x]decrease size of image on book detail page
-
 
 --------tsx
 [Navigation]
@@ -17,7 +14,7 @@
 [ ]use edit shelf modal to render add shelf option
 
 [Book Detail]
-[ ]format date
+[x]format date
 
 [Book List]
 
@@ -30,7 +27,6 @@
 [ ]handle enter function for search
 
 [Search Results]
-[x]add book detail link
 
 [Miscellaneous/Structure]
 [ ]move all if/else statements for API calls to a validate function that can be reused?

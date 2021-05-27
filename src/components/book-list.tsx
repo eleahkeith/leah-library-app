@@ -47,6 +47,7 @@ const BookList = () => {
     const apiResults = await getShelfBooksAPI(shelf.shelfID);
     const listResult = apiResults?.item;
     setBookList(listResult);
+    setLoading(false);
   };
 
   const openModal = () => {
@@ -69,9 +70,7 @@ const BookList = () => {
   };
 
   const handleDeleteShelf = async (shelfID: string) => {
-    setLoading(true);
     await deleteShelfAPI(shelfID);
-    setLoading(false);
   };
 
   const handleDeleteSubmit = async () => {
@@ -81,9 +80,7 @@ const BookList = () => {
   };
 
   const handleEditShelf = async (shelfID: string, shelfName: string) => {
-    setLoading(true);
     await editShelfAPI(shelfID, shelfName);
-    setLoading(false);
   };
 
   const handleEditSubmit = async () => {
@@ -93,9 +90,11 @@ const BookList = () => {
   };
 
   const handleDeleteBook = async (uniqueID: string) => {
+    setIsOpen(true);
     setLoading(true);
     await bookAPI('DELETE', uniqueID, shelf.shelfID);
     setLoading(false);
+    setIsOpen(false);
     getListBooks();
   };
 

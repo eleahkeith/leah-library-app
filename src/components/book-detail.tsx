@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { getBookAPI } from './api-calls';
 import { bookAPI } from './api-calls';
+import Modal from 'react-modal';
 import AddBookModal from './add-book-modal';
 import LeftArrow from '../images/left-arrow.png';
 import { parseISO, format } from 'date-fns';
@@ -130,11 +131,12 @@ const BookDetail = () => {
           </div>
         </div>
       </div>
-      <AddBookModal
-        isOpen={modalIsOpen}
-        submitAddBook={submitAddBook}
-        closeModal={closeModal}
-      ></AddBookModal>
+      <Modal className="Modal" overlayClassName="overlay" isOpen={modalIsOpen}>
+        <AddBookModal
+          submitAddBook={submitAddBook}
+          closeModal={closeModal}
+        ></AddBookModal>
+      </Modal>
     </>
   );
 };

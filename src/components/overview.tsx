@@ -12,6 +12,7 @@ import {
 import Modal from 'react-modal';
 import ShelfPreview from './shelf-preview';
 import DeleteButton from '../images/delete-button.png';
+import BookLoader from './loading-modal';
 
 const Overview = () => {
   const [loading, setLoading] = useState(false);
@@ -44,24 +45,18 @@ const Overview = () => {
   };
 
   const handleAddShelf = async () => {
-    setLoading(true);
     await addShelfAPI(newShelfName);
-    setLoading(false);
     showShelves();
     setShelfName(' ');
   };
 
   const handleDeleteShelf = async (shelfID: string) => {
-    setLoading(true);
     await deleteShelfAPI(shelfID);
-    setLoading(false);
     showShelves();
   };
 
   const handleEditShelf = async (shelfID: string, shelfName: string) => {
-    setLoading(true);
     await editShelfAPI(shelfID, shelfName);
-    setLoading(false);
     showShelves();
   };
 
@@ -95,33 +90,37 @@ const Overview = () => {
         <div className="bookshelf-preview-container">{mappedShelves}</div>
       </div>
       <Modal className="Modal" overlayClassName="overlay" isOpen={modalIsOpen}>
-        <form className="shelf-form">
-          <img
-            className="modal-close-button"
-            src={DeleteButton}
-            alt="delete button"
-            onClick={closeModal}
-          />
-          <input
-            className="modal-input"
-            id="shelfName"
-            name="shelfName"
-            placeholder="Enter New Shelf Name"
-            onChange={(e) => handleType(e)}
-          ></input>
-          <label htmlFor="shelfName" className="edit-label">
-            Shelf Name
-          </label>
-          <div className="shelf-option-container">
-            <input
-              type="button"
-              className="button-on-light"
-              id="edit-button-modal"
-              value="submit"
-              onClick={handleAddSubmit}
+        {loading ? (
+          <BookLoader></BookLoader>
+        ) : (
+          <form className="shelf-form">
+            <img
+              className="modal-close-button"
+              src={DeleteButton}
+              alt="close button"
+              onClick={closeModal}
             />
-          </div>
-        </form>
+            <input
+              className="modal-input"
+              id="shelfName"
+              name="shelfName"
+              placeholder="Enter New Shelf Name"
+              onChange={(e) => handleType(e)}
+            ></input>
+            <label htmlFor="shelfName" className="edit-label">
+              Shelf Name
+            </label>
+            <div className="shelf-option-container">
+              <input
+                type="button"
+                className="button-on-light"
+                id="edit-button-modal"
+                value="submit"
+                onClick={handleAddSubmit}
+              />
+            </div>
+          </form>
+        )}
       </Modal>
     </>
   );
