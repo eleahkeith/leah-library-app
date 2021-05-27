@@ -103,6 +103,7 @@ const BookList = () => {
 
   useEffect(() => {
     getListBooks();
+    // eslint-disable-next-line
   }, []);
 
   const favoritesList = bookList?.books || [];

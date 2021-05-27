@@ -45,6 +45,7 @@ const SearchResults = () => {
 
   useEffect(() => {
     getResults();
+    // eslint-disable-next-line
   }, [location]);
 
   const openAddBook = (book: string) => {

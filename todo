@@ -1,5 +1,5 @@
 ******Important
-[ ]move get shelves so that it doesn't pull as soon as page loads
+[x]move get shelves so that it doesn't pull as soon as page loads
 [x]add loading modal
 
 --------css

@@ -51,6 +51,7 @@ const BookDetail = () => {
 
   useEffect(() => {
     getBookResults(bookID);
+    // eslint-disable-next-line
   }, []);
 
   const checkDate = (dateString: string | undefined) => {
