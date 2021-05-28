@@ -1,3 +1,5 @@
+// @refactor - put auth token in one const
+
 import { toast } from 'react-toastify';
 import { ResultData, ShelfResultData, GetShelfAPIType } from './shared';
 

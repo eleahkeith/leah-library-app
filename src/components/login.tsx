@@ -4,7 +4,11 @@ import { toast } from 'react-toastify';
 import { registerAPI, loginAPI } from './api-calls';
 import Modal from 'react-modal';
 
-const Login = () => {
+interface LoginProps {
+  onLogin: () => void;
+}
+
+const Login = ({ onLogin }: LoginProps) => {
   const [email, setEmail] = useState<string>();
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [auth, setAuth] = useState<string>();
@@ -34,6 +38,7 @@ const Login = () => {
     if (email) {
       const tokenRes = await loginAPI(email, authCode);
       localStorage.setItem('Authorization', `Bearer ${tokenRes.jwt}`);
+      onLogin();
       setIsOpen(false);
     } else {
       toast.error('Something went wrong! Please try again');
