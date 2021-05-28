@@ -243,10 +243,13 @@ export const loginAPI = async (emailAddr: string, authCode: string) => {
     const data = await response.json();
     if (data.success) {
       toast.success('Login successful!');
+      return data;
     } else {
       toast.error(data.message);
+      return null;
     }
   } else {
     toast.error(standardErrMsg);
+    return null;
   }
 };

@@ -32,7 +32,9 @@ const Login = () => {
 
   const handleLogin = async (authCode: string) => {
     if (email) {
-      loginAPI(email, authCode);
+      const tokenRes = await loginAPI(email, authCode);
+      localStorage.setItem('Authorization', `Bearer ${tokenRes.jwt}`);
+      setIsOpen(false);
     } else {
       toast.error('Something went wrong! Please try again');
     }

@@ -1,15 +1,14 @@
 ******Important
-[x]move get shelves so that it doesn't pull as soon as page loads
-[x]add loading modal
 
 --------css
+[ ]style register and log in modal
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
 [ ]remove hover styling for buttons
 
 --------tsx
 
 [login]
-[ ]add check for email 
+[x]add check for email 
 
 [Navigation]
 
