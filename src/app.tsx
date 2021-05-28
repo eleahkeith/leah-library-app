@@ -14,7 +14,7 @@ import LoggedInPath from './components/logged-in-path';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
-  const authToken: string | null = localStorage.getItem('Authorization');
+  const authToken = localStorage.getItem('Authorization');
 
   const checkLogIn = async () => {
     if (authToken) {

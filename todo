@@ -10,18 +10,17 @@
 [login]
 [x]add check for email 
 
+[api]
+[ ]change all URLs to staging
+[ ]refactor
+
 [Navigation]
-[ ]search for "/" and change to home
+[x]search for "/" and change to home
 [ ]
 
 [Shelf Overview]
 [ ]how to map only first x items on each list
 [ ]use edit shelf modal to render add shelf option
-
-[Book Detail]
-[x]format date
-
-[Book List]
 
 [modals]
 [ ]bind element per console error msg
@@ -31,7 +30,6 @@
 [Search]
 [ ]handle enter function for search
 
-[Search Results]
 
 [Miscellaneous/Structure]
 [ ]move all if/else statements for API calls to a validate function that can be reused?

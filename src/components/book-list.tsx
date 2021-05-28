@@ -79,7 +79,7 @@ const BookList = () => {
   const handleDeleteSubmit = async () => {
     await handleDeleteShelf(shelf.shelfID);
     closeModal();
-    history.push('/');
+    history.push('/home');
   };
 
   const handleEditShelf = async (shelfID: string, shelfName: string) => {
@@ -126,7 +126,7 @@ const BookList = () => {
     <>
       <div className="component-book-list">
         <div className="component-box">
-          <Link className="home-button" to="/">
+          <Link className="home-button" to="/home">
             Home
           </Link>
 
