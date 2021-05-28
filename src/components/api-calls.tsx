@@ -200,7 +200,7 @@ export const getBookAPI = async (bookID: string) => {
   }
 };
 
-export const registerAPI = async (emailAdd: string | undefined) => {
+export const registerAPI = async (emailAdd: string) => {
   const email = {
     email: emailAdd,
   };
@@ -226,4 +226,27 @@ export const registerAPI = async (emailAdd: string | undefined) => {
   }
 };
 
-// export const LoginAPI = async (authCode: string) => {};
+export const loginAPI = async (emailAddr: string, authCode: string) => {
+  const info = { email: emailAddr, token: authCode };
+  const body = JSON.stringify(info);
+
+  const response = await fetch(
+    `https://get-some-books-staging.herokuapp.com/login`,
+    {
+      headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
+      body: body,
+    }
+  );
+
+  if (response.ok) {
+    const data = await response.json();
+    if (data.success) {
+      toast.success('Login successful!');
+    } else {
+      toast.error(data.message);
+    }
+  } else {
+    toast.error(standardErrMsg);
+  }
+};
