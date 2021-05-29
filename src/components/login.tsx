@@ -49,23 +49,38 @@ const Login = ({ onLogin }: LoginProps) => {
     <>
       <div className="login-overlay">
         <div className="login-box">
+          <span className="login-title">
+            <span className="title-1">biblio</span>
+            <span className="title-2">file</span>
+          </span>
+
           <form className="email-form">
-            <label className="login-label" htmlFor="email">
-              Enter Your Email
-            </label>
             <input
-              className="login-input"
+              className="modal-input"
               type="email"
               placeholder="e.g. leah@domain.com"
               onChange={(e) => setEmail(e.target.value)}
             />
+            <label className="edit-label" htmlFor="email">
+              Email
+            </label>
             <input
               type="button"
               className="button-on-light"
+              id="login-button"
               value="Send Email"
               onClick={() => checkEmail(email)}
             />
           </form>
+          <div className="login-text">
+            <ol>
+              <li className="list-item">Enter your email address</li>
+              <li className="list-item">
+                Provide the authorization code we send to you
+              </li>
+              <li className="list-item">Start your own biblio file!</li>
+            </ol>
+          </div>
         </div>
       </div>
       <Modal className="Modal" isOpen={modalIsOpen}>

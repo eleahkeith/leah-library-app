@@ -8,14 +8,16 @@
 --------tsx
 
 [login]
-[x]add check for email 
+[x]add check for email
+[ ]add log out function 
 
 [api]
-[ ]change all URLs to staging
+[x]change all URLs to staging
 [ ]refactor
+[ ]add function called startAPI which checks to see if auth token exists, pass api 
+    as argument
 
 [Navigation]
-[x]search for "/" and change to home
 [ ]
 
 [Shelf Overview]
@@ -24,8 +26,6 @@
 
 [modals]
 [ ]bind element per console error msg
-[x]put loading state in modal
-
  
 [Search]
 [ ]handle enter function for search
