@@ -1,9 +1,11 @@
 ******Important
+[ ]bug: shelves don't load until you refresh after logging in
+
 
 --------css
-[ ]style register and log in modal
+[x]style register and log in modal
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
-[ ]remove hover styling for buttons
+[x]remove active styling for buttons
 
 --------tsx
 
@@ -16,9 +18,12 @@
 [ ]refactor
 [ ]add function called startAPI which checks to see if auth token exists, pass api 
     as argument
+[ ]move all if/else statements for API calls to a validate function that can be reused?
+
 
 [Navigation]
-[ ]
+[ ]fix url's so that they navigate to /home/xxxxx
+[ ]fix so that it doesn't redirect to home on every page
 
 [Shelf Overview]
 [ ]how to map only first x items on each list
@@ -32,7 +37,6 @@
 
 
 [Miscellaneous/Structure]
-[ ]move all if/else statements for API calls to a validate function that can be reused?
 
 --------Next Phase
 [ ]move book from one shelf to another
@@ -41,6 +45,7 @@
 
 
 --------bugs
+[ ]shelves don't load until you refresh after logging in
 
 
 --------learning
@@ -48,7 +53,6 @@
 
 --------backend questions/requests
 [ ]add plot summary to the individual book detail API
-[ ]should 
 
 --------brainstorm
 -when you click on full list, takes over the whole page and header becomes small, no image but title still present
