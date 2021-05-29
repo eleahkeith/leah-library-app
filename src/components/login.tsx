@@ -83,26 +83,41 @@ const Login = ({ onLogin }: LoginProps) => {
           </div>
         </div>
       </div>
-      <Modal className="Modal" isOpen={modalIsOpen}>
-        <div>
-          An email with your authorization code has been sent to {email}
+      <Modal className="Modal-Login" isOpen={modalIsOpen}>
+        <div className="auth-box">
+          {' '}
+          <div className="auth-text">
+            An email with your authorization code has been sent to {email}
+          </div>
+          <form className="auth-form">
+            <input
+              className="modal-input"
+              onChange={(e) => setAuth(e.target.value)}
+              placeholder="Enter code..."
+            ></input>
+            <label className="edit-label" htmlFor="authCode">
+              Enter your code here
+            </label>
+
+            <input
+              type="button"
+              className="button-on-light"
+              id="login-button"
+              value="Login"
+              onClick={() => checkCode(auth)}
+            />
+          </form>
+          <span className="auth-text">
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
+            Didn't receive your code?{' '}
+            <span onClick={() => console.log('resent')} className="resend-text">
+              Click here to resend!
+            </span>{' '}
+          </span>
+          <span className="auth-text" id="spam-text">
+            Note: check your spam folder
+          </span>
         </div>
-        <form>
-          <label htmlFor="authCode">Enter your code here</label>
-          <input
-            onChange={(e) => setAuth(e.target.value)}
-            placeholder="Enter code..."
-          ></input>
-          <input
-            type="button"
-            className="button-on-light"
-            value="Login"
-            onClick={() => checkCode(auth)}
-          />
-        </form>
-        {/* eslint-disable-next-line react/no-unescaped-entities */}
-        <span>Didn't receive your code? Click here to resend! </span>
-        <span>Note: check your spam folder</span>
       </Modal>
     </>
   );

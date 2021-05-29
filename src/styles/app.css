@@ -71,6 +71,18 @@ input, select {
     box-shadow: 2px 2px #E0E0E0;
   }
 
+  .Modal-Login {
+    position: absolute;
+    top: 20%;
+    bottom: 20%;
+    left: 15%;
+    right: 15%;
+    background-color: #fff;
+    border: 1.5px solid #E0E0E0;
+    border-radius: 5px;
+}
+
+
   .overlay {
         position: fixed;
         top: 0;
@@ -270,6 +282,7 @@ input, select {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     position: absolute;
     top: 15%;
     left: 10%;
@@ -285,7 +298,7 @@ input, select {
     justify-content: center;
     margin: 15px 0 30px 0;
     font-family: "amatic sc";
-    font-size: 4.5em;
+    font-size: 4.25em;
 }
 
 .title-1 {
@@ -314,16 +327,44 @@ ol {
     flex-direction: column;
     font-family: "roboto condensed";
     color: #8C939A;
-    font-size: 1.5em;
-    margin: 30px;
+    font-size: 1.25em;
+    margin: 10px;
     height: 10em;
-    width: 60%;
+    width: 70%;
 }
 
 .list-item {
     text-align: justify;
     padding-bottom: 30px;
 }
+
+.auth-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: space-around;
+    justify-content: space-around;
+    font-family: "roboto condensed";
+    margin: 10px;
+}
+
+.auth-text {
+    font-size: 1.15em;
+    text-align: center;
+    color: #3A333B;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-bottom: 20px; */
+}
+
+#spam-text {
+    color: #B84E4E;
+}
+
 
 /* component styles */
 .component-box {
@@ -750,6 +791,25 @@ ol {
         right: 40%;
  }
 
+    .Modal-Login {
+        top: 25%;
+        bottom: 25%;
+        left: 25%;
+        right: 25%;
+    }
+
+    .login-title {
+        font-size: 4.5em;
+    }
+
+    .login-text {
+        width: 60%;
+        font-size: 1.5em;
+    }
+
+    .auth-text {
+        font-size: 1.25em;
+    }
 
     .header-box {
         justify-content: space-around;
@@ -905,17 +965,6 @@ ol {
         right: 30%;
     }
 
-    .login-overlay {
-        flex-direction: column;
-        align-items: flex-end;
-
-    }
-    
-    .login-box {
-        width: 40%;
-        height: 100%;
-      }
-    
     .book-preview {
         width: 45%;
     }
