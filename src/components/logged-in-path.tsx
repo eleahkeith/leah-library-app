@@ -5,6 +5,7 @@ import Overview from './overview';
 import SearchResults from './search-results';
 import BookList from './book-list';
 import BookDetail from './book-detail';
+import Logout from './logout';
 import { UserContext } from '../user-context';
 import {
   BrowserRouter as Router,
@@ -20,6 +21,7 @@ const LoggedInPath = () => {
   return (
     <Router>
       <Route path={loginURL}>
+        {loggedIn ? <Logout /> : null}
         <Header></Header>
         <Search></Search>
         <Switch>

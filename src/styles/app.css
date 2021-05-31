@@ -242,7 +242,7 @@ input, select {
 .header-text-box {
     display: flex;
     flex-wrap: wrap;
-    padding: 5px;
+    padding: 12px;
 }
 
 .header-title-text {
@@ -261,9 +261,9 @@ input, select {
 
 .header-image {
     position: absolute;
-    height: 180%;
-    right: -35px;
-    bottom: -28px;
+    height: 100%;
+    right: -25px;
+    bottom: -5px;
 
 }
 
@@ -303,7 +303,7 @@ input, select {
     justify-content: center;
     margin: 15px 0 30px 0;
     font-family: "martel";
-    font-size: 4.25em;
+    font-size: 4em;
 }
 
 .title-1 {
@@ -370,6 +370,22 @@ ol {
     color: #B84E4E;
 }
 
+.logout-container {
+    height: 1.5em;
+}
+
+.logout-button {
+    position: absolute;
+    right: 7.5px;
+    top: 7.5px;
+    background-color: #fff;
+    color: #8C939A;
+    font-family: "open sans";
+    font-size: .95em;
+    border: none;
+    border-radius: 3px;
+}
+
 
 /* component styles */
 .component-box {
@@ -400,7 +416,7 @@ ol {
 }
 
 .component-title-text {
-    font-size: 2.25em;
+    font-size: 1.75em;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -422,10 +438,9 @@ ol {
 
 .home-button {
     position: absolute;
-    z-index: 1;
     right: 15px;
     top: 15px;
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
 .component-body-error {
@@ -582,7 +597,8 @@ ol {
 
 #search-button {
     position: absolute;
-    right: 18%;
+    right: 10px;
+    top: 10px;
 }
 
 .button-on-light:hover {
@@ -631,7 +647,7 @@ ol {
 .shelf-preview-title {
     font-family: "martel";
     color: #B84E4E;
-    font-size: 2em;
+    font-size: 1.4em;
     padding-bottom: 3px;
 }
 
@@ -671,7 +687,7 @@ ol {
 
 .list-link-container {
     position: absolute;
-    right: 20px;
+    right: 10px;
     top: 10px;
 }
 
@@ -722,7 +738,7 @@ ol {
 }
 
 .detail-title-text {
-    font-size: 2.1em;
+    font-size: 1.5em;
     margin-bottom: 3px;
 }
 
@@ -781,14 +797,13 @@ ol {
     background: #B84E4E !important;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 625px) {
     .shelf-image {
         display: inline;
         position: absolute;
         height: 90%;
-        left: 10px;
+        left: 7px;
         top: -20px;
-
     }
 
     .Modal-Loading {
@@ -839,6 +854,16 @@ ol {
         top: 230px;
     }
 
+    .shelf-preview-title {
+        font-size: 1.6em;
+    }
+
+    .logout-container {
+        height: 2.5em;
+    }
+    .logout-button {
+        font-size: 1.4em;
+    }
 
 }
 
@@ -865,10 +890,6 @@ ol {
         margin-left: 30%;
     }
 
-    #search-button {
-        right: 31%;
-    }
-
     .header-text-box {
         justify-content: flex-start;
     }
@@ -887,14 +908,14 @@ ol {
         display: inline;
         position: absolute;
         top: -22px;
-        left: 30px;
-        height: 80%;
+        left: 15px;
+        height: 70%;
     }
 
     .header-image {
-        right: -60px;
-        bottom: -30px;
-        height: 150%;
+        right: -35px;
+        bottom: -15px;
+        height: 90%;
     }
 
     #new-search-button {
@@ -992,9 +1013,23 @@ ol {
     .detail-label {
         width: 30%;
     }
+
+    .logout-button {
+        font-size: 1.2em;
+    }
+
 }
 
 @media only screen and (max-width: 400px) {
+
+    .login-title {
+        font-size: 3.5em;
+        padding-top: 25px;
+    }
+
+    .list-item {
+        text-align: left;
+    }
     .header-title-text {
         font-size: 3em;
     }
@@ -1009,7 +1044,7 @@ ol {
     }
 
     .search-input {
-        font-size: 1em;
+        font-size: .9em;
     }
 
     .book-preview-text {

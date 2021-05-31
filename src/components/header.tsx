@@ -25,7 +25,7 @@ const Header = () => {
         </div>
         <div className="header-title-subtext">
           <ul>
-            <li>Welcome to my library!</li>
+            <li>Welcome to your library!</li>
           </ul>
         </div>
       </div>

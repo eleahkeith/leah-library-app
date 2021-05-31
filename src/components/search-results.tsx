@@ -79,10 +79,10 @@ const SearchResults = () => {
   return (
     <div className="component-book-list">
       <div className="component-box">
-        <Link className="home-button" to="/home">
-          Home
-        </Link>
         <div className="component-list-title" key={null}>
+          <Link className="home-button" to="/home">
+            Home
+          </Link>
           <div className="component-title-text">
             <span className="list-title">Search Results</span>
             <span className="results-number">Results: {totalResults}</span>
