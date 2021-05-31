@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './styles/reset.css';
 import './styles/app.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,10 +11,16 @@ import {
 } from 'react-router-dom';
 import Login from './components/login';
 import LoggedInPath from './components/logged-in-path';
+import { UserContext } from './user-context';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const authToken = localStorage.getItem('Authorization');
+
+  const providerValue = useMemo(() => ({ loggedIn, setLoggedIn }), [
+    loggedIn,
+    setLoggedIn,
+  ]);
 
   const checkLogIn = async () => {
     if (authToken) {
@@ -37,7 +43,7 @@ const App = () => {
   }, []);
 
   return (
-    <>
+    <UserContext.Provider value={loggedIn}>
       <Router>
         <Switch>
           {loggedIn ? (
@@ -53,7 +59,7 @@ const App = () => {
         </Switch>
         <ToastContainer />
       </Router>
-    </>
+    </UserContext.Provider>
   );
 };
 

@@ -3,13 +3,18 @@
 import { toast } from 'react-toastify';
 import { ResultData, ShelfResultData, GetShelfAPIType } from './shared';
 
-const authToken = localStorage.getItem('Authorization');
+const getAuthToken = () => {
+  const authToken = localStorage.getItem('Authorization');
+
+  return authToken;
+};
 const url = 'https://get-some-books-staging.herokuapp.com';
 
 const standardErrMsg =
   'There was an error processing your request. Please try again later!';
 
 export const startAPI = (apiType: () => void) => {
+  const authToken = getAuthToken();
   if (authToken) {
     apiType();
   } else {
@@ -18,6 +23,7 @@ export const startAPI = (apiType: () => void) => {
 };
 
 export const getShelvesAPI = async () => {
+  const authToken = getAuthToken();
   if (authToken) {
     const response = await fetch(`${url}/shelves`, {
       headers: {
@@ -39,6 +45,7 @@ export const getShelvesAPI = async () => {
 };
 
 export const getShelfBooksAPI = async (shelfID: string) => {
+  const authToken = getAuthToken();
   if (authToken) {
     const response = await fetch(`${url}/shelves/${shelfID}`, {
       headers: {
@@ -60,6 +67,7 @@ export const getShelfBooksAPI = async (shelfID: string) => {
 };
 
 export const editShelfAPI = async (shelfID: string, shelfName: string) => {
+  const authToken = getAuthToken();
   if (authToken) {
     const response = await fetch(
       `${url}/shelves/${shelfID}?name=${shelfName}`,
@@ -89,6 +97,7 @@ export const editShelfAPI = async (shelfID: string, shelfName: string) => {
 };
 
 export const deleteShelfAPI = async (shelfID: string) => {
+  const authToken = getAuthToken();
   if (authToken) {
     const response = await fetch(`${url}/shelves/${shelfID}`, {
       headers: {
@@ -115,6 +124,7 @@ export const deleteShelfAPI = async (shelfID: string) => {
 };
 
 export const addShelfAPI = async (shelfName: string) => {
+  const authToken = getAuthToken();
   if (authToken) {
     const response = await fetch(`${url}/shelves?name=${shelfName}`, {
       headers: {
@@ -140,6 +150,7 @@ export const addShelfAPI = async (shelfName: string) => {
 };
 
 export const searchAPI = async (searchTerm: string | null) => {
+  const authToken = getAuthToken();
   if (authToken) {
     const response = await fetch(`${url}/books?title=${searchTerm}`, {
       headers: {
@@ -168,6 +179,7 @@ export const bookAPI = async (
   bookID: string | undefined,
   shelfID: string | undefined
 ) => {
+  const authToken = getAuthToken();
   if (authToken) {
     const response = await fetch(
       `${url}/shelves/${shelfID}/books?bookId=${bookID}`,
@@ -197,6 +209,7 @@ export const bookAPI = async (
 };
 
 export const getBookAPI = async (bookID: string) => {
+  const authToken = getAuthToken();
   if (authToken) {
     const response = await fetch(`${url}/book?id=${bookID}`, {
       headers: {

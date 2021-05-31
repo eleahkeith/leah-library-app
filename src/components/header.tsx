@@ -9,7 +9,7 @@ const Header = () => {
   const history = useHistory();
 
   const goHome = () => {
-    history.push('/');
+    history.push('/home');
   };
   return (
     <div onClick={goHome} className="header-box">

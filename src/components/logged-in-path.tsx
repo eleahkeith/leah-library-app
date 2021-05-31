@@ -8,23 +8,25 @@ import BookDetail from './book-detail';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const LoggedInPath = () => {
+  const loginURL = '/home';
+
   return (
     <Router>
-      <Route path="/home">
+      <Route path={loginURL}>
         <>
           <Header></Header>
           <Search></Search>
           <Switch>
-            <Route exact path="/home">
+            <Route exact path={loginURL}>
               <Overview />
             </Route>
-            <Route path="/search">
+            <Route path={`${loginURL}/search`}>
               <SearchResults />
             </Route>
-            <Route path="/booklist/:shelfID">
+            <Route path={`${loginURL}/booklist/:shelfID`}>
               <BookList />
             </Route>
-            <Route path="/bookdetail/:bookID">
+            <Route path={`${loginURL}/bookdetail/:bookID`}>
               <BookDetail />
             </Route>
           </Switch>

@@ -3,6 +3,7 @@
 
 
 --------css
+[ ]remove all browser specific styling (webkit or som?)
 [x]style register and log in modal
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
 [x]remove active styling for buttons

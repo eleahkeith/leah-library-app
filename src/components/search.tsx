@@ -33,7 +33,7 @@ const Search = () => {
         <Link
           id="search-link"
           key={searchTerm}
-          to={`/search?title=${searchTerm}`}
+          to={`home/search?title=${searchTerm}`}
           onClick={clearSearch}
         >
           Search
