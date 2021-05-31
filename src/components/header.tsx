@@ -19,7 +19,10 @@ const Header = () => {
         alt="drawing of book shelf"
       />
       <div className="header-text-box">
-        <div className="header-title-text">Leah's Library</div>
+        <div className="header-title-text">
+          <span className="title-1">biblio</span>
+          <span className="title-2">file</span>
+        </div>
         <div className="header-title-subtext">
           <ul>
             <li>Welcome to my library!</li>

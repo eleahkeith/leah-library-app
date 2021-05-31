@@ -38,16 +38,14 @@
 [ ]handle enter function for search
 
 
-[Miscellaneous/Structure]
-
 --------Next Phase
 [ ]move book from one shelf to another
 [ ]add view list option after book added to list
+[ ]refactor to account for token expiring in middle of session
 
 
 
 --------bugs
-[ ]shelves don't load until you refresh after logging in
 
 
 --------learning
