@@ -43,11 +43,11 @@ const App = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={loggedIn}>
+    <UserContext.Provider value={{ loggedIn, setLoggedIn }}>
       <Router>
         <Switch>
           {loggedIn ? (
-            <Route path="/home">
+            <Route exact path="/home">
               <LoggedInPath />
             </Route>
           ) : (

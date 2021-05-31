@@ -1,3 +1,11 @@
 import { createContext } from 'react';
 
-export const UserContext = createContext(false);
+interface ContextProps {
+  loggedIn: boolean | undefined;
+  setLoggedIn: (state: boolean) => void;
+}
+
+export const UserContext = createContext<ContextProps>({
+  loggedIn: false,
+  setLoggedIn: () => null,
+});

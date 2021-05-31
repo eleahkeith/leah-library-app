@@ -56,7 +56,7 @@ const ShelfPreview = ({
   const bookList = shelf.books;
   const mappedCoverImages = bookList.map((book) => (
     <div key={book.id} className="single-preview-image-container">
-      <Link key={book.id} to={`/bookdetail/${book.id}`}>
+      <Link key={book.id} to={`/home/bookdetail/${book.id}`}>
         <img
           key={book.id}
           className="shelf-preview-image"

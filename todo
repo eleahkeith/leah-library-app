@@ -1,9 +1,9 @@
 ******Important
-[ ]bug: shelves don't load until you refresh after logging in
+[x]bug: shelves don't load until you refresh after logging in
 
 
 --------css
-[ ]remove all browser specific styling (webkit or som?)
+[ ]remove all browser specific styling (webkit or som?c)
 [x]style register and log in modal
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
 [x]remove active styling for buttons
@@ -23,8 +23,9 @@
 
 
 [Navigation]
-[ ]fix url's so that they navigate to /home/xxxxx
-[ ]fix so that it doesn't redirect to home on every page
+[ ]fix search so that it doesn't push /home everytime
+[x]fix url's so that they navigate to /home/xxxxx
+[x]fix so that it doesn't redirect to home on every page
 
 [Shelf Overview]
 [ ]how to map only first x items on each list
