@@ -5,7 +5,7 @@ import '../styles/reset.css';
 import '../styles/app.css';
 
 interface SearchProps {
-  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleSearch: () => void;
 }
 
 const Search = () => {
@@ -18,6 +18,11 @@ const Search = () => {
     if (inputRef && inputRef.current) {
       inputRef.current.value = ' ';
     }
+  };
+
+  const handleSearch = () => {
+    history.replace(`/home/search?title=${searchTerm}`);
+    clearSearch();
   };
 
   return (
@@ -36,7 +41,7 @@ const Search = () => {
           className="button-on-light"
           id="search-button"
           value="Search"
-          onClick={() => history.replace(`/home/search?title=${searchTerm}`)}
+          onClick={() => handleSearch()}
         />
       </div>
     </div>
