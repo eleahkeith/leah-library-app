@@ -52,7 +52,12 @@ const App = () => {
           )}
           <Redirect to={loggedIn ? '/home' : '/login'} />
         </Switch>
-        <ToastContainer />
+        <ToastContainer
+          autoClose={1200}
+          pauseOnFocusLoss={false}
+          limit={2}
+          hideProgressBar={true}
+        />
       </Router>
     </UserContext.Provider>
   );

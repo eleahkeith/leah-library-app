@@ -1,6 +1,9 @@
 ******Important
-[x]bug: shelves don't load until you refresh after logging in
-
+[x]fix home button on list detail page
+[x]fix resend code so that it works
+[x]shorten toast containers and get rid of some
+[ ]how to map only first x items on each list
+[x]fix go back on book detail
 
 --------css
 [ ]remove all browser specific styling (webkit or som?c)
@@ -12,7 +15,7 @@
 
 [login]
 [x]add check for email
-[ ]add log out function 
+[x]add log out function 
 
 [api]
 [x]change all URLs to staging
@@ -28,7 +31,6 @@
 [x]fix so that it doesn't redirect to home on every page
 
 [Shelf Overview]
-[ ]how to map only first x items on each list
 [ ]use edit shelf modal to render add shelf option
 
 [modals]

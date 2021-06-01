@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { registerAPI, loginAPI } from './api-calls';
 import Modal from 'react-modal';
+import DeleteButton from '../images/delete-button.png';
 
 interface LoginProps {
   onLogin: () => void;
@@ -85,7 +86,12 @@ const Login = ({ onLogin }: LoginProps) => {
       </div>
       <Modal className="Modal-Login" isOpen={modalIsOpen}>
         <div className="auth-box">
-          {' '}
+          <img
+            className="modal-close-button"
+            src={DeleteButton}
+            alt="delete button"
+            onClick={() => setIsOpen(false)}
+          />{' '}
           <div className="auth-text">
             An email with your authorization code has been sent to {email}
           </div>
@@ -110,7 +116,7 @@ const Login = ({ onLogin }: LoginProps) => {
           <span className="auth-text">
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             Didn't receive your code?{' '}
-            <span onClick={() => console.log('resent')} className="resend-text">
+            <span onClick={() => checkEmail(email)} className="resend-text">
               Click here to resend!
             </span>{' '}
           </span>

@@ -126,11 +126,10 @@ const BookList = () => {
     <>
       <div className="component-book-list">
         <div className="component-box">
-          <Link className="home-button" to="/home">
-            Home
-          </Link>
-
           <div className="component-list-title">
+            <Link className="home-button" to="/home">
+              Home
+            </Link>
             <div className="component-title-text">{bookList?.name}</div>
             <div className="shelf-options-container">
               <div onClick={openEditModal} className="shelf-option">
