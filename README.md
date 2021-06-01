@@ -17,7 +17,7 @@ I am an avid reader, and I have struggled to find a simple, clean way to keep tr
 
 ## Demo
 
-![Demo](https://imgur.com/a/7GPtGYE)
+![Demo](https://i.imgur.com/lpnk8uR.mp4)
 
 ## Tech/Framework
 
