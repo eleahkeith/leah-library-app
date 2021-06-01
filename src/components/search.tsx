@@ -1,6 +1,6 @@
 import React from 'react';
-import { useState, ChangeEvent, useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useState, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import '../styles/reset.css';
 import '../styles/app.css';
 

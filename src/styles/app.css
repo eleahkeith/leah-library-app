@@ -231,7 +231,7 @@ input, select {
     width: 90%;
     margin: 20px 0 20px 5%;
     background: #FFFFFF; 
-    border-radius: 15px;
+    border-radius: 10px;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #8C939A;
 }
@@ -408,14 +408,14 @@ ol {
     background: #FFFFFF;
     width: 95%;
     margin-left: 2.5%;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #8C939A;
 }
 
 .component-list-title {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     position: relative;
     align-items: flex-start;
     font-family: "martel";
@@ -597,7 +597,7 @@ ol {
     background-color: #72A0AC;
     color: #FFFFFF;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     box-shadow: 1px 1px #8C939A;
     transition-property: background-color;
     transition: .3s;
@@ -655,7 +655,7 @@ ol {
 }
 
 .shelf-title-container {
-    padding-bottom: 7.5px
+    padding: 3px 0px 7.5px 3px; 
 }
 
 .shelf-preview-title {
@@ -867,10 +867,6 @@ ol {
         text-align: center;
     }
 
-    #new-search-button {
-        top: 230px;
-    }
-
     .shelf-preview-title {
         font-size: 1.6em;
     }
@@ -933,10 +929,6 @@ ol {
         right: -35px;
         bottom: -15px;
         height: 90%;
-    }
-
-    #new-search-button {
-        top: 300px;
     }
 
     .component-list-body {
