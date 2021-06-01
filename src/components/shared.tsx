@@ -3,7 +3,7 @@ import '../app.tsx';
 
 export interface SearchResultsProps {
   toggleSearching: () => void;
-  query: ResultData | undefined | null;
+  query: ResultData;
   handleAddFavorite: (e: ChangeEvent<HTMLInputElement>) => void;
   children: React.ReactNode;
 }

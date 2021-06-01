@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import '../styles/reset.css';
 import '../styles/app.css';
 import addButton from '../images/add-button.png';
@@ -24,15 +25,19 @@ const SearchResults = () => {
 
   const location = useLocation();
   const parseSearch = new URLSearchParams(location.search);
-  const title = parseSearch.get('title');
+  const title: string | null = parseSearch.get('title');
 
   const getResults = async () => {
-    setIsOpen(true);
-    setLoading(true);
-    const results = await searchAPI(title);
-    setIsOpen(false);
-    setLoading(false);
-    setQuery(results);
+    if (title) {
+      setIsOpen(true);
+      setLoading(true);
+      const results = await searchAPI(title);
+      setIsOpen(false);
+      setLoading(false);
+      setQuery(results);
+    } else {
+      toast.error('no search term provided');
+    }
   };
 
   const openModal = () => {
@@ -59,9 +64,9 @@ const SearchResults = () => {
     closeModal();
   };
 
-  const totalResults = query?.total;
-  const bookResults = query?.items || [];
-  const mappedBooks = bookResults.map((bookResult) => (
+  const { total: totalResults, items: bookResults } = query || {};
+
+  const mappedBooks = bookResults?.map((bookResult) => (
     <BookListItem
       book={bookResult}
       key={bookResult.id}

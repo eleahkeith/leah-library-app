@@ -4,7 +4,6 @@ import '../styles/reset.css';
 import '../styles/app.css';
 import { ShelfResultData } from './shared';
 import {
-  startAPI,
   addShelfAPI,
   deleteShelfAPI,
   getShelvesAPI,
@@ -67,7 +66,9 @@ const Overview = () => {
     showShelves();
   }, []);
 
-  const shelfResults = shelves?.items;
+  // @question why did this one work and the others didn't?
+  const { items: shelfResults } = shelves || {};
+
   const mappedShelves = shelfResults?.map((shelf) => (
     <ShelfPreview
       key={shelf.id}
