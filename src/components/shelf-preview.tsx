@@ -53,10 +53,17 @@ const ShelfPreview = ({
     closeModal();
   };
 
-  const bookList = shelf.books;
+  const previewArray = shelf.books;
+
+  const bookList = previewArray.slice(0, 4);
+
   const mappedCoverImages = bookList.map((book) => (
     <div key={book.id} className="single-preview-image-container">
-      <Link key={book.id} to={`/home/bookdetail/${book.id}`}>
+      <Link
+        key={book.id}
+        className="book-preview-link"
+        to={`/home/bookdetail/${book.id}`}
+      >
         <img
           key={book.id}
           className="shelf-preview-image"

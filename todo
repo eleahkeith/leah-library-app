@@ -1,9 +1,5 @@
 ******Important
-[x]fix home button on list detail page
-[x]fix resend code so that it works
-[x]shorten toast containers and get rid of some
-[ ]how to map only first x items on each list
-[x]fix go back on book detail
+[x]how to map only first x items on each list
 
 --------css
 [ ]remove all browser specific styling (webkit or som?c)
@@ -14,11 +10,8 @@
 --------tsx
 
 [login]
-[x]add check for email
-[x]add log out function 
 
 [api]
-[x]change all URLs to staging
 [ ]refactor
 [ ]add function called startAPI which checks to see if auth token exists, pass api 
     as argument
@@ -26,9 +19,7 @@
 
 
 [Navigation]
-[ ]fix search so that it doesn't push /home everytime
-[x]fix url's so that they navigate to /home/xxxxx
-[x]fix so that it doesn't redirect to home on every page
+[x]fix search so that it doesn't push /home everytime
 
 [Shelf Overview]
 [ ]use edit shelf modal to render add shelf option

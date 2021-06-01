@@ -671,6 +671,11 @@ ol {
     justify-content: flex-start;
 }
 
+.single-preview-image-container {
+    display: flex;
+    width: 25%;
+}
+
 .shelf-preview-image {
     width: 50%;
     padding: 3px;
