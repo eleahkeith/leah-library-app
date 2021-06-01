@@ -2,13 +2,12 @@ import React from 'react';
 import '../styles/reset.css';
 import '../styles/app.css';
 import { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getBookAPI } from './api-calls';
 import { bookAPI } from './api-calls';
 import Modal from 'react-modal';
 import AddBookModal from './add-book-modal';
 import BookLoader from './loading-modal';
-import LeftArrow from '../images/left-arrow.png';
 import { parseISO, format } from 'date-fns';
 
 type Params = {
@@ -30,8 +29,6 @@ interface BookDetailProps {
 
 const BookDetail = () => {
   const book = useParams<Params>();
-
-  const history = useHistory();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
@@ -92,11 +89,11 @@ const BookDetail = () => {
     <>
       <div className="component-box">
         <div className="detail-component">
-          <div className="detail-nav" onClick={() => history.goBack()}>
-            <img className="left-arrow" src={LeftArrow} alt="left arrow" />
-            <span>Go Back</span>
-          </div>
           <div className="detail-component-title">
+            <Link className="home-button" to="/home">
+              Home
+            </Link>
+
             <div className="detail-title-text">Book Detail</div>
             <div className="shelf-options-container">
               <div className="shelf-option" onClick={() => openModal()}>

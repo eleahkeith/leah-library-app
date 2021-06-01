@@ -4,6 +4,7 @@ import '../styles/reset.css';
 import '../styles/app.css';
 import { ShelfResultData } from './shared';
 import {
+  startAPI,
   addShelfAPI,
   deleteShelfAPI,
   getShelvesAPI,

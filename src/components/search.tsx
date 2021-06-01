@@ -1,11 +1,11 @@
 import React from 'react';
-import { useState, ChangeEvent, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import '../styles/reset.css';
 import '../styles/app.css';
 
 interface SearchProps {
-  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleSearch: () => void;
 }
 
 const Search = () => {
@@ -13,10 +13,16 @@ const Search = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const history = useHistory();
   const clearSearch = () => {
     if (inputRef && inputRef.current) {
       inputRef.current.value = ' ';
     }
+  };
+
+  const handleSearch = () => {
+    history.replace(`/home/search?title=${searchTerm}`);
+    clearSearch();
   };
 
   return (
@@ -30,14 +36,13 @@ const Search = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       ></input>
       <div className="search-link-container">
-        <Link
-          id="search-link"
-          key={searchTerm}
-          to={`/search?title=${searchTerm}`}
-          onClick={clearSearch}
-        >
-          Search
-        </Link>
+        <input
+          type="button"
+          className="button-on-light"
+          id="search-button"
+          value="Search"
+          onClick={() => handleSearch()}
+        />
       </div>
     </div>
   );

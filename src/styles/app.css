@@ -10,6 +10,11 @@ fonts - amatic sc, roboto condensed
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Roboto+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martel:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 
 /* overarching */
 body {
@@ -22,13 +27,14 @@ body {
 
 #root {
     width: 100vw;
+    height: 100%;
     overflow-x: hidden;
 
 }
 
 a {
     text-decoration: none;
-    font-family: "roboto condensed";
+    font-family: "open sans";
     color: #8C939A;
 }
 
@@ -37,7 +43,10 @@ a:hover {
 }
 
 input, select {
-    font-family: "roboto condensed";
+    /* -webkit-appearance: none;
+    -webkit-border-radius: 0; */
+    font-family: "open sans";
+    border-radius: 0;
 }
 
 ::placeholder {
@@ -70,6 +79,18 @@ input, select {
     box-shadow: 2px 2px #E0E0E0;
   }
 
+  .Modal-Login {
+    position: absolute;
+    top: 20%;
+    bottom: 20%;
+    left: 15%;
+    right: 15%;
+    background-color: #fff;
+    border: 1.5px solid #E0E0E0;
+    border-radius: 5px;
+}
+
+
   .overlay {
         position: fixed;
         top: 0;
@@ -83,7 +104,6 @@ input, select {
     outline: none;
 }
 
-
 /* Modal Styles */
 
 .loading-container {
@@ -93,7 +113,7 @@ input, select {
 
 .loading-text {
     text-align: center;
-    font-family: "roboto condensed";
+    font-family: "open sans";
     color: #3A333B;
     font-size: 1.5em;
 }
@@ -108,7 +128,7 @@ input, select {
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    font-family: "roboto condensed";
+    font-family: "open sans";
     color: #3A333B;
     padding: 10px;
     
@@ -129,7 +149,7 @@ input, select {
     border-left: none;
     border-right: none; 
     margin: 30px 0 5px 2.5%;
-    font-size: 1.25em;
+    font-size: 1.15em;
     color: #8C939A;
 }
 
@@ -141,7 +161,7 @@ input, select {
     width: 100%;
 }
 
-#edit-button-modal {
+#edit-button-modal, #login-button {
     margin: 3px;
     height: 30px;
     width: 100px;
@@ -150,7 +170,7 @@ input, select {
 
 .delete-shelf-form {
     display: flex;
-    font-family: "roboto condensed";
+    font-family: "open sans";
 
 }
 
@@ -198,6 +218,7 @@ input, select {
     position: absolute;
     height: 20px;
     right: 5px;
+    top: 10px;
 }
 
 .modal-close-button:hover {
@@ -213,7 +234,7 @@ input, select {
     width: 90%;
     margin: 20px 0 20px 5%;
     background: #FFFFFF; 
-    border-radius: 15px;
+    border-radius: 10px;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #8C939A;
 }
@@ -225,34 +246,161 @@ input, select {
 .header-text-box {
     display: flex;
     flex-wrap: wrap;
-    padding: 5px;
+    padding: 12px;
 }
 
 .header-title-text {
     width: 100%;
-    font-family: 'Amatic SC';
+    font-family: 'martel';
     font-size: 4em;
     color: #B84E4E;
 }
 
 .header-title-subtext {
     width: 100%;
-    font-family: 'roboto condensed';
+    font-family: "open sans";
     padding-top: 10px;
     color: #8C939A;
 }
 
 .header-image {
     position: absolute;
-    height: 180%;
-    right: -35px;
-    bottom: -28px;
+    height: 100%;
+    right: -25px;
+    bottom: -5px;
 
 }
 
 .shelf-image {
     display: none;
 }
+
+/* login page styles */
+
+.login-overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color:rgba(140, 147, 154, .55);
+
+}
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    right: 10%;
+    bottom: 15%;
+    background-color: #fff;
+    border-radius: 10px;
+
+}
+
+.login-title {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 30px 0;
+    font-family: "martel";
+    font-size: 4em;
+}
+
+.title-1 {
+    color: #B84E4E;
+}
+
+.title-2 {
+    color: #8C939A;
+}
+
+.email-form {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    font-family: "open sans";
+    margin-bottom: 35px;
+}
+
+ol {
+    list-style-type: "→";
+}
+
+.login-text {
+    display: flex;
+    flex-direction: column;
+    font-family: "open sans";
+    color: #8C939A;
+    font-size: 1.25em;
+    margin: 10px;
+    height: 10em;
+    width: 70%;
+}
+
+.list-item {
+    text-align: justify;
+    padding-bottom: 30px;
+}
+
+.auth-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: space-around;
+    justify-content: space-around;
+    font-family: "open sans";
+    padding: 10px;
+}
+
+.auth-text {
+    font-size: 1.05em;
+    text-align: center;
+    color: #8C939A;
+}
+
+.resend-text {
+    color: #3A333B;
+    text-decoration: underline;
+}
+
+.resend-text:hover {
+    cursor: pointer;
+}
+
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-bottom: 20px; */
+}
+
+#spam-text {
+    color: #B84E4E;
+}
+
+.logout-container {
+    height: 1.5em;
+}
+
+.logout-button {
+    position: absolute;
+    right: 7.5px;
+    top: 7.5px;
+    background-color: #fff;
+    color: #8C939A;
+    font-family: "open sans";
+    font-size: .95em;
+    border: none;
+    border-radius: 3px;
+}
+
 
 /* component styles */
 .component-box {
@@ -263,17 +411,17 @@ input, select {
     background: #FFFFFF;
     width: 95%;
     margin-left: 2.5%;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #8C939A;
 }
 
 .component-list-title {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     position: relative;
     align-items: flex-start;
-    font-family: "Amatic SC";
+    font-family: "martel";
     color: #B84E4E;
     width: 100%;
     height: 20%;
@@ -283,14 +431,16 @@ input, select {
 }
 
 .component-title-text {
-    font-size: 2.25em;
+    font-size: 1.5em;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
+    padding-top: 5px;
 }
 
 .results-number {
-    font-family: "roboto condensed";
+    font-family: "open sans";
     font-size: .5em;
     color: #8C939A;
     padding-top: 10px;
@@ -305,10 +455,9 @@ input, select {
 
 .home-button {
     position: absolute;
-    z-index: 1;
     right: 15px;
     top: 15px;
-    font-size: 1.25em;
+    font-size: 1em;
 }
 
 .component-body-error {
@@ -359,7 +508,7 @@ input, select {
     align-self: center;
     width: 60%;
     padding-left: 20px;
-    font-family: "roboto condensed";
+    font-family: "open sans";
 }
 
 .book-preview-title {
@@ -413,7 +562,7 @@ input, select {
 .search-input {
     height: 100%;
     width: 70%;
-    font-family: "roboto condensed";
+    font-family: "open sans";
     font-size: 1.15em;
     padding-left: 10px;
     background-color: transparent;
@@ -445,13 +594,14 @@ input, select {
 
 /* button styles - search and new search */
 .button-on-light {
-    font-family: 'roboto condensed';
+    -webkit-appearance: none;
+    font-family: "open sans";
     font-size: .85em;
     font-weight: bold;
     background-color: #72A0AC;
     color: #FFFFFF;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     box-shadow: 1px 1px #8C939A;
     transition-property: background-color;
     transition: .3s;
@@ -465,7 +615,8 @@ input, select {
 
 #search-button {
     position: absolute;
-    right: 18%;
+    right: 10px;
+    top: 10px;
 }
 
 .button-on-light:hover {
@@ -508,13 +659,13 @@ input, select {
 }
 
 .shelf-title-container {
-    padding-bottom: 7.5px
+    padding: 3px 0px 7.5px 3px; 
 }
 
 .shelf-preview-title {
-    font-family: "amatic sc";
+    font-family: "martel";
     color: #B84E4E;
-    font-size: 2em;
+    font-size: 1.4em;
     padding-bottom: 3px;
 }
 
@@ -522,6 +673,10 @@ input, select {
     display: flex;
     width: 100%;
     justify-content: flex-start;
+}
+
+.single-preview-image-container {
+    width: 25%;
 }
 
 .shelf-preview-image {
@@ -541,7 +696,7 @@ input, select {
 }
 
 .shelf-option {
-    font-family: "roboto condensed";
+    font-family: "open sans";
     font-size: .9em;
     color: #8C939A;
     margin-right: 12.5px;
@@ -554,13 +709,13 @@ input, select {
 
 .list-link-container {
     position: absolute;
-    right: 20px;
+    right: 10px;
     top: 10px;
 }
 
 .book-list-link {
     text-decoration: none;
-    font-family: "roboto condensed";
+    font-family: "open sans";
     font-size: 1em;
     color: #8C939A;
 }
@@ -571,10 +726,10 @@ input, select {
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    font-family: "roboto condensed";
+    font-family: "open sans";
     width: 95%;
     color: #3A333B;
-    margin: 15px;
+    margin-left: 15px;
 }
 
 .detail-nav {
@@ -582,7 +737,7 @@ input, select {
     align-items: center;
     /* width: 60%; */
     height: 1.25em;
-    font-family: "roboto condensed";
+    font-family: "open sans";
     color: #8C939A;
     font-size: 1.2em;
     margin-bottom: 15px;
@@ -598,21 +753,23 @@ input, select {
 
 .detail-component-title {
     width: 100%;
-    font-family: "amatic sc";
+    font-family: "martel";
     margin-bottom: 20px;
     color: #B84E4E;
     font-size: 1.3em;
 }
 
 .detail-title-text {
-    font-size: 2.1em;
+    font-size: 1.5em;
     margin-bottom: 3px;
+    padding: 15px 0px 0px 0px;
 }
 
 .detail-image {
     float: left;
     width: 30%;
     object-fit: contain;
+    margin: 5px 0px 15px 0px
     
 }
 
@@ -654,7 +811,7 @@ input, select {
 
 /* toast notifs styles */
 .Toastify__toast--success {
-    font: "roboto condensed";
+    font: "open sans";
     color: #ffffff;
     background: #72A0AC !important;
 }
@@ -664,20 +821,39 @@ input, select {
     background: #B84E4E !important;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 625px) {
     .shelf-image {
         display: inline;
         position: absolute;
         height: 90%;
-        left: 10px;
+        left: 7px;
         top: -20px;
-
     }
 
     .Modal-Loading {
         left: 40%;
         right: 40%;
  }
+
+    .Modal-Login {
+        top: 25%;
+        bottom: 25%;
+        left: 25%;
+        right: 25%;
+    }
+
+    .login-title {
+        font-size: 4.5em;
+    }
+
+    .login-text {
+        width: 60%;
+        font-size: 1.5em;
+    }
+
+    .auth-text {
+        font-size: 1.25em;
+    }
 
 
     .header-box {
@@ -699,10 +875,16 @@ input, select {
         text-align: center;
     }
 
-    #new-search-button {
-        top: 230px;
+    .shelf-preview-title {
+        font-size: 1.6em;
     }
 
+    .logout-container {
+        height: 2.5em;
+    }
+    .logout-button {
+        font-size: 1.4em;
+    }
 
 }
 
@@ -729,10 +911,6 @@ input, select {
         margin-left: 30%;
     }
 
-    #search-button {
-        right: 31%;
-    }
-
     .header-text-box {
         justify-content: flex-start;
     }
@@ -751,18 +929,14 @@ input, select {
         display: inline;
         position: absolute;
         top: -22px;
-        left: 30px;
-        height: 80%;
+        left: 15px;
+        height: 70%;
     }
 
     .header-image {
-        right: -60px;
-        bottom: -30px;
-        height: 150%;
-    }
-
-    #new-search-button {
-        top: 300px;
+        right: -35px;
+        bottom: -15px;
+        height: 90%;
     }
 
     .component-list-body {
@@ -833,6 +1007,7 @@ input, select {
         left: 30%;
         right: 30%;
     }
+
     .book-preview {
         width: 45%;
     }
@@ -855,9 +1030,37 @@ input, select {
     .detail-label {
         width: 30%;
     }
+
+    .logout-button {
+        font-size: 1.2em;
+    }
+
 }
 
 @media only screen and (max-width: 400px) {
+
+    .login-box {
+        top: 5%;
+        bottom: 5%;
+    }
+
+    #login-button {
+        width: 150px;
+    }
+
+    .login-title {
+        font-size: 3.5em;
+        padding-top: 25px;
+    }
+
+    .search-box {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .list-item {
+        text-align: left;
+    }
     .header-title-text {
         font-size: 3em;
     }
@@ -872,7 +1075,10 @@ input, select {
     }
 
     .search-input {
-        font-size: 1em;
+        font-size: .9em;
+    }
+    .book-preview-image {
+        width: 28%;
     }
 
     .book-preview-text {

@@ -12,7 +12,7 @@ const BookListItem = ({ book, rightAccessory }: BookListItemProps) => {
   const history = useHistory();
 
   const viewBookDetails = (bookID: string) => {
-    history.push(`/BookDetail/${bookID}`);
+    history.push(`/home/bookdetail/${bookID}`);
   };
 
   return (
