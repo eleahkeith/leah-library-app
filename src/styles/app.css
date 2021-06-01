@@ -43,7 +43,10 @@ a:hover {
 }
 
 input, select {
+    /* -webkit-appearance: none;
+    -webkit-border-radius: 0; */
     font-family: "open sans";
+    border-radius: 0;
 }
 
 ::placeholder {
@@ -591,6 +594,7 @@ ol {
 
 /* button styles - search and new search */
 .button-on-light {
+    -webkit-appearance: none;
     font-family: "open sans";
     font-size: .85em;
     font-weight: bold;
@@ -672,7 +676,6 @@ ol {
 }
 
 .single-preview-image-container {
-    display: flex;
     width: 25%;
 }
 
@@ -1036,9 +1039,23 @@ ol {
 
 @media only screen and (max-width: 400px) {
 
+    .login-box {
+        top: 5%;
+        bottom: 5%;
+    }
+
+    #login-button {
+        width: 150px;
+    }
+
     .login-title {
         font-size: 3.5em;
         padding-top: 25px;
+    }
+
+    .search-box {
+        width: 80%;
+        margin-left: 10%;
     }
 
     .list-item {
@@ -1059,6 +1076,9 @@ ol {
 
     .search-input {
         font-size: .9em;
+    }
+    .book-preview-image {
+        width: 28%;
     }
 
     .book-preview-text {
