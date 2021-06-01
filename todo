@@ -1,5 +1,6 @@
+
 ******Important - phone testing
-[ ]first login box needs to be taller - text is cut off
+[x]first login box needs to be taller - text is cut off
 [x]remove browser button styling
 [x]remove browser input styling
 [ ]make shelf title smaller percentage
@@ -29,9 +30,13 @@
 
 [modals]
 [ ]bind element per console error msg
+
  
 [Search]
 [ ]handle enter function for search
+
+[Miscellaneous/Structure]
+[ ]move all if/else statements for API calls to a validate function that can be reused?
 
 
 --------Next Phase
