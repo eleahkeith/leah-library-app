@@ -25,7 +25,8 @@ const Header = () => {
         </div>
         <div className="header-title-subtext">
           <ul>
-            <li>Welcome to your library!</li>
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
+            <li>The book lover's book tracker</li>
           </ul>
         </div>
       </div>
