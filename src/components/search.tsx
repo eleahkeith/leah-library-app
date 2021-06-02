@@ -9,7 +9,7 @@ interface SearchProps {
 }
 
 const Search = () => {
-  const [searchTerm, setSearchTerm] = useState(' ');
+  const [searchTerm, setSearchTerm] = useState<string>(' ');
 
   const inputRef = useRef<HTMLInputElement>(null);
 

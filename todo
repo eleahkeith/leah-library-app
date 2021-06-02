@@ -1,9 +1,6 @@
+[ Sam Code Review ]
+[ ]update redirects on netlify
 
-******Important - phone testing
-[x]first login box needs to be taller - text is cut off
-[x]remove browser button styling
-[x]remove browser input styling
-[ ]make shelf title smaller percentage
 
 --------css
 [ ]remove all browser specific styling (webkit or som?)

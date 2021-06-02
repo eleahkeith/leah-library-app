@@ -106,8 +106,8 @@ const BookList = () => {
     // eslint-disable-next-line
   }, []);
 
-  const favoritesList = bookList?.books || [];
-  const mappedBookItems = favoritesList.map((bookListItem) => (
+  const { books: favoritesList } = bookList || {};
+  const mappedBookItems = favoritesList?.map((bookListItem) => (
     <BookListItem
       key={bookListItem.id}
       book={bookListItem}

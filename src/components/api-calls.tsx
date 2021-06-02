@@ -87,11 +87,11 @@ export const editShelfAPI = async (shelfID: string, shelfName: string) => {
         return data;
       } else {
         toast.error(data.message);
-        return null;
+        return undefined;
       }
     } else {
       toast.error(standardErrMsg);
-      return null;
+      return undefined;
     }
   }
 };
@@ -114,11 +114,11 @@ export const deleteShelfAPI = async (shelfID: string) => {
         return data;
       } else {
         toast.error(data.message);
-        return null;
+        return undefined;
       }
     } else {
       toast.error(standardErrMsg);
-      return null;
+      return undefined;
     }
   }
 };
@@ -140,16 +140,16 @@ export const addShelfAPI = async (shelfName: string) => {
         return data;
       } else {
         toast.error(data.message);
-        return null;
+        return undefined;
       }
     } else {
       toast.error(standardErrMsg);
-      return null;
+      return undefined;
     }
   }
 };
 
-export const searchAPI = async (searchTerm: string | null) => {
+export const searchAPI = async (searchTerm: string) => {
   const authToken = getAuthToken();
   if (authToken) {
     const response = await fetch(`${url}/books?title=${searchTerm}`, {
@@ -163,13 +163,13 @@ export const searchAPI = async (searchTerm: string | null) => {
 
       if (!data.success) {
         toast.error(standardErrMsg);
-        return null;
+        return undefined;
       } else {
         return data as ResultData;
       }
     } else {
       toast.error(standardErrMsg);
-      return null;
+      return undefined;
     }
   }
 };
@@ -199,11 +199,11 @@ export const bookAPI = async (
         return data;
       } else {
         toast.error(data.message);
-        return null;
+        return undefined;
       }
     } else {
       toast.error(standardErrMsg);
-      return null;
+      return undefined;
     }
   }
 };
@@ -223,7 +223,7 @@ export const getBookAPI = async (bookID: string) => {
       return data;
     } else {
       toast.error(standardErrMsg);
-      return null;
+      return undefined;
     }
   }
 };
@@ -268,10 +268,10 @@ export const loginAPI = async (emailAddr: string, authCode: string) => {
       return data;
     } else {
       toast.error(data.message);
-      return null;
+      return undefined;
     }
   } else {
     toast.error(standardErrMsg);
-    return null;
+    return undefined;
   }
 };
