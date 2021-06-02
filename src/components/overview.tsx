@@ -66,7 +66,6 @@ const Overview = () => {
     showShelves();
   }, []);
 
-  // @question why did this one work and the others didn't?
   const { items: shelfResults } = shelves || {};
 
   const mappedShelves = shelfResults?.map((shelf) => (
