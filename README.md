@@ -1,15 +1,14 @@
 
-# Leah's Library App
+# bibliofile
 
-Leah's Library is a web app that allows the user to create/edit/delete bookshelves, and then add or remove books to each shelf. 
+bibliofile is a web app that allows the user to create/edit/delete bookshelves, and then add or remove books to each shelf. 
 
-## Currently (updated 1/6/21)
-- ~~adding loading state~~
-- ~~adding authentication to allow for multiple users~~
+## Currently (updated 2/6/21)
+- refactoring
 
 ## Why this app?
 
-I am an avid reader, and I have struggled to find a simple, clean way to keep track of what I read. This app is not just a reading list, it's a way to categorize books for future reference (e.g. books recommended by friends, books I hear about on podcasts, all time favorites, books I want to re-read, etc).
+I am an avid reader and book lover (bibliophile), and I have struggled to find a simple, clean way to keep track of what I read. This app is not just a reading list, it's a way to categorize books for future reference (e.g. books recommended by friends, books I hear about on podcasts, all time favorites, books I want to re-read, etc).
 
 ## Build Status
 
