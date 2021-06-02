@@ -12,18 +12,18 @@ import {
 import Login from './components/login';
 import LoggedInPath from './components/logged-in-path';
 import { UserContext } from './user-context';
+import Modal from 'react-modal';
 
 const App = () => {
+  Modal.setAppElement('#root');
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const authToken = localStorage.getItem('Authorization');
 
   const checkLogIn = async () => {
     if (authToken) {
       setLoggedIn(true);
-      console.log('logged in');
     } else {
       setLoggedIn(false);
-      console.log('not logged in');
     }
     return loggedIn;
   };
