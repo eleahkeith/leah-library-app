@@ -49,8 +49,8 @@ const BookList = () => {
     const apiResults = await getShelfBooksAPI(shelf.shelfID);
     const listResult = apiResults?.item;
     setBookList(listResult);
-    setIsOpen(false);
     setLoading(false);
+    setIsOpen(false);
   };
 
   const openModal = () => {
