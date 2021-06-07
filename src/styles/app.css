@@ -849,6 +849,11 @@ ol {
 
 @media only screen and (min-width: 625px) {
 
+    .Modal {
+        bottom: 50%;
+
+    }
+
     .Modal-Loading {
         left: 40%;
         right: 40%;
