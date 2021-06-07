@@ -1,16 +1,7 @@
-[ Sam Code Review ]
-[ ]update redirects on netlify
-
-
 --------css
-[ ]remove all browser specific styling (webkit or som?)
-[x]style register and log in modal
 [ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
-[x]remove active styling for buttons
 
 --------tsx
-
-[login]
 
 [api]
 [ ]refactor
@@ -20,13 +11,11 @@
 
 
 [Navigation]
-[x]fix search so that it doesn't push /home everytime
 
 [Shelf Overview]
 [ ]use edit shelf modal to render add shelf option
 
 [modals]
-[ ]bind element per console error msg
 
  
 [Search]
@@ -46,46 +35,8 @@
 --------bugs
 
 
---------learning
-[ ]animations for component boxes
 
 --------backend questions/requests
 [ ]add plot summary to the individual book detail API
 
---------brainstorm
--when you click on full list, takes over the whole page and header becomes small, no image but title still present
--use animation to push full list up and down
--add bottom menu like the fancy apps
-when you first go to the page, checks if you are logged in 
-    (how? check if auth token exists in local storage, if so direct to overview, if not to log in )
 
-
---------credits to add
-
-background texture:
-========================================================
-This pattern is downloaded from www.subtlepatterns.com 
-If you need more, that's where to get'em.
-========================================================
-
-header image:
-
-https://www.pngwing.com/en/free-png-zpzkg
-
-add button png:
-
-<a href='https://pngtree.com/so/plus-icons'>plus icons png from pngtree.com</a>
-
-search icon png:
-
-<a href='https://pngtree.com/so/search-clipart'>search clipart png from pngtree.com</a>
-
-book loader:
-
-https://icons8.com/preloaders/
-
-shelf image:
-
-<a href='https://pngtree.com/so/book-clipart'>book clipart png from pngtree.com</a>
-
-<a href='https://pngtree.com/so/book-element'>book element png from pngtree.com</a>

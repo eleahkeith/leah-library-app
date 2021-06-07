@@ -2,9 +2,13 @@
 colors
 FFFFFF - white - background and font on button
 E0E0E0 - light light gray - borders
-72A0AC - teal - background color and button
+005F6B - teal - background color and button
 B84E4E - red - header text & accents
-8C939A - medium gray - secondary text 
+6B0504
+9D0806
+A52312
+63666A - medium gray - secondary text 
+63666A
 3A333B - off black - primary text 
 fonts - amatic sc, roboto condensed
 */
@@ -19,7 +23,7 @@ fonts - amatic sc, roboto condensed
 /* overarching */
 body {
     display: flex;
-    background: #72A0AC url("../images/wild-flowers.png");
+    background: #005F6B url("../images/wild-flowers.png");
     width: 100vw;
     height: 100%;
     overflow-x: hidden;
@@ -35,7 +39,7 @@ body {
 a {
     text-decoration: none;
     font-family: "open sans";
-    color: #8C939A;
+    color: #63666A;
 }
 
 a:hover {
@@ -58,7 +62,7 @@ input, select {
     top: 25%;
     left: 10%;
     right: 10%;
-    bottom: 50%;
+    bottom: 40%;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 2px 2px #E0E0E0;
@@ -158,13 +162,13 @@ input, select {
 
 .modal-input {
     width: 90%;
-    border-bottom: 1px solid #8C939A;
+    border-bottom: 1px solid #63666A;
     border-top: none;
     border-left: none;
     border-right: none; 
     margin: 30px 0 5px 2.5%;
     font-size: 1.15em;
-    color: #8C939A;
+    color: #63666A;
 }
 
 .shelf-option-container {
@@ -195,7 +199,7 @@ input, select {
 
 .danger-text {
     width: 100%;
-    color: #B84E4E;
+    color: #A52312;
     font-size: 1.25em;
     text-align: center;
     margin-bottom: 5px;
@@ -206,7 +210,7 @@ input, select {
     height: 30px;
     width: 200px;
     font-size: 1em;
-    background-color: #B84E4E;
+    background-color: #A52312;
 }
 
 #delete-button-modal:hover {
@@ -217,7 +221,7 @@ input, select {
     font-size: 1.15em;
     height: 30px;
     width: 90%;
-    border: 1px solid #8C939A;
+    border: 1px solid #63666A;
     border-radius: 5px;
     margin: 30px 0px 5px 5%;
 }
@@ -243,14 +247,15 @@ input, select {
 .header-box {
     position: relative;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
     height: 8em;
-    width: 90%;
-    margin: 20px 0 20px 5%;
+    width: 95%;
+    margin: 20px 0 20px 2.5%;
     background: #FFFFFF; 
     border-radius: 10px;
     border: 1px solid #E0E0E0;
-    box-shadow: 2px 2px #8C939A;
+    box-shadow: 2px 2px #63666A;
 }
 
 .header-box:hover {
@@ -267,27 +272,23 @@ input, select {
     width: 100%;
     font-family: 'martel';
     font-size: 4em;
-    color: #B84E4E;
+    color: #A52312;
+    text-align: center;
 }
 
 .header-title-subtext {
     width: 100%;
     font-family: "open sans";
     padding-top: 10px;
-    color: #8C939A;
+    color: #63666A;
+    text-align: center;
 }
 
 .header-image {
-    position: absolute;
-    height: 100%;
-    right: -25px;
-    bottom: -5px;
+   display: none;
 
 }
 
-.shelf-image {
-    display: none;
-}
 
 /* login page styles */
 
@@ -325,11 +326,11 @@ input, select {
 }
 
 .title-1 {
-    color: #B84E4E;
+    color: #A52312;
 }
 
 .title-2 {
-    color: #8C939A;
+    color: #63666A;
 }
 
 .email-form {
@@ -349,7 +350,7 @@ ol {
     display: flex;
     flex-direction: column;
     font-family: "open sans";
-    color: #8C939A;
+    color: #63666A;
     font-size: 1.25em;
     margin: 10px;
     height: 10em;
@@ -375,7 +376,7 @@ ol {
 .auth-text {
     font-size: 1.05em;
     text-align: center;
-    color: #8C939A;
+    color: #63666A;
 }
 
 .resend-text {
@@ -396,7 +397,7 @@ ol {
 }
 
 #spam-text {
-    color: #B84E4E;
+    color: #A52312;
 }
 
 .logout-container {
@@ -408,7 +409,7 @@ ol {
     right: 7.5px;
     top: 7.5px;
     background-color: #fff;
-    color: #8C939A;
+    color: #63666A;
     font-family: "open sans";
     font-size: .95em;
     border: none;
@@ -427,7 +428,7 @@ ol {
     margin-left: 2.5%;
     border-radius: 10px;
     border: 1px solid #E0E0E0;
-    box-shadow: 2px 2px #8C939A;
+    box-shadow: 2px 2px #63666A;
 }
 
 .component-list-title {
@@ -436,7 +437,7 @@ ol {
     position: relative;
     align-items: flex-start;
     font-family: "martel";
-    color: #B84E4E;
+    color: #A52312;
     width: 100%;
     height: 20%;
     padding-left: 2%;
@@ -456,7 +457,7 @@ ol {
 .results-number {
     font-family: "open sans";
     font-size: .5em;
-    color: #8C939A;
+    color: #63666A;
     padding-top: 10px;
 }
 
@@ -487,7 +488,7 @@ ol {
     display: flex;
     align-content: flex-start;
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     margin: 7.5px;
     font-size: .85em;
     border-bottom: 1px solid #E0E0E0;
@@ -550,7 +551,7 @@ ol {
     width: 100%;
     padding: 1px;
     font-size: 1.25em;
-    color: #8C939A;
+    color: #63666A;
 }
 
 #add-delete-button {
@@ -578,13 +579,13 @@ ol {
     display: flex;
     justify-content: stretch;
     align-items: center;
-    width: 70%;
+    width: 95%;
     height: 2.5em;
-    margin: 20px 0 20px 15%;
+    margin: 20px 0 20px 2.5%;
     background: #FFFFFF;
     border-radius: 10px;
     border: 1px solid #E0E0E0;
-    box-shadow: 2px 2px #8C939A;
+    box-shadow: 2px 2px #63666A;
 }
 
 .search-input {
@@ -606,7 +607,7 @@ ol {
     position: absolute;
     padding: 3px 10px 3px 10px;
     border-radius: 5px;
-    background-color: #72A0AC;
+    background-color: #005F6B;
     color: #fff;
     transition-property: background-color;
     transition: .3s;
@@ -626,20 +627,15 @@ ol {
     font-family: "open sans";
     font-size: .85em;
     font-weight: bold;
-    background-color: #72A0AC;
+    background-color: #005F6B;
     color: #FFFFFF;
     border: none;
     border-radius: 3px;
-    box-shadow: 1px 1px #8C939A;
+    box-shadow: 1px 1px #63666A;
     transition-property: background-color;
     transition: .3s;
 }
 
-#new-search-button {
-    position: absolute;
-    top: 180px;
-    right: 5%;
-}
 
 #search-button {
     position: absolute;
@@ -676,6 +672,7 @@ ol {
     position: relative;
     border-bottom: 1px solid #E0E0E0;
     padding-bottom: 10px;
+    padding: 10px;
     margin: 10px;
     transition-property: background-color;
     transition: .3s;
@@ -692,9 +689,10 @@ ol {
 
 .shelf-preview-title {
     font-family: "martel";
-    color: #B84E4E;
+    color: #A52312;
     font-size: 1.4em;
     padding-bottom: 3px;
+    width: 75%;
 }
 
 .shelf-preview-image-container {
@@ -726,7 +724,7 @@ ol {
 .shelf-option {
     font-family: "open sans";
     font-size: .9em;
-    color: #8C939A;
+    color: #63666A;
     margin-right: 12.5px;
 }
 
@@ -745,7 +743,7 @@ ol {
     text-decoration: none;
     font-family: "open sans";
     font-size: 1em;
-    color: #8C939A;
+    color: #63666A;
 }
 
 /* book detail styles */
@@ -766,7 +764,7 @@ ol {
     /* width: 60%; */
     height: 1.25em;
     font-family: "open sans";
-    color: #8C939A;
+    color: #63666A;
     font-size: 1.2em;
     margin-bottom: 15px;
 }
@@ -783,7 +781,7 @@ ol {
     width: 100%;
     font-family: "martel";
     margin-bottom: 20px;
-    color: #B84E4E;
+    color: #A52312;
     font-size: 1.3em;
 }
 
@@ -819,7 +817,7 @@ ol {
 
 .detail-author {
     font-size: 1em;
-    color: #8C939A;
+    color: #63666A;
 }
 
 .single-detail-container {
@@ -832,7 +830,7 @@ ol {
 }
 
 .detail-field {
-    color: #8C939A;
+    color: #63666A;
     width: 45%;
     text-align: center;
 }
@@ -841,22 +839,15 @@ ol {
 .Toastify__toast--success {
     font: "open sans";
     color: #ffffff;
-    background: #72A0AC !important;
+    background: #005F6B !important;
 }
 
 .Toastify__toast--error {
     color: #fff;
-    background: #B84E4E !important;
+    background: #A52312 !important;
 }
 
 @media only screen and (min-width: 625px) {
-    .shelf-image {
-        display: inline;
-        position: absolute;
-        height: 90%;
-        left: 7px;
-        top: -20px;
-    }
 
     .Modal-Loading {
         left: 40%;
@@ -953,18 +944,21 @@ ol {
         text-align: center;
     }
 
-    .shelf-image {
-        display: inline;
-        position: absolute;
-        top: -22px;
-        left: 15px;
-        height: 70%;
-    }
 
     .header-image {
+        display: block;
+        position: absolute;
         right: -35px;
         bottom: -15px;
         height: 90%;
+    }
+
+    .list-link-container {
+        top: 45%;
+    }
+
+    .book-list-link {
+        font-size: 1.25em;
     }
 
     .component-list-body {
@@ -1081,9 +1075,8 @@ ol {
         padding-top: 25px;
     }
 
-    .search-box {
-        width: 80%;
-        margin-left: 10%;
+    .shelf-preview-title {
+        width: 60%;
     }
 
     .list-item {
