@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "date-fns": "^2.21.3",
+    "framer-motion": "^4.1.17",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-modal": "^3.13.1",

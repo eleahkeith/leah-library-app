@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/reset.css';
 import '../styles/app.css';
-import bookshelf from '../images/book-shelf.png';
 import headerImage from '../images/header-image.png';
 import { useHistory } from 'react-router';
 
@@ -13,11 +12,6 @@ const Header = () => {
   };
   return (
     <div onClick={goHome} className="header-box">
-      <img
-        className="shelf-image"
-        src={bookshelf}
-        alt="drawing of book shelf"
-      />
       <div className="header-text-box">
         <div className="header-title-text">
           <span className="title-1">biblio</span>
