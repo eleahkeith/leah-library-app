@@ -82,7 +82,7 @@ const SearchResults = () => {
   ));
 
   return (
-    <div className="component-book-list">
+    <main className="component-book-list">
       <div className="component-box">
         <div className="component-list-title" key={null}>
           <Link className="home-button" to="/home">
@@ -109,7 +109,7 @@ const SearchResults = () => {
           )}
         </Modal>
       </div>
-    </div>
+    </main>
   );
 };
 

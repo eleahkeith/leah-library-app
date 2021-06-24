@@ -131,7 +131,7 @@ const BookList = () => {
               Home
             </Link>
             <div className="component-title-text">{bookList?.name}</div>
-            <div className="shelf-options-container">
+            <div className="shelf-option-container">
               <div onClick={openEditModal} className="shelf-option">
                 Edit Shelf
               </div>

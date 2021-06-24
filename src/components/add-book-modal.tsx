@@ -24,43 +24,42 @@ const AddBookModal = ({ submitAddBook, closeModal }: AddProps) => {
 
   const shelfDetails = shelves?.items || [];
   const mappedShelfNames = shelfDetails.map((shelfDetail) => (
-    <option
-      className="shelf-option"
-      key={shelfDetail.id}
-      value={shelfDetail.id}
-    >
+    <option key={shelfDetail.id} value={shelfDetail.id}>
       {shelfDetail.name}
     </option>
   ));
 
   return (
-    <form className="shelf-form">
+    <form className="modal">
       <img
-        className="modal-close-button"
+        className="modal-close"
         src={DeleteButton}
-        alt="delete button"
+        alt="click to close modal"
         onClick={closeModal}
       />
-      <select
-        className="shelf-list-dropdown"
-        onChange={(e) => setSelectedShelf(e.target.value)}
-      >
-        <option hidden value=" ">
-          --select one--
-        </option>
-        {mappedShelfNames}
-      </select>
-      <label className="list-label" htmlFor="list">
-        Select a List
-      </label>
+      <div>
+        <select
+          className="modal"
+          onChange={(e) => setSelectedShelf(e.target.value)}
+          id="shelf-list"
+        >
+          <option hidden value=" ">
+            --select one--
+          </option>
+          {mappedShelfNames}
+        </select>
+        <label className="list" htmlFor="shelf-list">
+          Select a List
+        </label>
+      </div>
       <div className="shelf-option-container">
-        <input
+        <button
           type="button"
-          className="button-on-light"
-          id="edit-button-modal"
-          value="Add Book"
+          className="modal"
           onClick={() => submitAddBook(selectedShelf)}
-        />
+        >
+          Add Book
+        </button>
       </div>
     </form>
   );

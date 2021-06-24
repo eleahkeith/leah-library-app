@@ -95,7 +95,7 @@ const BookDetail = () => {
             </Link>
 
             <div className="detail-title-text">Book Detail</div>
-            <div className="shelf-options-container">
+            <div className="shelf-option-container">
               <div className="shelf-option" onClick={() => openModal()}>
                 Add to List
               </div>

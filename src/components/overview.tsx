@@ -79,16 +79,12 @@ const Overview = () => {
     ></ShelfPreview>
   ));
   return (
-    <>
+    <main>
       <div className="component-box">
         <div className="add-shelf-container">
-          <input
-            type="button"
-            value="Add New Shelf"
-            className="button-on-light"
-            id="add-shelf-button"
-            onClick={openModal}
-          />
+          <button type="button" id="add-shelf-button" onClick={openModal}>
+            Add New Shelf
+          </button>
         </div>
         <div className="bookshelf-preview-container">{mappedShelves}</div>
       </div>
@@ -100,36 +96,31 @@ const Overview = () => {
         {loading ? (
           <BookLoader></BookLoader>
         ) : (
-          <form className="shelf-form">
+          <form className="modal">
             <img
-              className="modal-close-button"
+              className="modal-close"
               src={DeleteButton}
               alt="close button"
               onClick={closeModal}
             />
-            <input
-              className="modal-input"
-              id="shelfName"
-              name="shelfName"
-              placeholder="Enter New Shelf Name"
-              onChange={(e) => handleType(e)}
-            ></input>
-            <label htmlFor="shelfName" className="edit-label">
-              Shelf Name
-            </label>
-            <div className="shelf-option-container">
+            <div>
               <input
-                type="button"
-                className="button-on-light"
-                id="edit-button-modal"
-                value="submit"
-                onClick={handleAddSubmit}
-              />
+                className="modal"
+                id="shelfName"
+                placeholder="Enter New Shelf Name"
+                onChange={(e) => handleType(e)}
+              ></input>
+              <label htmlFor="shelfName">Shelf Name</label>
+            </div>
+            <div className="shelf-option-container">
+              <button type="button" className="modal" onClick={handleAddSubmit}>
+                Submit
+              </button>
             </div>
           </form>
         )}
       </Modal>
-    </>
+    </main>
   );
 };
 

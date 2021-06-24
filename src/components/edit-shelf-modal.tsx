@@ -14,30 +14,32 @@ const EditShelfModal = ({
 }: EditShelfProps) => {
   return (
     <>
-      <form className="shelf-form">
+      <form className="modal">
         <img
-          className="modal-close-button"
+          className="modal-close"
           src={DeleteButton}
-          alt="delete button"
+          alt="click to close modal"
           onClick={closeModal}
         />
-        <input
-          className="modal-input"
-          onChange={(e) => setShelfName(e.target.value)}
-          placeholder="Enter new shelf name"
-        ></input>
-        <label htmlFor="shelfName" className="edit-label">
-          Shelf Name
-        </label>
-        <div className="shelf-option-container">
+        <div>
           <input
+            id="shelfName"
+            className="modal"
             onChange={(e) => setShelfName(e.target.value)}
+            placeholder="Enter new shelf name"
+          ></input>
+          <label htmlFor="shelfName" className="modal">
+            Shelf Name
+          </label>
+        </div>
+        <div className="shelf-option-container">
+          <button
             type="button"
-            className="button-on-light"
-            id="edit-button-modal"
-            value="Submit"
+            className="modal"
             onClick={() => handleEditSubmit()}
-          />
+          >
+            Submit
+          </button>
         </div>
       </form>
     </>

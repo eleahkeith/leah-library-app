@@ -86,7 +86,7 @@ const ShelfPreview = ({
         </div>
         <div className="shelf-title-container">
           <div className="shelf-preview-title">{shelf.name}</div>
-          <div className="shelf-options-container">
+          <div className="shelf-option-container">
             <div onClick={openEditModal} className="shelf-option">
               Edit Shelf
             </div>

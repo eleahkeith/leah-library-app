@@ -55,23 +55,23 @@ const Login = ({ onLogin }: LoginProps) => {
             <span className="title-2">file</span>
           </span>
 
-          <form className="email-form">
-            <input
-              className="modal-input"
-              type="email"
-              placeholder="e.g. leah@domain.com"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label className="edit-label" htmlFor="email">
-              Email
-            </label>
-            <input
+          <form className="email">
+            <div className="input-label-group">
+              <input
+                className="modal"
+                type="email"
+                placeholder="e.g. leah@domain.com"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <label htmlFor="email">Email</label>
+            </div>
+            <button
               type="button"
-              className="button-on-light"
-              id="login-button"
-              value="Send Email"
+              className="modal"
               onClick={() => checkEmail(email)}
-            />
+            >
+              Send Email
+            </button>
           </form>
           <div className="login-text">
             <ol>
@@ -87,7 +87,7 @@ const Login = ({ onLogin }: LoginProps) => {
       <Modal className="Modal-Login" isOpen={modalIsOpen}>
         <div className="auth-box">
           <img
-            className="modal-close-button"
+            className="modal-close"
             src={DeleteButton}
             alt="delete button"
             onClick={() => setIsOpen(false)}
@@ -95,23 +95,25 @@ const Login = ({ onLogin }: LoginProps) => {
           <div className="auth-text">
             An email with your authorization code has been sent to {email}
           </div>
-          <form className="auth-form">
-            <input
-              className="modal-input"
-              onChange={(e) => setAuth(e.target.value)}
-              placeholder="Enter code..."
-            ></input>
-            <label className="edit-label" htmlFor="authCode">
-              Enter your code here
-            </label>
+          <form className="modal" id="auth">
+            <div>
+              <input
+                className="modal"
+                onChange={(e) => setAuth(e.target.value)}
+                placeholder="Enter code..."
+              ></input>
+              <label className="modal" htmlFor="authCode">
+                Authorization Code
+              </label>
+            </div>
 
-            <input
+            <button
               type="button"
-              className="button-on-light"
-              id="login-button"
-              value="Login"
+              className="modal"
               onClick={() => checkCode(auth)}
-            />
+            >
+              Login
+            </button>
           </form>
           <span className="auth-text">
             {/* eslint-disable-next-line react/no-unescaped-entities */}
