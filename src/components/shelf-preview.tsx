@@ -75,15 +75,6 @@ const ShelfPreview = ({
   return (
     <>
       <div className="shelf-preview" key={shelf.id}>
-        <div className="list-link-container">
-          <Link
-            className="book-list-link"
-            key={shelf.id}
-            to={`/home/booklist/${shelf.id}`}
-          >
-            See All
-          </Link>
-        </div>
         <div className="shelf-title-container">
           <div className="shelf-preview-title">{shelf.name}</div>
           <div className="shelf-option-container">
@@ -96,7 +87,17 @@ const ShelfPreview = ({
           </div>
         </div>
         <div className="shelf-preview-image-container">{mappedCoverImages}</div>
+        <div className="list-link-container">
+          <Link
+            className="book-list-link"
+            key={shelf.id}
+            to={`/home/booklist/${shelf.id}`}
+          >
+            See All
+          </Link>
+        </div>
       </div>
+
       <Modal className="Modal" overlayClassName="overlay" isOpen={modalIsOpen}>
         {isDeleting ? (
           <DeleteShelfModal

@@ -123,7 +123,7 @@ const BookList = () => {
   ));
 
   return (
-    <>
+    <main>
       <div className="component-book-list">
         <div className="component-box">
           <div className="component-list-title">
@@ -164,7 +164,7 @@ const BookList = () => {
           ></EditShelfModal>
         )}
       </Modal>
-    </>
+    </main>
   );
 };
 

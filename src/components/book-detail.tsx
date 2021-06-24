@@ -86,7 +86,7 @@ const BookDetail = () => {
   };
 
   return (
-    <>
+    <main>
       <div className="component-box">
         <div className="detail-component">
           <div className="detail-component-title">
@@ -149,7 +149,7 @@ const BookDetail = () => {
           ></AddBookModal>
         )}
       </Modal>
-    </>
+    </main>
   );
 };
 

@@ -66,7 +66,7 @@ input, select {
     right: 10%;
     bottom: 40%;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: .5rem;
     box-shadow: 2px 2px #E0E0E0;
     animation: expand-in .3s ease-out;
   }
@@ -94,7 +94,7 @@ input, select {
     right: 35%;
     bottom: 50%;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: .5rem;
     box-shadow: 2px 2px #E0E0E0;
   }
 
@@ -106,7 +106,7 @@ input, select {
     right: 15%;
     background-color: #fff;
     border: 1.5px solid #E0E0E0;
-    border-radius: 5px;
+    border-radius: .5rem;
     animation: expand-in .3s ease-out;
 }
 
@@ -120,9 +120,15 @@ input, select {
       background-color: rgba(140, 147, 154, .75);
   }
 
-input:focus, a:focus, select:focus, button:focus {
+a:focus, select:focus, button:focus {
     outline: none;
-    background-color:rgba(140, 147, 154, .55);
+    background-color:rgba(26, 62, 97, 0.55);
+}
+
+input:focus {
+    outline: none;
+    background-color:rgba(26, 62, 97, 0.15);
+    
 }
 
 /* Modal Styles */
@@ -201,7 +207,7 @@ button#delete {
     height: 30px;
     width: 200px;
     font-size: 1em;
-    background-color: #A52312;
+    background-color: rgb(165, 35, 18);
 }
 
 button#delete:hover {
@@ -213,7 +219,7 @@ select.modal {
     width: 100%;
     height: 30px;
     border: 1px solid #63666A;
-    border-radius: 5px;
+    border-radius: .5rem;
 }
 
 label.list {
@@ -244,7 +250,7 @@ label.list {
     width: 95%;
     margin: 20px 0 20px 2.5%;
     background: #FFFFFF; 
-    border-radius: 10px;
+    border-radius: .75rem;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #63666A;
 }
@@ -303,7 +309,7 @@ h2 {
     right: 10%;
     bottom: 15%;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: .75rem;
 
 }
 
@@ -417,7 +423,7 @@ button.logout {
     background: #FFFFFF;
     width: 95%;
     margin-left: 2.5%;
-    border-radius: 10px;
+    border-radius: .75rem;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #63666A;
 }
@@ -503,7 +509,7 @@ button.logout {
 
 .book-preview:hover {
     background-color: rgba(224,224,224,.5);
-    border-radius: 10px;
+    border-radius: .75rem;
     cursor: pointer;
 } 
 
@@ -519,6 +525,12 @@ button.logout {
 
 .book-preview-image:hover {
     opacity: .75;
+}
+
+.book-preview-link {
+    display: flex;
+    justify-content: center;
+    height: 100%;
 }
 
 
@@ -574,38 +586,22 @@ button.logout {
     height: 2.5em;
     margin: 20px 0 20px 2.5%;
     background: #FFFFFF;
-    border-radius: 10px;
+    border-radius: .75rem;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #63666A;
 }
 
 input.search {
-    height: 100%;
+    height: 90%;
     width: 70%;
     font-family: "open sans";
     font-size: 1.15em;
-    padding-left: 10px;
-    background-color: transparent;
+    margin-left: 1em;
+    /* background-color: transparent; */
     border: 0;
 }
 
 
-#search-link {
-    position: absolute;
-    padding: 3px 10px 3px 10px;
-    border-radius: 5px;
-    background-color: #005F6B;
-    color: #fff;
-    transition-property: background-color;
-    transition: .3s;
-    right: 8px;
-    top: 25%;
-}
-
-#search-link:hover {
-    background-color: #72a1acaf;
-    cursor: default;
-}
 
 
 /* button styles - search and new search */
@@ -617,7 +613,7 @@ button {
     background-color: #005F6B;
     color: #FFFFFF;
     border: none;
-    border-radius: 3px;
+    border-radius: .5rem;
     box-shadow: 1px 1px #63666A;
     transition-property: background-color;
     transition: .3s;
@@ -667,7 +663,7 @@ button:hover {
 
 .shelf-preview:hover {
     background-color: rgba(224,224,224,.5);
-    border-radius: 10px;
+    border-radius: .75rem;
 }
 
 .shelf-title-container {
@@ -689,6 +685,7 @@ button:hover {
 }
 
 .single-preview-image-container {
+    display: flex;
     width: 25%;
 }
 
@@ -978,7 +975,7 @@ button:hover {
     .shelf-preview {
         width: 45%;
         border: 1px solid #E0E0E0;
-        border-radius: 10px;
+        border-radius: .75rem;
     }
 
     .shelf-preview-image {
