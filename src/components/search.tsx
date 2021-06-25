@@ -26,7 +26,7 @@ const Search = () => {
   };
 
   return (
-    <section className="search-box">
+    <div className="search-box">
       <input
         className="search"
         ref={inputRef}
@@ -40,7 +40,7 @@ const Search = () => {
           Search
         </button>
       </div>
-    </section>
+    </div>
   );
 };
 

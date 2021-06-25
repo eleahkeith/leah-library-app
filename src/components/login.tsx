@@ -75,11 +75,9 @@ const Login = ({ onLogin }: LoginProps) => {
           </form>
           <div className="login-text">
             <ol>
-              <li className="list-item">Enter your email address</li>
-              <li className="list-item">
-                Provide the authorization code we send to you
-              </li>
-              <li className="list-item">Start your own biblio file!</li>
+              <li>Enter your email address</li>
+              <li>Provide the authorization code we send to you</li>
+              <li>Start your own biblio file!</li>
             </ol>
           </div>
         </div>

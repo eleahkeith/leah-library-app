@@ -72,44 +72,44 @@ const SearchResults = () => {
       key={bookResult.id}
       rightAccessory={
         <img
-          id="add-delete-button"
+          id="add-delete"
           onClick={() => openAddBook(bookResult.id)}
           src={addButton}
-          alt="add favorite button"
+          alt="add favorite"
         />
       }
     />
   ));
 
   return (
-    <main className="component-book-list">
-      <div className="component-box">
-        <div className="component-list-title" key={null}>
-          <Link className="home-button" to="/home">
-            Home
-          </Link>
-          <div className="component-title-text">
-            <span className="list-title">Search Results</span>
+    <>
+      <main className="component-box">
+        <section className="results">
+          <header className="component" key={null}>
+            <Link className="home-link" to="/home">
+              Home
+            </Link>
+            <h3>Search Results</h3>
             <span className="results-number">Results: {totalResults}</span>
-          </div>
-        </div>
-        <div className="component-list-body">{mappedBooks}</div>
-        <Modal
-          className={loading ? 'Modal-Loading' : 'Modal'}
-          overlayClassName="overlay"
-          isOpen={modalIsOpen}
-        >
-          {loading ? (
-            <BookLoader></BookLoader>
-          ) : (
-            <AddBookModal
-              submitAddBook={submitAddBook}
-              closeModal={closeModal}
-            ></AddBookModal>
-          )}
-        </Modal>
-      </div>
-    </main>
+          </header>
+          <div className="list">{mappedBooks}</div>
+        </section>
+      </main>
+      <Modal
+        className={loading ? 'Modal-Loading' : 'Modal'}
+        overlayClassName="overlay"
+        isOpen={modalIsOpen}
+      >
+        {loading ? (
+          <BookLoader></BookLoader>
+        ) : (
+          <AddBookModal
+            submitAddBook={submitAddBook}
+            closeModal={closeModal}
+          ></AddBookModal>
+        )}
+      </Modal>
+    </>
   );
 };
 

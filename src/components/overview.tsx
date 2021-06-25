@@ -79,15 +79,15 @@ const Overview = () => {
     ></ShelfPreview>
   ));
   return (
-    <main>
-      <div className="component-box">
+    <>
+      <main className="component-box">
         <div className="add-shelf-container">
-          <button type="button" id="add-shelf-button" onClick={openModal}>
+          <button type="button" id="add-shelf" onClick={openModal}>
             Add New Shelf
           </button>
         </div>
-        <div className="bookshelf-preview-container">{mappedShelves}</div>
-      </div>
+        <section className="overview">{mappedShelves}</section>
+      </main>
       <Modal
         className={loading ? 'Modal-Loading' : 'Modal'}
         overlayClassName="overlay"
@@ -120,7 +120,7 @@ const Overview = () => {
           </form>
         )}
       </Modal>
-    </main>
+    </>
   );
 };
 

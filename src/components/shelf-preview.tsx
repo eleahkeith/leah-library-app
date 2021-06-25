@@ -75,8 +75,8 @@ const ShelfPreview = ({
   return (
     <>
       <div className="shelf-preview" key={shelf.id}>
-        <div className="shelf-title-container">
-          <div className="shelf-preview-title">{shelf.name}</div>
+        <header className="component">
+          <h3>{shelf.name}</h3>
           <div className="shelf-option-container">
             <div onClick={openEditModal} className="shelf-option">
               Edit Shelf
@@ -85,7 +85,7 @@ const ShelfPreview = ({
               Delete Shelf
             </div>
           </div>
-        </div>
+        </header>
         <div className="shelf-preview-image-container">{mappedCoverImages}</div>
         <div className="list-link-container">
           <Link
