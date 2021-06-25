@@ -113,10 +113,10 @@ const BookList = () => {
       book={bookListItem}
       rightAccessory={
         <img
-          id="add-delete-button"
+          id="add-delete"
           onClick={() => handleDeleteBook(bookListItem.id)}
           src={deleteButton}
-          alt="delete button"
+          alt="delete book"
         />
       }
     ></BookListItem>
@@ -124,14 +124,16 @@ const BookList = () => {
 
   return (
     <>
-      <div className="component-book-list">
-        <div className="component-box">
-          <div className="component-list-title">
-            <Link className="home-button" to="/home">
-              Home
-            </Link>
-            <div className="component-title-text">{bookList?.name}</div>
-            <div className="shelf-options-container">
+      <main className="component-box">
+        <section className="book-list">
+          <header className="component">
+            <nav>
+              <Link className="home-link" to="/home">
+                Home
+              </Link>
+            </nav>
+            <h3>{bookList?.name}</h3>
+            <div className="shelf-option-container">
               <div onClick={openEditModal} className="shelf-option">
                 Edit Shelf
               </div>
@@ -139,10 +141,11 @@ const BookList = () => {
                 Delete Shelf
               </div>
             </div>
-          </div>
-          <div className="component-list-body">{mappedBookItems}</div>
-        </div>
-      </div>
+          </header>
+          <div className="list">{mappedBookItems}</div>
+        </section>
+      </main>
+
       <Modal
         className={loading ? 'Modal-Loading' : 'Modal'}
         overlayClassName="overlay"

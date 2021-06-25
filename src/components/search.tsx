@@ -28,7 +28,7 @@ const Search = () => {
   return (
     <div className="search-box">
       <input
-        className="search-input"
+        className="search"
         ref={inputRef}
         id="search-bar"
         type="text"
@@ -36,13 +36,9 @@ const Search = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       ></input>
       <div className="search-link-container">
-        <input
-          type="button"
-          className="button-on-light"
-          id="search-button"
-          value="Search"
-          onClick={() => handleSearch()}
-        />
+        <button type="button" id="search-button" onClick={() => handleSearch()}>
+          Search
+        </button>
       </div>
     </div>
   );

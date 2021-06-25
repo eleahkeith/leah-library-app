@@ -27,19 +27,31 @@ body {
     width: 100vw;
     height: 100%;
     overflow-x: hidden;
+    font-family: "open sans";
+
 }
 
 #root {
+    position: relative;
+    display: flex;
+    justify-content: center;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     overflow-x: hidden;
+}
 
+.app {
+    position: relative;
+    height: 100%;
+    width: 100vw;
+    max-width: 1500px;
 }
 
 a {
     text-decoration: none;
-    font-family: "open sans";
     color: #63666A;
+    font-family: "open sans";
+
 }
 
 a:hover {
@@ -59,12 +71,12 @@ input, select {
 
 .Modal {
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 10%;
     right: 10%;
     bottom: 40%;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: .5rem;
     box-shadow: 2px 2px #E0E0E0;
     animation: expand-in .3s ease-out;
   }
@@ -92,7 +104,7 @@ input, select {
     right: 35%;
     bottom: 50%;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: .5rem;
     box-shadow: 2px 2px #E0E0E0;
   }
 
@@ -104,7 +116,7 @@ input, select {
     right: 15%;
     background-color: #fff;
     border: 1.5px solid #E0E0E0;
-    border-radius: 5px;
+    border-radius: .5rem;
     animation: expand-in .3s ease-out;
 }
 
@@ -118,8 +130,15 @@ input, select {
       background-color: rgba(140, 147, 154, .75);
   }
 
-*:focus {
+a:focus, select:focus, button:focus {
     outline: none;
+    background-color:rgba(26, 62, 97, 0.55);
+}
+
+input:focus {
+    outline: none;
+    background-color:rgba(26, 62, 97, 0.15);
+    
 }
 
 /* Modal Styles */
@@ -131,7 +150,6 @@ input, select {
 
 .loading-text {
     text-align: center;
-    font-family: "open sans";
     color: #3A333B;
     font-size: 1.5em;
 }
@@ -142,14 +160,15 @@ input, select {
     opacity: .75;
 }
 
-.shelf-form {
+form.modal {
     display: flex;
+    flex-direction: column;
+    height: 100%;
     position: relative;
-    flex-wrap: wrap;
-    font-family: "open sans";
+    justify-content: space-around;
+    align-content: space-between;
     color: #3A333B;
-    padding: 10px;
-    
+    padding: 0 25px;
 }
 
 .edit-label {
@@ -160,18 +179,17 @@ input, select {
 
 }
 
-.modal-input {
-    width: 90%;
+input.modal {
+    width: 100%;
     border-bottom: 1px solid #63666A;
     border-top: none;
     border-left: none;
     border-right: none; 
-    margin: 30px 0 5px 2.5%;
     font-size: 1.15em;
     color: #63666A;
 }
 
-.shelf-option-container {
+.modal-btn-container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -179,67 +197,55 @@ input, select {
     width: 100%;
 }
 
-#edit-button-modal, #login-button {
-    margin: 3px;
+button.modal {
     height: 30px;
     width: 100px;
     font-size: 1em;
 }
 
-.delete-shelf-form {
-    display: flex;
-    font-family: "open sans";
 
-}
 
-.delete-modal-text-container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.danger-text {
-    width: 100%;
+.danger {
     color: #A52312;
     font-size: 1.25em;
     text-align: center;
     margin-bottom: 5px;
 }
 
-#delete-button-modal {
+button#delete {
     margin: 3px;
     height: 30px;
     width: 200px;
     font-size: 1em;
-    background-color: #A52312;
+    background-color: rgb(165, 35, 18);
 }
 
-#delete-button-modal:hover {
+button#delete:hover {
     background-color: #b84e4e65;
 }
 
-.shelf-list-dropdown {
+select.modal {
     font-size: 1.15em;
+    width: 100%;
     height: 30px;
-    width: 90%;
     border: 1px solid #63666A;
-    border-radius: 5px;
-    margin: 30px 0px 5px 5%;
+    border-radius: .5rem;
 }
 
-.list-label {
+label.list {
     width: 100%;
-    margin: 0 0 20px 5%;
+    margin: 5px 0 20px 5px;
     font-size: .8em;
 }
 
-.modal-close-button {
+.modal-close {
     position: absolute;
     height: 20px;
     right: 5px;
     top: 10px;
 }
 
-.modal-close-button:hover {
+.modal-close:hover {
     cursor: pointer;
 }
 
@@ -254,7 +260,7 @@ input, select {
     width: 95%;
     margin: 20px 0 20px 2.5%;
     background: #FFFFFF; 
-    border-radius: 10px;
+    border-radius: .75rem;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #63666A;
 }
@@ -269,7 +275,7 @@ input, select {
     padding: 12px;
 }
 
-.header-title-text {
+h1 {
     width: 100%;
     font-family: 'martel';
     font-size: 4em;
@@ -277,9 +283,8 @@ input, select {
     text-align: center;
 }
 
-.header-title-subtext {
+h2 {
     width: 100%;
-    font-family: "open sans";
     padding-top: 10px;
     color: #63666A;
     text-align: center;
@@ -314,7 +319,7 @@ input, select {
     right: 10%;
     bottom: 15%;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: .75rem;
 
 }
 
@@ -334,23 +339,32 @@ input, select {
     color: #63666A;
 }
 
-.email-form {
+form.email {
     display: flex;
-    width: 80%;
     flex-direction: column;
+    width: 100%;
     align-items: center;
     font-family: "open sans";
     margin-bottom: 35px;
 }
 
+.input-label-group {
+    width: 60%;
+}
+
+form#auth {
+    width: 90%;
+    height: 25%;
+}
+
 ol {
-    list-style-type: "→";
+    list-style-type: "📖";
+    list-style-position: outside;
 }
 
 .login-text {
     display: flex;
     flex-direction: column;
-    font-family: "open sans";
     color: #63666A;
     font-size: 1.25em;
     margin: 10px;
@@ -358,9 +372,10 @@ ol {
     width: 70%;
 }
 
-.list-item {
+li {
     text-align: justify;
-    padding-bottom: 30px;
+    padding: 15px 5px;
+
 }
 
 .auth-box {
@@ -368,7 +383,7 @@ ol {
     display: flex;
     flex-direction: column;
     height: 100%;
-    align-items: space-around;
+    align-items: center;
     justify-content: space-around;
     font-family: "open sans";
     padding: 10px;
@@ -389,14 +404,6 @@ ol {
     cursor: pointer;
 }
 
-
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* margin-bottom: 20px; */
-}
-
 #spam-text {
     color: #A52312;
 }
@@ -405,16 +412,15 @@ ol {
     height: 1.5em;
 }
 
-.logout-button {
+button.logout {
     position: absolute;
     right: 7.5px;
     top: 7.5px;
-    background-color: #fff;
-    color: #63666A;
-    font-family: "open sans";
-    font-size: .95em;
-    border: none;
-    border-radius: 3px;
+    background-color: #A52312;
+    color: #fff;
+    padding: 2.5px 10px;
+    font-size: 1em;
+
 }
 
 
@@ -427,7 +433,7 @@ ol {
     background: #FFFFFF;
     width: 95%;
     margin-left: 2.5%;
-    border-radius: 10px;
+    border-radius: .75rem;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #63666A;
 }
@@ -446,8 +452,8 @@ ol {
     font-size: 1.25em;
 }
 
-.component-title-text {
-    font-size: 1.5em;
+h3 {
+    font-size: 1.25em;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -457,20 +463,21 @@ ol {
 
 .results-number {
     font-family: "open sans";
-    font-size: .5em;
+    font-size: .75em;
     color: #63666A;
     padding-top: 10px;
 }
 
-.component-list-body {
+.list {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     width: 100%;
 }
 
-.home-button {
+.home-link {
     position: absolute;
+    height: auto;
     right: 15px;
     top: 15px;
     font-size: 1em;
@@ -484,14 +491,13 @@ ol {
 }
 
 /* book preview styles */
-.book-preview {
+div.book-preview {
     position: relative;
     display: flex;
     align-content: flex-start;
     width: 100%;
-    padding: 10px;
-    margin: 7.5px;
     font-size: .85em;
+    padding: 1em 0;
     border-bottom: 1px solid #E0E0E0;
     transition-property: background-color;
     transition: .3s;
@@ -511,13 +517,12 @@ ol {
     }
 }
 
-.book-preview:hover {
+div.book-preview:hover {
     background-color: rgba(224,224,224,.5);
-    border-radius: 10px;
     cursor: pointer;
 } 
 
-.book-preview-image {
+img.book-preview {
     float: left;
     min-width: 20px;
     width: 20%;
@@ -527,8 +532,14 @@ ol {
     transition: .3s;
 }
 
-.book-preview-image:hover {
+img.book-preview:hover {
     opacity: .75;
+}
+
+.book-preview-link {
+    display: flex;
+    justify-content: center;
+    height: 100%;
 }
 
 
@@ -555,7 +566,7 @@ ol {
     color: #63666A;
 }
 
-#add-delete-button {
+#add-delete {
     position: absolute;
     padding-top: 7.5%;
     top: 30%;
@@ -566,11 +577,11 @@ ol {
     transition: .3s;
 }
 
-#add-delete-button:hover {
+#add-delete:hover {
     opacity: 1;
 }
 
-#add-delete-button:active {
+#add-delete:active {
     opacity: 0;
 }
 
@@ -584,46 +595,26 @@ ol {
     height: 2.5em;
     margin: 20px 0 20px 2.5%;
     background: #FFFFFF;
-    border-radius: 10px;
+    border-radius: .75rem;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #63666A;
 }
 
-.search-input {
-    height: 100%;
+input.search {
+    height: 90%;
     width: 70%;
     font-family: "open sans";
     font-size: 1.15em;
-    padding-left: 10px;
-    background-color: transparent;
+    margin-left: 1em;
+    /* background-color: transparent; */
     border: 0;
-    border-radius: 10px;
 }
 
-.search-input:focus {
-    outline: none;
-}
 
-#search-link {
-    position: absolute;
-    padding: 3px 10px 3px 10px;
-    border-radius: 5px;
-    background-color: #005F6B;
-    color: #fff;
-    transition-property: background-color;
-    transition: .3s;
-    right: 8px;
-    top: 25%;
-}
-
-#search-link:hover {
-    background-color: #72a1acaf;
-    cursor: default;
-}
 
 
 /* button styles - search and new search */
-.button-on-light {
+button {
     -webkit-appearance: none;
     font-family: "open sans";
     font-size: .85em;
@@ -631,7 +622,7 @@ ol {
     background-color: #005F6B;
     color: #FFFFFF;
     border: none;
-    border-radius: 3px;
+    border-radius: .5rem;
     box-shadow: 1px 1px #63666A;
     transition-property: background-color;
     transition: .3s;
@@ -644,7 +635,7 @@ ol {
     top: 10px;
 }
 
-.button-on-light:hover {
+button:hover {
     background-color: #72a1acaf;
 }
 
@@ -658,7 +649,7 @@ ol {
     justify-content: center;
 }
 
-#add-shelf-button {
+button#add-shelf {
     align-self: center;
     justify-self: center;
     height: 22px;
@@ -666,26 +657,28 @@ ol {
     font-size: .9em;
 }
 
-.bookshelf-preview-container {
+section {
     width: 100%;
+    height: 100%;
+    padding: 2.5% 5%;
 }
 .shelf-preview {
     position: relative;
     border-bottom: 1px solid #E0E0E0;
-    padding-bottom: 10px;
-    padding: 20px;
-    margin: 10px;
+    padding: 1em 0;
+    /* margin: 10px; */
     transition-property: background-color;
     transition: .3s;
 }
 
 .shelf-preview:hover {
     background-color: rgba(224,224,224,.5);
-    border-radius: 10px;
+    border-radius: .75rem;
 }
 
 .shelf-title-container {
-    padding: 3px 0px 7.5px 3px; 
+    padding: 3px 0px 7.5px 3px;
+    height: 40%; 
 }
 
 .shelf-preview-title {
@@ -694,6 +687,7 @@ ol {
     font-size: 1.4em;
     padding-bottom: 3px;
     width: 75%;
+    height: 65%;
 }
 
 .shelf-preview-image-container {
@@ -703,6 +697,7 @@ ol {
 }
 
 .single-preview-image-container {
+    display: flex;
     width: 25%;
 }
 
@@ -718,7 +713,7 @@ ol {
     opacity: .75;
 }
 
-.shelf-options-container {
+.shelf-option-container {
     display: flex;
 }
 
@@ -737,7 +732,7 @@ ol {
 .list-link-container {
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 15px;
 }
 
 .book-list-link {
@@ -749,14 +744,13 @@ ol {
 
 /* book detail styles */
 
-.detail-component {
+section.detail {
     display: flex;
     position: relative;
     flex-wrap: wrap;
     font-family: "open sans";
     width: 95%;
     color: #3A333B;
-    margin-left: 15px;
 }
 
 .detail-nav {
@@ -774,16 +768,13 @@ ol {
     cursor: pointer;
 }
 
-.left-arrow {
-    height: 110%;
-}
-
-.detail-component-title {
+header.component {
     width: 100%;
     font-family: "martel";
     margin-bottom: 20px;
     color: #A52312;
     font-size: 1.3em;
+    padding: 2.5% 0;
 }
 
 .detail-title-text {
@@ -792,7 +783,7 @@ ol {
     padding: 15px 0px 0px 0px;
 }
 
-.detail-image {
+img.detail {
     float: left;
     width: 30%;
     object-fit: contain;
@@ -890,12 +881,12 @@ ol {
         justify-content: flex-start;
     }
 
-    .header-title-text {
+    h1 {
         font-size: 4em;
         text-align: center;
     }
 
-    .header-title-subtext {
+    h2 {
         font-size: .9em;
         text-align: center;
     }
@@ -940,16 +931,15 @@ ol {
         justify-content: flex-start;
     }
 
-    .header-title-text {
+    h1 {
         font-size: 6em;
         text-align: center;
     }
 
-    .header-title-subtext {
+    h2 {
         font-size: 1.25em;
         text-align: center;
     }
-
 
     .header-image {
         display: block;
@@ -957,6 +947,10 @@ ol {
         right: -35px;
         bottom: -15px;
         height: 90%;
+    }
+
+    header.component {
+        padding: 1% 0;
     }
 
     .list-link-container {
@@ -967,7 +961,7 @@ ol {
         font-size: 1.25em;
     }
 
-    .component-list-body {
+    .list {
         justify-content: flex-start;
     }
 
@@ -975,24 +969,35 @@ ol {
         font-size: 1.5em;
     }
 
-    .book-preview {
-        width: 45%;
+    div.book-preview {
+        width: 48%;
+        border: 1px solid #E0E0E0;
+        border-radius: .75rem;
+        margin: .5rem;
+        padding-left: .25rem;
+
     }
 
     .book-preview-text {
         width: 70%;
     }
 
-    .bookshelf-preview-container {
+    section {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        padding: 2.5%;
+    }
+
+    .shelf-title-container {
+        height: auto;
     }
 
     .shelf-preview {
         width: 45%;
         border: 1px solid #E0E0E0;
-        border-radius: 10px;
+        border-radius: .75rem;
+        padding: 1em;
     }
 
     .shelf-preview-image {
@@ -1003,11 +1008,11 @@ ol {
         height: 50px;
     }
 
-    #add-shelf-button {
+    button#add-shelf {
         height: 30px;
     }
 
-    .detail-image {
+    img.detail {
         width: 20%;
     }
 
@@ -1035,22 +1040,18 @@ ol {
         right: 30%;
     }
 
-    .book-preview {
-        width: 45%;
-    }
-
     .shelf-preview-image {
         width: 80%;
     }
 
 
-    #add-shelf-button {
+    button#add-shelf {
         width: 25%;
         height: 2em;
         font-size: 1.1em;
     }
 
-    .detail-image {
+    img.detail {
         width: 15%;
     }
 
@@ -1084,14 +1085,14 @@ ol {
         width: 60%;
     }
 
-    .list-item {
+    li {
         text-align: left;
     }
-    .header-title-text {
+    h1 {
         font-size: 3em;
     }
 
-    .header-title-subtext {
+    h2 {
         font-size: .85em;
         padding-top: 2px;
     }
@@ -1100,7 +1101,7 @@ ol {
         font-size: 1em;
     }
 
-    .search-input {
+    input.search {
         font-size: .9em;
     }
     .book-preview-image {

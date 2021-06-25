@@ -75,6 +75,18 @@ const ShelfPreview = ({
   return (
     <>
       <div className="shelf-preview" key={shelf.id}>
+        <header className="component">
+          <h3>{shelf.name}</h3>
+          <div className="shelf-option-container">
+            <div onClick={openEditModal} className="shelf-option">
+              Edit Shelf
+            </div>
+            <div onClick={openDeleteModal} className="shelf-option">
+              Delete Shelf
+            </div>
+          </div>
+        </header>
+        <div className="shelf-preview-image-container">{mappedCoverImages}</div>
         <div className="list-link-container">
           <Link
             className="book-list-link"
@@ -84,19 +96,8 @@ const ShelfPreview = ({
             See All
           </Link>
         </div>
-        <div className="shelf-title-container">
-          <div className="shelf-preview-title">{shelf.name}</div>
-          <div className="shelf-options-container">
-            <div onClick={openEditModal} className="shelf-option">
-              Edit Shelf
-            </div>
-            <div onClick={openDeleteModal} className="shelf-option">
-              Delete Shelf
-            </div>
-          </div>
-        </div>
-        <div className="shelf-preview-image-container">{mappedCoverImages}</div>
       </div>
+
       <Modal className="Modal" overlayClassName="overlay" isOpen={modalIsOpen}>
         {isDeleting ? (
           <DeleteShelfModal

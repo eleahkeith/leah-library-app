@@ -18,7 +18,7 @@ const BookListItem = ({ book, rightAccessory }: BookListItemProps) => {
   return (
     <div className="book-preview" key={book.id} id="list-book">
       <img
-        className="book-preview-image"
+        className="book-preview"
         onClick={() => viewBookDetails(book.id)}
         src={book.imageURL || undefined}
         alt="book cover"
@@ -27,7 +27,7 @@ const BookListItem = ({ book, rightAccessory }: BookListItemProps) => {
         <div className="book-preview-title">{book.title}</div>
         <div className="book-preview-author">{book.author}</div>
       </div>
-      <div id="add-delete-button">{rightAccessory}</div>
+      <div id="add-delete">{rightAccessory}</div>
     </div>
   );
 };

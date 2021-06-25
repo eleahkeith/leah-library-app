@@ -19,33 +19,35 @@ const LoggedInPath = () => {
   const { loggedIn } = useContext(UserContext);
 
   return (
-    <Router>
-      <Route path={loginURL}>
-        {loggedIn ? <Logout /> : null}
-        <Header></Header>
-        <Search></Search>
-        <Switch>
-          {!loggedIn ? (
-            <Redirect to="/login" />
-          ) : (
-            <>
-              <Route exact path={loginURL}>
-                <Overview />
-              </Route>
-              <Route path={`${loginURL}/search`}>
-                <SearchResults />
-              </Route>
-              <Route path={`${loginURL}/booklist/:shelfID`}>
-                <BookList />
-              </Route>
-              <Route path={`${loginURL}/bookdetail/:bookID`}>
-                <BookDetail />
-              </Route>
-            </>
-          )}
-        </Switch>
-      </Route>
-    </Router>
+    <div className="app">
+      <Router>
+        <Route path={loginURL}>
+          {loggedIn ? <Logout /> : null}
+          <Header></Header>
+          <Search></Search>
+          <Switch>
+            {!loggedIn ? (
+              <Redirect to="/login" />
+            ) : (
+              <>
+                <Route exact path={loginURL}>
+                  <Overview />
+                </Route>
+                <Route path={`${loginURL}/search`}>
+                  <SearchResults />
+                </Route>
+                <Route path={`${loginURL}/booklist/:shelfID`}>
+                  <BookList />
+                </Route>
+                <Route path={`${loginURL}/bookdetail/:bookID`}>
+                  <BookDetail />
+                </Route>
+              </>
+            )}
+          </Switch>
+        </Route>
+      </Router>
+    </div>
   );
 };
 

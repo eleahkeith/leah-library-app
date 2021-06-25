@@ -87,25 +87,22 @@ const BookDetail = () => {
 
   return (
     <>
-      <div className="component-box">
-        <div className="detail-component">
-          <div className="detail-component-title">
-            <Link className="home-button" to="/home">
-              Home
-            </Link>
-
-            <div className="detail-title-text">Book Detail</div>
-            <div className="shelf-options-container">
+      <main className="component-box">
+        <section className="detail">
+          <header className="component">
+            <nav>
+              <Link className="home-link" to="/home">
+                Home
+              </Link>
+            </nav>
+            <h3>Book Detail</h3>
+            <div className="shelf-option-container">
               <div className="shelf-option" onClick={() => openModal()}>
                 Add to List
               </div>
             </div>
-          </div>
-          <img
-            className="detail-image"
-            src={bookDetail?.imageURL}
-            alt="book cover"
-          />
+          </header>
+          <img className="detail" src={bookDetail?.imageURL} alt="book cover" />
           <div className="book-detail-container">
             <div className="detail-title-author-container">
               <span className="detail-title">{bookDetail?.title}</span>
@@ -133,8 +130,8 @@ const BookDetail = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
       <Modal
         className={loading ? 'Modal-Loading' : 'Modal'}
         overlayClassName="overlay"
