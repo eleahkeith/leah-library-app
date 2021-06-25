@@ -36,14 +36,16 @@ body {
     display: flex;
     justify-content: center;
     width: 100vw;
-    height: 100vh;
     overflow-x: hidden;
 }
 
 .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
     height: 100%;
-    width: 100vw;
+    width: 100%;
     max-width: 1500px;
 }
 
@@ -250,7 +252,7 @@ label.list {
 }
 
 /* header styles */
-.header-box {
+header.home {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -258,14 +260,14 @@ label.list {
     justify-content: center;
     height: 8em;
     width: 95%;
-    margin: 20px 0 20px 2.5%;
+    margin-top: 25px;
     background: #FFFFFF; 
     border-radius: .75rem;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #63666A;
 }
 
-.header-box:hover {
+header.home:hover {
     cursor: pointer;
 }
 
@@ -426,13 +428,13 @@ button.logout {
 
 /* component styles */
 .component-box {
+    box-sizing: border-box;
+    position: relative;
     display: flex;
-    position: absolute;
     flex-wrap: wrap;
     align-content: flex-start;
     background: #FFFFFF;
     width: 95%;
-    margin-left: 2.5%;
     border-radius: .75rem;
     border: 1px solid #E0E0E0;
     box-shadow: 2px 2px #63666A;
@@ -593,7 +595,7 @@ img.book-preview:hover {
     align-items: center;
     width: 95%;
     height: 2.5em;
-    margin: 20px 0 20px 2.5%;
+    margin: 20px 0;
     background: #FFFFFF;
     border-radius: .75rem;
     border: 1px solid #E0E0E0;
@@ -659,14 +661,12 @@ button#add-shelf {
 
 section {
     width: 100%;
-    height: 100%;
     padding: 2.5% 5%;
 }
 .shelf-preview {
     position: relative;
     border-bottom: 1px solid #E0E0E0;
     padding: 1em 0;
-    /* margin: 10px; */
     transition-property: background-color;
     transition: .3s;
 }
@@ -872,7 +872,7 @@ img.detail {
     }
 
 
-    .header-box {
+    header.home {
         justify-content: space-around;
         height: 11em;
     }
@@ -905,7 +905,7 @@ img.detail {
 }
 
 @media only screen and (min-width: 850px) {
-    .header-box {
+    header.home {
         height: 15em;
         justify-content: space-around;
         align-items: center;
@@ -924,7 +924,6 @@ img.detail {
 
     .search-box {
         width: 40%;
-        margin-left: 30%;
     }
 
     .header-text-box {
@@ -1017,13 +1016,9 @@ img.detail {
     }
 
     .book-detail-container {
-        margin-left: 10%;
         font-size: 1.5em;
     }
 
-    .detail-component-title {
-        font-size: 1.75em;
-    }
 }
 
 @media only screen and (min-width: 1075px) {

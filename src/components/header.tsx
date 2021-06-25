@@ -11,7 +11,7 @@ const Header = () => {
     history.push('/home');
   };
   return (
-    <header onClick={goHome} className="header-box">
+    <header onClick={goHome} className="home">
       <div className="header-text-box">
         <h1>
           <span className="title-1">biblio</span>
