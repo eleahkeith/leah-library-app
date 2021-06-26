@@ -54,9 +54,10 @@ a:hover {
     cursor: pointer;
 }
 
-input, select {
+input, select, option {
     font-family: "open sans";
     border-radius: 0;
+    font-size: 1em;
 }
 
 ::placeholder {
@@ -114,7 +115,12 @@ input, select {
     right: 15%;
     background-color: var(--white);
     border-radius: var(--main-radius);
+    box-shadow: var(--main-shadow);
     animation: expand-in .3s ease-out;
+}
+
+.Modal-Login:focus {
+    outline: none;
 }
 
 
@@ -179,6 +185,7 @@ form.modal {
 input.modal {
     width: 100%;
     border-bottom: 1px solid var(--med-gray);
+    background: none;
     border-top: none;
     border-left: none;
     border-right: none; 
@@ -196,7 +203,7 @@ input.modal {
 
 button.modal {
     height: 30px;
-    width: 100px;
+    width: 125px;
     font-size: 1em;
 }
 
@@ -347,7 +354,7 @@ form.email {
 }
 
 .input-label-group {
-    width: 60%;
+    width: 80%;
 }
 
 form#auth {
@@ -458,7 +465,7 @@ button.logout:hover {
 }
 
 h3 {
-    font-size: 1.25em;
+    font-size: 1.1em;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -728,8 +735,11 @@ section {
 
 .list-link-container {
     position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
     right: 10px;
-    top: 15px;
+    top: 0px;
 }
 
 .book-list-link {
@@ -801,7 +811,7 @@ img.detail {
 }
 
 .detail-title {
-    font-size: 1.25em;
+    font-size: 1.1em;
 }
 
 .detail-author {
@@ -849,6 +859,7 @@ img.detail {
  }
 
     .Modal-Login {
+        box-shadow: var(--main-shadow); 
         top: 25%;
         bottom: 25%;
         left: 25%;
@@ -954,7 +965,7 @@ img.detail {
     }
 
     .list-link-container {
-        top: 45%;
+        height: 100%;
     }
 
     .book-list-link {

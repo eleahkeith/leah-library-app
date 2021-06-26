@@ -2,6 +2,8 @@
     --red: rgb(156, 30, 28);
     --red-hover: rgba(156, 30, 28, .8);
     --green-blue: rgb(21, 98, 106);
+    --green: rgb(69, 95, 74);
+    --green-hover: rgba(69, 95, 74, .8);
     --black: rgb(58, 51, 59);
     --black-hover: rgba(58, 51, 59, .8);
     --white: rgba(255, 255, 255, .95);
