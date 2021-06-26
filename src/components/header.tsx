@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/reset.css';
 import '../styles/app.css';
-import headerImage from '../images/header-image.png';
 import { useHistory } from 'react-router';
 
 const Header = () => {
@@ -22,11 +21,6 @@ const Header = () => {
           The book lover's book tracker
         </h2>
       </div>
-      <img
-        className="header-image"
-        src={headerImage}
-        alt="drawing of brunette woman with glasses sitting against a stack of books, reading and drinking coffee while smiling"
-      />
     </header>
   );
 };
