@@ -27,7 +27,12 @@ const DeleteShelfModal = ({
         <button type="button" id="delete" onClick={handleDeleteSubmit}>
           confirm delete shelf
         </button>
-        <button type="button" className="modal" onClick={closeModal}>
+        <button
+          type="button"
+          className="modal"
+          id="goback"
+          onClick={closeModal}
+        >
           go back
         </button>
       </div>

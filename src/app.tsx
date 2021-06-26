@@ -3,6 +3,8 @@ import './styles/reset.css';
 import './styles/app.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import background from './images/background.jpg';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -39,6 +41,12 @@ const App = () => {
 
   return (
     <UserContext.Provider value={{ loggedIn, setLoggedIn }}>
+      <img
+        src={background}
+        className="background"
+        alt="bookshelves full of books"
+      />
+
       <Router>
         <Switch>
           {loggedIn ? (
