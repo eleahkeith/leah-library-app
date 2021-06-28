@@ -121,7 +121,7 @@ input, select, option {
 
 .Modal-Login:focus {
     outline: none;
-}
+} 
 
 
   .overlay {
@@ -504,35 +504,17 @@ h3 {
 
 /* book preview styles */
 div.book-preview {
-    position: relative;
+    /* position: relative; */
     display: flex;
     align-content: flex-start;
     width: 100%;
     font-size: .85em;
     padding: 1em 0;
     border-bottom: 1px solid var(--light-gray);
-    transition-property: background-color;
-    transition: .3s;
-    animation: float-up;
-    animation-duration: .5s;
-    animation-delay: calc(var(--animation-order) * 100ms);
 }
 
-@keyframes float-up {
-    0% {
-        transform: translateY(-10px);
-        opacity: 0;
-    }
 
-    100% {
-        opacity: 1;
-    }
-}
 
-div.book-preview:hover {
-    background-color: rgba(224,224,224,.5);
-    cursor: pointer;
-} 
 
 img.book-preview {
     float: left;
@@ -592,13 +574,15 @@ img.book-preview:hover {
 
 /* search component styles */
 .search-box {
+    box-sizing: border-box;
     position: relative;
     display: flex;
-    justify-content: stretch;
     align-items: center;
+    justify-content: space-between;
     width: 95%;
     height: 2.5em;
     margin: 20px 0;
+    padding: 0 2.5%;
     background: var(--white-opac);
     border-radius: var(--main-radius);
     box-shadow: var(--main-shadow);
@@ -635,9 +619,10 @@ button {
 
 
 #search-button {
-    position: absolute;
+    justify-self: flex-end;
+    /* position: absolute;
     right: 10px;
-    top: 10px;
+    top: 10px; */
 }
 
 button:hover {
@@ -649,36 +634,32 @@ button:hover {
 
 .add-shelf-container {
     display: flex;
-    width: 100%;
+    width: 95%;
+    margin: auto;
     height: 35px;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 button#add-shelf {
-    align-self: center;
-    justify-self: center;
     height: 22px;
-    width: 40%;
+    padding: 0 1em;
     font-size: .9em;
 }
 
 section {
     position: relative;
-    width: 100%;
-    margin: 2.5% 5%;
+    width: 90%;
+    margin: auto;
 }
+
 .shelf-preview {
     position: relative;
     border-bottom: 1px solid var(--light-gray);
-    padding: 1em 0;
-    transition-property: background-color;
-    transition: .3s;
+    padding: .5em 0;
 }
 
-.shelf-preview:hover {
-    background-color: rgba(224,224,224,.5);
-    border-radius: var(--main-radius);
-}
+
 
 .shelf-title-container {
     padding: 3px 0px 7.5px 3px;
@@ -987,8 +968,14 @@ img.detail {
         box-shadow: var(--light-shadow);
         margin: .5rem;
         padding-left: .25rem;
-
+        transition: var(--transf-transition), background-color .2s ease-out;
     }
+
+    div.book-preview:hover {
+        transform: var(--move-up);
+        background-color: rgba(224,224,224,.5);
+        cursor: pointer;
+    } 
 
     .book-preview-text {
         width: 70%;
@@ -1012,6 +999,14 @@ img.detail {
         box-shadow: var(--light-shadow);
         padding: 1em;
         margin: .5em 0;
+        transition: var(--transf-transition), background-color .2s ease-out;
+    
+    }
+
+    .shelf-preview:hover {
+        transform: var(--move-up);
+        background-color: rgba(224,224,224,.5);
+        border-radius: var(--main-radius);
     }
 
     .shelf-preview-image {
@@ -1056,7 +1051,6 @@ img.detail {
 
 
     button#add-shelf {
-        width: 25%;
         height: 2em;
         font-size: 1.1em;
     }
