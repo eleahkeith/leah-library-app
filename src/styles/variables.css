@@ -12,11 +12,12 @@
     --light-gray: #8F8F8F;
     --main-shadow: 1px 1px 6px 1px var(--light-gray);
     --light-shadow: 1px 1px 5px 1px #ADADAD;
+    --light-shadow-hover: 2px 2px 3px 1px #ADADAD;
     --button-shadow: 1px 1px 5px var(--black);
     --main-radius: .25rem;
     --button-radius: .1rem;
     --main-border: 1px solid var(--med-gray);
     --modal-border: 1.5 solid var(--med-gray);
     --move-up: translateY(-5px);
-    --transf-transition: transform .2s ease-out;
+    --transf-transition: transform .15s ease-out;
 }

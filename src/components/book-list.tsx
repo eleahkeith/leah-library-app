@@ -127,12 +127,13 @@ const BookList = () => {
       <main className="component-box">
         <section className="book-list">
           <header className="component">
+            <h3>{bookList?.name}</h3>
             <nav>
               <Link className="home-link" to="/home">
                 Home
               </Link>
             </nav>
-            <h3>{bookList?.name}</h3>
+
             <div className="shelf-option-container">
               <div onClick={openEditModal} className="shelf-option">
                 Edit Shelf
