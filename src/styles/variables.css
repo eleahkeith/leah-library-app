@@ -17,4 +17,6 @@
     --button-radius: .1rem;
     --main-border: 1px solid var(--med-gray);
     --modal-border: 1.5 solid var(--med-gray);
+    --move-up: translateY(-5px);
+    --transf-transition: transform .2s ease-out;
 }
