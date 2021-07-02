@@ -1,7 +1,12 @@
-// @refactor - put auth token in one const
-
 import { toast } from 'react-toastify';
 import { ResultData, ShelfResultData, GetShelfAPIType } from './shared';
+import {
+  shelfURL,
+  searchURL,
+  bookURL,
+  registerURL,
+  loginURL,
+} from '../utils/urls';
 
 const getAuthToken = () => {
   const authToken = localStorage.getItem('Authorization');
@@ -13,6 +18,7 @@ const url = 'https://get-some-books-staging.herokuapp.com';
 const standardErrMsg =
   'There was an error processing your request. Please try again later!';
 
+// eventually use to refactor api calls
 export const startAPI = (apiType: () => void) => {
   const authToken = getAuthToken();
   if (authToken) {
@@ -25,7 +31,7 @@ export const startAPI = (apiType: () => void) => {
 export const getShelvesAPI = async () => {
   const authToken = getAuthToken();
   if (authToken) {
-    const response = await fetch(`${url}/shelves`, {
+    const response = await fetch(shelfURL(url), {
       headers: {
         Authorization: authToken,
       },
@@ -47,7 +53,7 @@ export const getShelvesAPI = async () => {
 export const getShelfBooksAPI = async (shelfID: string) => {
   const authToken = getAuthToken();
   if (authToken) {
-    const response = await fetch(`${url}/shelves/${shelfID}`, {
+    const response = await fetch(shelfURL(url, shelfID), {
       headers: {
         Authorization: authToken,
       },
@@ -69,15 +75,12 @@ export const getShelfBooksAPI = async (shelfID: string) => {
 export const editShelfAPI = async (shelfID: string, shelfName: string) => {
   const authToken = getAuthToken();
   if (authToken) {
-    const response = await fetch(
-      `${url}/shelves/${shelfID}?name=${shelfName}`,
-      {
-        headers: {
-          Authorization: authToken,
-        },
-        method: 'PUT',
-      }
-    );
+    const response = await fetch(shelfURL(url, shelfID, shelfName), {
+      headers: {
+        Authorization: authToken,
+      },
+      method: 'PUT',
+    });
 
     if (response.ok) {
       const data = await response.json();
@@ -99,7 +102,7 @@ export const editShelfAPI = async (shelfID: string, shelfName: string) => {
 export const deleteShelfAPI = async (shelfID: string) => {
   const authToken = getAuthToken();
   if (authToken) {
-    const response = await fetch(`${url}/shelves/${shelfID}`, {
+    const response = await fetch(shelfURL(url, shelfID), {
       headers: {
         Authorization: authToken,
       },
@@ -126,7 +129,7 @@ export const deleteShelfAPI = async (shelfID: string) => {
 export const addShelfAPI = async (shelfName: string) => {
   const authToken = getAuthToken();
   if (authToken) {
-    const response = await fetch(`${url}/shelves?name=${shelfName}`, {
+    const response = await fetch(shelfURL(url, undefined, shelfName), {
       headers: {
         Authorization: authToken,
       },
@@ -152,7 +155,7 @@ export const addShelfAPI = async (shelfName: string) => {
 export const searchAPI = async (searchTerm: string) => {
   const authToken = getAuthToken();
   if (authToken) {
-    const response = await fetch(`${url}/books?title=${searchTerm}`, {
+    const response = await fetch(searchURL(url, searchTerm), {
       headers: {
         Authorization: authToken,
       },
@@ -176,20 +179,17 @@ export const searchAPI = async (searchTerm: string) => {
 
 export const bookAPI = async (
   apiMethod: string,
-  bookID: string | undefined,
-  shelfID: string | undefined
+  bookID: string,
+  shelfID: string
 ) => {
   const authToken = getAuthToken();
   if (authToken) {
-    const response = await fetch(
-      `${url}/shelves/${shelfID}/books?bookId=${bookID}`,
-      {
-        headers: {
-          Authorization: authToken,
-        },
-        method: apiMethod,
-      }
-    );
+    const response = await fetch(bookURL(url, bookID, shelfID), {
+      headers: {
+        Authorization: authToken,
+      },
+      method: apiMethod,
+    });
 
     if (response.ok) {
       const data = await response.json();
@@ -211,7 +211,7 @@ export const bookAPI = async (
 export const getBookAPI = async (bookID: string) => {
   const authToken = getAuthToken();
   if (authToken) {
-    const response = await fetch(`${url}/book?id=${bookID}`, {
+    const response = await fetch(bookURL(url, bookID, undefined), {
       headers: {
         Authorization: authToken,
       },
@@ -234,7 +234,7 @@ export const registerAPI = async (emailAdd: string) => {
   };
 
   const body = JSON.stringify(email);
-  const response = await fetch(`${url}/register`, {
+  const response = await fetch(registerURL(url), {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',
     body: body,
@@ -255,7 +255,7 @@ export const loginAPI = async (emailAddr: string, authCode: string) => {
   const info = { email: emailAddr, token: authCode };
   const body = JSON.stringify(info);
 
-  const response = await fetch(`${url}/login`, {
+  const response = await fetch(loginURL(url), {
     headers: { 'Content-Type': 'application/json' },
     method: 'POST',
     body: body,
