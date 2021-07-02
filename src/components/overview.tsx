@@ -83,7 +83,7 @@ const Overview = () => {
       <main className="component-box">
         <div className="add-shelf-container">
           <button type="button" id="add-shelf" onClick={openModal}>
-            Add Shelf
+            New Shelf
           </button>
         </div>
         <section className="overview">{mappedShelves}</section>

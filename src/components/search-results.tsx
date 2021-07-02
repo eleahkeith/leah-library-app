@@ -86,10 +86,10 @@ const SearchResults = () => {
       <main className="component-box">
         <section className="results">
           <header className="component" key={null}>
+            <h3>Search Results</h3>
             <Link className="home-link" to="/home">
               Home
             </Link>
-            <h3>Search Results</h3>
             <span className="results-number">Results: {totalResults}</span>
           </header>
           <div className="list">{mappedBooks}</div>

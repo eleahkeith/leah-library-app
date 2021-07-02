@@ -12,6 +12,7 @@ const Search = () => {
   const [searchTerm, setSearchTerm] = useState<string>(' ');
 
   const inputRef = useRef<HTMLInputElement>(null);
+  const btn = useRef<HTMLButtonElement>(null);
 
   const history = useHistory();
   const clearSearch = () => {
@@ -25,6 +26,14 @@ const Search = () => {
     clearSearch();
   };
 
+  const handleKeyDown = (e: KeyboardEventInit) => {
+    if (e.key === 'Enter') {
+      if (btn && btn.current) {
+        btn.current.click();
+      }
+    }
+  };
+
   return (
     <div className="search-box">
       <input
@@ -34,9 +43,15 @@ const Search = () => {
         type="text"
         placeholder="search for a book title..."
         onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyDown={handleKeyDown}
       ></input>
       <div className="search-link-container">
-        <button type="button" id="search-button" onClick={() => handleSearch()}>
+        <button
+          type="button"
+          id="search-button"
+          onClick={() => handleSearch()}
+          ref={btn}
+        >
           Search
         </button>
       </div>

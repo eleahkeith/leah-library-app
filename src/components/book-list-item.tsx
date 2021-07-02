@@ -27,7 +27,7 @@ const BookListItem = ({ book, rightAccessory }: BookListItemProps) => {
         <div className="book-preview-title">{book.title}</div>
         <div className="book-preview-author">{book.author}</div>
       </div>
-      <div id="add-delete">{rightAccessory}</div>
+      <div id="add-delete-cont">{rightAccessory}</div>
     </div>
   );
 };

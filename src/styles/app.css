@@ -28,7 +28,6 @@ body {
     display: flex;
     justify-content: center;
     width: 100vw;
-    height: 100%;
     overflow-x: hidden;
     object-fit: cover;
 }
@@ -94,10 +93,10 @@ input, select, option {
 
   .Modal-Loading {
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 35%;
     right: 35%;
-    bottom: 50%;
+    bottom: 45%;
     background-color: var(--white);
     border-radius: var(--main-radius);
     box-shadow: var(--main-shadow);
@@ -149,6 +148,8 @@ input:focus {
 .loading-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .loading-text {
@@ -158,7 +159,7 @@ input:focus {
 }
 
 .loading-gif {
-    height: 50px;
+    height: 65%;
     object-fit: contain;
     opacity: .75;
 }
@@ -168,8 +169,7 @@ form.modal {
     flex-direction: column;
     height: 100%;
     position: relative;
-    justify-content: space-around;
-    align-content: space-between;
+    justify-content: space-around;    
     color: var(--black);
     padding: 0 25px;
 }
@@ -201,12 +201,6 @@ input.modal {
     width: 100%;
 }
 
-button.modal {
-    height: 30px;
-    width: 125px;
-    font-size: 1em;
-}
-
 
 
 .danger {
@@ -217,10 +211,7 @@ button.modal {
 }
 
 button#delete {
-    margin: 3px;
-    height: 30px;
-    width: 200px;
-    font-size: 1em;
+    margin: 3px 0;
     background-color: var(--red);
 }
 
@@ -331,7 +322,6 @@ h2 {
 .login-title {
     display: flex;
     justify-content: center;
-    margin: 15px 0 30px 0;
     font-family: "martel";
     font-size: 4em;
 }
@@ -358,8 +348,10 @@ form.email {
 }
 
 form#auth {
-    width: 90%;
+    align-items: center;
+    width: 80%;
     height: 25%;
+    padding: 0;
 }
 
 ol {
@@ -368,19 +360,14 @@ ol {
 }
 
 .login-text {
-    display: flex;
-    flex-direction: column;
     color: var(--med-gray);
-    font-size: 1.25em;
-    margin: 10px;
-    height: 10em;
+    font-size: 1em;
     width: 70%;
 }
 
 li {
-    text-align: justify;
+    text-align: left;
     padding: 15px 5px;
-
 }
 
 .auth-box {
@@ -389,15 +376,21 @@ li {
     flex-direction: column;
     height: 100%;
     align-items: center;
+    align-content: center;
     justify-content: space-around;
     font-family: "open sans";
     padding: 10px;
 }
 
 .auth-text {
+    width: 80%;
     font-size: 1.05em;
     text-align: center;
     color: var(--med-gray);
+}
+
+.auth-input-label {
+    width: 100%;
 }
 
 .resend-text {
@@ -426,9 +419,6 @@ li {
 button.logout {
     background-color: var(--red);
     color: var(--white);
-    padding: 2.5px 10px;
-    font-size: 1em;
-
 }
 
 button.logout:hover {
@@ -450,32 +440,16 @@ button.logout:hover {
     box-shadow: var(--main-shadow);
 }
 
-.component-list-title {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    align-items: flex-start;
-    font-family: "martel";
-    color: var(--red);
-    width: 100%;
-    height: 20%;
-    padding-left: 2%;
-    padding-top: 5px;
-    font-size: 1.25em;
-}
 
 h3 {
-    font-size: 1.1em;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 80%;
-    padding-top: 5px;
+    font-family: "martel";
+    color: var(--red);
+    font-size: 1.5em;
 }
 
 .results-number {
     font-family: "open sans";
-    font-size: .75em;
+    width: 100%;
     color: var(--med-gray);
     padding-top: 10px;
 }
@@ -488,11 +462,7 @@ h3 {
 }
 
 .home-link {
-    position: absolute;
     height: auto;
-    right: 0;
-    top: 1%;
-    font-size: 1em;
 }
 
 .component-body-error {
@@ -504,15 +474,19 @@ h3 {
 
 /* book preview styles */
 div.book-preview {
-    /* position: relative; */
+    position: relative;
     display: flex;
     align-content: flex-start;
+    justify-content: space-between;
     width: 100%;
     font-size: .85em;
     padding: 1em 0;
-    border-bottom: 1px solid var(--light-gray);
+    border-top: 1px solid #e0e0e0;
 }
 
+div.book-preview:last-child {
+    border-bottom: 1px solid #e0e0e0;
+}
 
 
 
@@ -549,27 +523,29 @@ img.book-preview:hover {
 .book-preview-title {
     width: 100%;
     padding: 1px 1px 5px 1px;
-    font-size: 1.7em;
+    font-size: 1.5em;
     color: var(--black);
 }
 
 .book-preview-author {
     width: 100%;
     padding: 1px;
-    font-size: 1.25em;
+    font-size: 1em;
     color: var(--med-gray);
 }
 
-#add-delete {
-    position: absolute;
-    padding-top: 7.5%;
-    top: 30%;
-    right: 5%;
-    height: 1.75em;
+#add-delete-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 7.5%;
+    right: 10px;
+    top: 0px;
 }
 
-#add-delete:active {
-    opacity: 0;
+#add-delete {
+    width: 90%;
 }
 
 /* search component styles */
@@ -580,9 +556,9 @@ img.book-preview:hover {
     align-items: center;
     justify-content: space-between;
     width: 95%;
-    height: 2.5em;
+    height: 3em;
     margin: 20px 0;
-    padding: 0 2.5%;
+    padding: 5px 2.5% 5px 5%;
     background: var(--white-opac);
     border-radius: var(--main-radius);
     box-shadow: var(--main-shadow);
@@ -594,8 +570,7 @@ input.search {
     width: 70%;
     font-family: "open sans";
     font-size: 1.15em;
-    margin-left: 1em;
-    /* background-color: transparent; */
+    /* margin-left: .5em; */
     border: 0;
 }
 
@@ -606,24 +581,18 @@ input.search {
 button {
     -webkit-appearance: none;
     font-family: "open sans";
-    font-size: .85em;
+    font-size: .85rem;
     font-weight: bold;
     background-color: var(--black);
     color: var(--white);
     border: none;
     border-radius: var(--button-radius);
     box-shadow: var(--button-shadow);
+    padding: .1rem .5rem;
     transition-property: background-color;
     transition: .3s;
 }
 
-
-#search-button {
-    justify-self: flex-end;
-    /* position: absolute;
-    right: 10px;
-    top: 10px; */
-}
 
 button:hover {
     background-color: var(--black-hover);
@@ -641,21 +610,19 @@ button:hover {
     align-items: center;
 }
 
-button#add-shelf {
-    height: 22px;
-    padding: 0 1em;
-    font-size: .9em;
-}
-
 section {
     position: relative;
     width: 90%;
     margin: auto;
 }
 
+.shelf-preview:last-child {
+    border-bottom: 1px solid #e0e0e0;
+}
+
 .shelf-preview {
     position: relative;
-    border-bottom: 1px solid var(--light-gray);
+    border-top: 1px solid #e0e0e0;
     padding: .5em 0;
 }
 
@@ -700,11 +667,11 @@ section {
 
 .shelf-option-container {
     display: flex;
+    width: 100%;
 }
 
 .shelf-option {
     font-family: "open sans";
-    font-size: .75em;
     color: var(--med-gray);
     margin-right: 12.5px;
 }
@@ -726,7 +693,6 @@ section {
 .book-list-link {
     text-decoration: none;
     font-family: "open sans";
-    font-size: 1em;
     color: var(--med-gray);
 }
 
@@ -757,11 +723,12 @@ section.detail {
 }
 
 header.component {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "open sans";
+    justify-content: space-between;
     width: 100%;
-    font-family: "martel";
     margin-bottom: 20px;
-    color: var(--red);
-    font-size: 1.3em;
     padding: 2.5% 0;
 }
 
@@ -851,6 +818,10 @@ img.detail {
         font-size: 4.5em;
     }
 
+    .email .input-label-group {
+        width: 60%;
+    }
+
     .login-text {
         width: 60%;
         font-size: 1.5em;
@@ -880,15 +851,16 @@ img.detail {
         text-align: center;
     }
 
+    button {
+        font-size: 1em;
+    }
+    
     .shelf-preview-title {
         font-size: 1.6em;
     }
 
     .logout-container {
         height: 2.5em;
-    }
-    .logout-button {
-        font-size: 1.4em;
     }
 
 }
@@ -901,7 +873,7 @@ img.detail {
     }
 
     h3 {
-        font-size: 1.5em;
+        font-size: 1.75em;
     }
 
     .Modal {
@@ -915,8 +887,10 @@ img.detail {
  }
     
 
+
     .search-box {
         width: 40%;
+        padding: 10px;
     }
 
     .header-text-box {
@@ -949,16 +923,9 @@ img.detail {
         height: 100%;
     }
 
-    .book-list-link {
-        font-size: 1.25em;
-    }
 
     .list {
         justify-content: flex-start;
-    }
-
-    .component-list-title {
-        font-size: 1.5em;
     }
 
     div.book-preview {
@@ -968,12 +935,12 @@ img.detail {
         box-shadow: var(--light-shadow);
         margin: .5rem;
         padding-left: .25rem;
-        transition: var(--transf-transition), background-color .2s ease-out;
+        transition: var(--transf-transition), box-shadow .2s ease-out;
     }
 
     div.book-preview:hover {
         transform: var(--move-up);
-        background-color: rgba(224,224,224,.5);
+        box-shadow: var(--light-shadow-hover);
         cursor: pointer;
     } 
 
@@ -981,10 +948,15 @@ img.detail {
         width: 70%;
     }
 
+    #add-delete {
+        width: 60%;
+    }
+
     section {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        width: 100%;
+        justify-content: space-between;
         margin: 2.5%;
     }
 
@@ -998,15 +970,15 @@ img.detail {
         border-radius: var(--main-radius);
         box-shadow: var(--light-shadow);
         padding: 1em;
-        margin: .5em 0;
-        transition: var(--transf-transition), background-color .2s ease-out;
+        margin: 5px 0;
+        transition: var(--transf-transition), box-shadow .2s ease-out;
     
     }
 
     .shelf-preview:hover {
         transform: var(--move-up);
-        background-color: rgba(224,224,224,.5);
         border-radius: var(--main-radius);
+        box-shadow: var(--light-shadow-hover);
     }
 
     .shelf-preview-image {
@@ -1017,9 +989,6 @@ img.detail {
         height: 50px;
     }
 
-    button#add-shelf {
-        height: 30px;
-    }
 
     img.detail {
         width: 20%;
@@ -1050,10 +1019,6 @@ img.detail {
     }
 
 
-    button#add-shelf {
-        height: 2em;
-        font-size: 1.1em;
-    }
 
     img.detail {
         width: 15%;
@@ -1063,17 +1028,14 @@ img.detail {
         width: 30%;
     }
 
-    .logout-button {
-        font-size: 1.2em;
-    }
-
 }
 
 @media only screen and (max-width: 400px) {
 
+
     .login-box {
         top: 5%;
-        bottom: 5%;
+        bottom: 2.5%;
     }
 
     #login-button {
@@ -1081,8 +1043,16 @@ img.detail {
     }
 
     .login-title {
-        font-size: 3.5em;
-        padding-top: 25px;
+        font-size: 3em;
+    }
+
+    .Modal-Loading {
+        top: 45%;
+        bottom: 45%;
+    }
+
+    .loading-gif {
+        height: 60%;
     }
 
     .shelf-preview-title {
@@ -1122,7 +1092,7 @@ img.detail {
     }
 
     .book-preview-author {
-        font-size: 1.15em;
+        font-size: 1em;
     }
 
     .detail-label {
