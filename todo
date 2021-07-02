@@ -1,10 +1,8 @@
 --------css
-[ ]consolidate re-used styles into over-arching classes, use multiple classes to further specify styles
 
 --------tsx
 
 [api]
-[ ]refactor
 [ ]add function called startAPI which checks to see if auth token exists, pass api 
     as argument
 [ ]move all if/else statements for API calls to a validate function that can be reused?
@@ -12,14 +10,11 @@
 
 [Navigation]
 
-[Shelf Overview]
-[ ]use edit shelf modal to render add shelf option
-
 [modals]
 
  
 [Search]
-[ ]handle enter function for search
+[x]handle enter function for search
 
 [Miscellaneous/Structure]
 [ ]move all if/else statements for API calls to a validate function that can be reused?
