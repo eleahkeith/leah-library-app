@@ -17,12 +17,13 @@ const Search = () => {
   const history = useHistory();
   const clearSearch = () => {
     if (inputRef && inputRef.current) {
-      inputRef.current.value = ' ';
+      inputRef.current.value = '';
     }
   };
 
   const handleSearch = () => {
     history.replace(`/home/search?title=${searchTerm}`);
+    setSearchTerm('');
     clearSearch();
   };
 
