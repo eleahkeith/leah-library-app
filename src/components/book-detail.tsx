@@ -9,6 +9,7 @@ import Modal from 'react-modal';
 import AddBookModal from './add-book-modal';
 import BookLoader from './loading-modal';
 import { parseISO, format } from 'date-fns';
+import { toast } from 'react-toastify';
 
 type Params = {
   book: string;
@@ -73,7 +74,11 @@ const BookDetail = () => {
   };
 
   const submitAddBook = async (shelfID: string | undefined) => {
-    await bookAPI('PUT', bookID, shelfID);
+    if (shelfID) {
+      await bookAPI('PUT', bookID, shelfID);
+    } else {
+      toast.error('Something went wrong!');
+    }
     closeModal();
   };
 
@@ -90,12 +95,12 @@ const BookDetail = () => {
       <main className="component-box">
         <section className="detail">
           <header className="component">
+            <h3>Book Detail</h3>
             <nav>
               <Link className="home-link" to="/home">
                 Home
               </Link>
             </nav>
-            <h3>Book Detail</h3>
             <div className="shelf-option-container">
               <div className="shelf-option" onClick={() => openModal()}>
                 Add to List

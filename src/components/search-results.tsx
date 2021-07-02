@@ -60,7 +60,11 @@ const SearchResults = () => {
 
   //@question maybe move to add book modal file?
   const submitAddBook = async (shelfID: string | undefined) => {
-    await bookAPI('PUT', bookID, shelfID);
+    if (bookID && shelfID) {
+      await bookAPI('PUT', bookID, shelfID);
+    } else {
+      toast.error('Something went wrong!');
+    }
     closeModal();
   };
 
