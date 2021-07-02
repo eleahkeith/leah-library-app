@@ -34,7 +34,7 @@ const BookDetail = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   const [bookDetail, setBookDetail] = useState<BookDetailProps>();
-  const [bookID, setBookID] = useState<string>(book.bookID);
+  const [bookID] = useState<string>(book.bookID);
 
   const getBookResults = async (bookID: string) => {
     setLoading(true);
