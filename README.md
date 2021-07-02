@@ -17,8 +17,8 @@ I am an avid reader and book lover (bibliophile), and I have struggled to find a
 ## Demo
 
 
-![Demo](https://user-images.githubusercontent.com/59422625/120304106-609b4100-c2c7-11eb-8d8a-8503e5cf4717.gif)<br>
-![Demo](https://user-images.githubusercontent.com/59422625/120303911-321d6600-c2c7-11eb-92dd-d8c41de035de.gif)
+![Demo](https://user-images.githubusercontent.com/59422625/124326919-2dc2c200-db7f-11eb-881a-9362fd15a49b.gif)<br>
+![Demo](https://user-images.githubusercontent.com/59422625/124326936-35826680-db7f-11eb-818c-26a83cc8e1a4.gif)<br>
 
 ## Tech/Framework
 
@@ -28,11 +28,8 @@ I am an avid reader and book lover (bibliophile), and I have struggled to find a
 
 ## Credits
 
-Thanks to Sam Piggott for creating the back end for this project!
+Thanks to <a href='https://sam.taxi'>Sam Piggott</a> for creating the back end for this project!
 
-header image:
-
-https://www.pngwing.com/en/free-png-zpzkg
 
 add button png:
 
@@ -46,8 +43,3 @@ book loader:
 
 https://icons8.com/preloaders/
 
-shelf image:
-
-<a href='https://pngtree.com/so/book-clipart'>book clipart png from pngtree.com</a>
-
-<a href='https://pngtree.com/so/book-element'>book element png from pngtree.com</a>
