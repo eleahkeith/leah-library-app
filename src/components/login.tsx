@@ -125,7 +125,7 @@ const Login = ({ onLogin }: LoginProps) => {
             An email with your authorization code has been sent to {email}
           </div>
           <form className="modal" id="auth">
-            <div>
+            <div className="auth-input-label">
               <input
                 className="modal"
                 id="authCode"

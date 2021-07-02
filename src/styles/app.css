@@ -169,8 +169,7 @@ form.modal {
     flex-direction: column;
     height: 100%;
     position: relative;
-    justify-content: space-around;
-    align-content: space-between;
+    justify-content: space-around;    
     color: var(--black);
     padding: 0 25px;
 }
@@ -201,7 +200,6 @@ input.modal {
     justify-content: center;
     width: 100%;
 }
-
 
 
 
@@ -350,8 +348,10 @@ form.email {
 }
 
 form#auth {
-    width: 90%;
+    align-items: center;
+    width: 80%;
     height: 25%;
+    padding: 0;
 }
 
 ol {
@@ -376,15 +376,21 @@ li {
     flex-direction: column;
     height: 100%;
     align-items: center;
+    align-content: center;
     justify-content: space-around;
     font-family: "open sans";
     padding: 10px;
 }
 
 .auth-text {
+    width: 80%;
     font-size: 1.05em;
     text-align: center;
     color: var(--med-gray);
+}
+
+.auth-input-label {
+    width: 100%;
 }
 
 .resend-text {
@@ -586,6 +592,7 @@ button {
     transition-property: background-color;
     transition: .3s;
 }
+
 
 button:hover {
     background-color: var(--black-hover);
@@ -844,6 +851,10 @@ img.detail {
         text-align: center;
     }
 
+    button {
+        font-size: 1em;
+    }
+    
     .shelf-preview-title {
         font-size: 1.6em;
     }
@@ -875,6 +886,7 @@ img.detail {
         right: 42%;
  }
     
+
 
     .search-box {
         width: 40%;
