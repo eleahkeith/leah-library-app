@@ -93,10 +93,10 @@ input, select, option {
 
   .Modal-Loading {
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 35%;
     right: 35%;
-    bottom: 50%;
+    bottom: 45%;
     background-color: var(--white);
     border-radius: var(--main-radius);
     box-shadow: var(--main-shadow);
@@ -148,6 +148,8 @@ input:focus {
 .loading-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .loading-text {
@@ -157,7 +159,7 @@ input:focus {
 }
 
 .loading-gif {
-    height: 50px;
+    height: 65%;
     object-fit: contain;
     opacity: .75;
 }
@@ -322,7 +324,6 @@ h2 {
 .login-title {
     display: flex;
     justify-content: center;
-    margin: 15px 0 30px 0;
     font-family: "martel";
     font-size: 4em;
 }
@@ -359,19 +360,14 @@ ol {
 }
 
 .login-text {
-    display: flex;
-    flex-direction: column;
     color: var(--med-gray);
-    font-size: 1.25em;
-    margin: 10px;
-    height: 10em;
+    font-size: 1em;
     width: 70%;
 }
 
 li {
-    text-align: justify;
+    text-align: left;
     padding: 15px 5px;
-
 }
 
 .auth-box {
@@ -815,6 +811,10 @@ img.detail {
         font-size: 4.5em;
     }
 
+    .email .input-label-group {
+        width: 60%;
+    }
+
     .login-text {
         width: 60%;
         font-size: 1.5em;
@@ -1020,9 +1020,10 @@ img.detail {
 
 @media only screen and (max-width: 400px) {
 
+
     .login-box {
         top: 5%;
-        bottom: 5%;
+        bottom: 2.5%;
     }
 
     #login-button {
@@ -1030,8 +1031,16 @@ img.detail {
     }
 
     .login-title {
-        font-size: 3.5em;
-        padding-top: 25px;
+        font-size: 3em;
+    }
+
+    .Modal-Loading {
+        top: 45%;
+        bottom: 45%;
+    }
+
+    .loading-gif {
+        height: 60%;
     }
 
     .shelf-preview-title {

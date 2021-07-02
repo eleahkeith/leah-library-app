@@ -78,10 +78,10 @@ const Login = ({ onLogin }: LoginProps) => {
     <>
       <div className="login-overlay">
         <div className="login-box">
-          <span className="login-title">
+          <h1 className="login-title">
             <span className="title-1">biblio</span>
             <span className="title-2">file</span>
-          </span>
+          </h1>
 
           <form className="email">
             <div className="input-label-group">
